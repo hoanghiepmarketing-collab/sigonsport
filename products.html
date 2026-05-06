@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Danh sách sản phẩm thể thao SIGON SPORT - Giày, vợt, dụng cụ thể thao chính hãng">
+  <title>Sản Phẩm | SIGON SPORT</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div id="toast-container" class="toast-container"></div>
+
+<div id="cart-overlay" class="cart-overlay"></div>
+<div id="cart-sidebar" class="cart-sidebar">
+  <div class="cart-sidebar__header">
+    <div class="cart-sidebar__title"><i class="fas fa-shopping-cart"></i> Giỏ Hàng</div>
+    <span class="cart-sidebar__close" onclick="closeCart()"><i class="fas fa-times"></i></span>
+  </div>
+  <div id="cart-body" class="cart-sidebar__body"></div>
+  <div id="cart-footer" class="cart-sidebar__footer" style="display:none">
+    <div class="cart-total">
+      <span>Tổng cộng:</span>
+      <span id="cart-total" class="cart-total__price"></span>
+    </div>
+    <a href="checkout.html" class="btn btn-accent" style="width:100%;justify-content:center;margin-bottom:8px">
+      <i class="fas fa-credit-card"></i> Thanh Toán Ngay
+    </a>
+    <a href="cart.html" class="btn btn-outline" style="width:100%;justify-content:center">Xem Giỏ Hàng</a>
+  </div>
+</div>
+
+<div id="mobile-overlay" class="mobile-overlay"></div>
+<nav id="mobile-drawer" class="mobile-drawer">
+  <div class="mobile-drawer__header">
+    <span class="mobile-drawer__logo">SIGON<span style="color:#FFD700">SPORT</span></span>
+    <span id="drawer-close" class="mobile-drawer__close"><i class="fas fa-times"></i></span>
+  </div>
+  <div class="mobile-drawer__nav">
+    <div class="mobile-nav-item" data-sub="sub-bongda">
+      <i class="fas fa-futbol"></i>Bóng Đá<i class="fas fa-chevron-down" style="margin-left:auto"></i>
+    </div>
+    <div id="sub-bongda" class="mobile-nav-sub">
+      <a href="products.html?sport=bong-da">Tất cả bóng đá</a>
+      <a href="products.html?sport=bong-da&sub=fg">Giày sân cỏ (FG)</a>
+      <a href="products.html?sport=bong-da&sub=futsal">Giày futsal</a>
+    </div>
+    <div class="mobile-nav-item" data-sub="sub-caulong">
+      <i class="fas fa-shuttlecock"></i>Cầu Lông<i class="fas fa-chevron-down" style="margin-left:auto"></i>
+    </div>
+    <div id="sub-caulong" class="mobile-nav-sub">
+      <a href="products.html?sport=cau-long&cat=vot">Vợt cầu lông</a>
+      <a href="products.html?sport=cau-long&cat=giay">Giày cầu lông</a>
+    </div>
+    <div class="mobile-nav-item" data-sub="sub-tennis">
+      <i class="fas fa-table-tennis"></i>Tennis<i class="fas fa-chevron-down" style="margin-left:auto"></i>
+    </div>
+    <div id="sub-tennis" class="mobile-nav-sub">
+      <a href="products.html?sport=tennis&cat=vot">Vợt tennis</a>
+      <a href="products.html?sport=tennis&cat=giay">Giày tennis</a>
+    </div>
+    <div class="mobile-nav-item" data-sub="sub-pickleball">
+      <i class="fas fa-circle"></i>Pickleball<i class="fas fa-chevron-down" style="margin-left:auto"></i>
+    </div>
+    <div id="sub-pickleball" class="mobile-nav-sub">
+      <a href="products.html?sport=pickleball&cat=vot">Vợt pickleball</a>
+      <a href="products.html?sport=pickleball">Tất cả pickleball</a>
+    </div>
+    <div class="mobile-nav-item" style="color:#8B6914">
+      <i class="fas fa-recycle"></i><a href="products.html?secondhand=1" style="color:#8B6914;flex:1">Secondhand ♻</a>
+    </div>
+  </div>
+</nav>
+
+<header class="site-header">
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar__inner">
+        <div class="topbar__left">
+          <span class="topbar__item"><i class="fas fa-truck"></i>Miễn phí vận chuyển đơn từ 500K</span>
+          <span class="topbar__item"><i class="fas fa-shield-alt"></i>Hàng chính hãng 100%</span>
+        </div>
+        <div class="topbar__right">
+          <div class="topbar__social">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+          <span class="topbar__phone"><i class="fas fa-phone"></i> 0909 123 456</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="header__main">
+      <button id="hamburger" class="header__hamburger" aria-label="Mở menu"><i class="fas fa-bars"></i></button>
+      <a href="index.html" class="header__logo">
+        <span class="logo__main">SIGON<span>SPORT</span></span>
+        <span class="logo__sub">sigonsport.vn</span>
+      </a>
+      <div class="header__search">
+        <div class="search-box">
+          <input class="search-input" type="text" placeholder="Tìm giày, vợt, dụng cụ thể thao..." aria-label="Tìm kiếm">
+          <button class="search-box__btn" aria-label="Tìm kiếm"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="search-suggestions"></div>
+      </div>
+      <div class="header__actions">
+        <button class="header__action-btn" onclick="openCart()" aria-label="Giỏ hàng">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-badge" class="cart-badge" style="display:none">0</span>
+          <span>Giỏ hàng</span>
+        </button>
+        <button class="header__action-btn" aria-label="Tài khoản">
+          <i class="fas fa-user"></i>
+          <span>Tài khoản</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-search-bar">
+    <div class="search-box">
+      <input class="search-input" type="text" placeholder="Tìm sản phẩm..." aria-label="Tìm kiếm">
+      <button class="search-box__btn" aria-label="Tìm kiếm"><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+  <nav class="main-nav" aria-label="Danh mục">
+    <div class="container">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="index.html#flash-sale" class="nav__link nav__link--hot"><i class="fas fa-fire"></i>FLASH SALE</a></li>
+        <li class="nav__item">
+          <a href="products.html?sport=bong-da" class="nav__link"><i class="fas fa-futbol"></i>BÓNG ĐÁ<i class="fas fa-chevron-down"></i></a>
+          <div class="nav__dropdown">
+            <a class="nav__dropdown-item" href="products.html?sport=bong-da&sub=fg"><i class="fas fa-shoe-prints"></i>Giày sân cỏ tự nhiên (FG)</a>
+            <a class="nav__dropdown-item" href="products.html?sport=bong-da&sub=tf"><i class="fas fa-shoe-prints"></i>Giày sân nhân tạo (TF/AG)</a>
+            <a class="nav__dropdown-item" href="products.html?sport=bong-da&sub=futsal"><i class="fas fa-shoe-prints"></i>Giày futsal (IC)</a>
+          </div>
+        </li>
+        <li class="nav__item">
+          <a href="products.html?sport=cau-long" class="nav__link"><i class="fas fa-shuttlecock"></i>CẦU LÔNG<i class="fas fa-chevron-down"></i></a>
+          <div class="nav__dropdown">
+            <a class="nav__dropdown-item" href="products.html?sport=cau-long&cat=vot"><i class="fas fa-grip-lines-vertical"></i>Vợt cầu lông</a>
+            <a class="nav__dropdown-item" href="products.html?sport=cau-long&cat=giay"><i class="fas fa-shoe-prints"></i>Giày cầu lông</a>
+          </div>
+        </li>
+        <li class="nav__item">
+          <a href="products.html?sport=tennis" class="nav__link"><i class="fas fa-table-tennis"></i>TENNIS<i class="fas fa-chevron-down"></i></a>
+          <div class="nav__dropdown">
+            <a class="nav__dropdown-item" href="products.html?sport=tennis&cat=vot"><i class="fas fa-grip-lines-vertical"></i>Vợt tennis</a>
+            <a class="nav__dropdown-item" href="products.html?sport=tennis&cat=giay"><i class="fas fa-shoe-prints"></i>Giày tennis</a>
+          </div>
+        </li>
+        <li class="nav__item">
+          <a href="products.html?sport=pickleball" class="nav__link">PICKLEBALL<i class="fas fa-chevron-down"></i></a>
+          <div class="nav__dropdown">
+            <a class="nav__dropdown-item" href="products.html?sport=pickleball&cat=vot"><i class="fas fa-grip-lines-vertical"></i>Vợt pickleball</a>
+            <a class="nav__dropdown-item" href="products.html?sport=pickleball"><i class="fas fa-circle"></i>Bóng pickleball</a>
+          </div>
+        </li>
+        <li class="nav__item">
+          <a href="products.html?secondhand=1" class="nav__link nav__link--secondhand"><i class="fas fa-recycle"></i>SECONDHAND</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main class="products-page">
+  <div class="container">
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Trang chủ</a>
+      <span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span>
+      <span id="breadcrumb-current">Tất cả sản phẩm</span>
+    </nav>
+
+    <!-- PAGE TITLE + SORT -->
+    <div class="products-topbar">
+      <h1 class="products-title" id="page-title">Tất Cả Sản Phẩm</h1>
+      <div class="products-topbar__right">
+        <span class="products-count" id="products-count"></span>
+        <div class="sort-select-wrap">
+          <select id="sort-select" class="sort-select" aria-label="Sắp xếp">
+            <option value="default">Mặc định</option>
+            <option value="new">Mới nhất</option>
+            <option value="bestseller">Bán chạy nhất</option>
+            <option value="price-asc">Giá tăng dần</option>
+            <option value="price-desc">Giá giảm dần</option>
+            <option value="discount">Giảm giá nhiều nhất</option>
+          </select>
+        </div>
+        <button class="filter-toggle-btn" id="filter-toggle" aria-label="Lọc sản phẩm">
+          <i class="fas fa-sliders-h"></i> Lọc
+        </button>
+      </div>
+    </div>
+
+    <div class="products-layout">
+
+      <!-- FILTER SIDEBAR -->
+      <aside class="filter-sidebar" id="filter-sidebar" aria-label="Bộ lọc">
+        <div class="filter-sidebar__header">
+          <span class="filter-sidebar__title"><i class="fas fa-sliders-h"></i> Bộ Lọc</span>
+          <button class="filter-clear-btn" id="filter-clear">Xóa tất cả</button>
+        </div>
+
+        <!-- Môn thể thao -->
+        <div class="filter-group">
+          <div class="filter-group__title">Môn Thể Thao</div>
+          <div class="filter-options">
+            <label class="filter-option"><input type="radio" name="sport" value="all" checked><span>Tất cả</span></label>
+            <label class="filter-option"><input type="radio" name="sport" value="bong-da"><span>⚽ Bóng đá</span></label>
+            <label class="filter-option"><input type="radio" name="sport" value="cau-long"><span>🏸 Cầu lông</span></label>
+            <label class="filter-option"><input type="radio" name="sport" value="tennis"><span>🎾 Tennis</span></label>
+            <label class="filter-option"><input type="radio" name="sport" value="pickleball"><span>🏓 Pickleball</span></label>
+          </div>
+        </div>
+
+        <!-- Loại sản phẩm -->
+        <div class="filter-group">
+          <div class="filter-group__title">Loại Sản Phẩm</div>
+          <div class="filter-options">
+            <label class="filter-option"><input type="radio" name="cat" value="all" checked><span>Tất cả</span></label>
+            <label class="filter-option"><input type="radio" name="cat" value="giay"><span>👟 Giày</span></label>
+            <label class="filter-option"><input type="radio" name="cat" value="vot"><span>🏅 Vợt</span></label>
+            <label class="filter-option"><input type="radio" name="cat" value="phu-kien"><span>🎽 Phụ kiện</span></label>
+          </div>
+        </div>
+
+        <!-- Thương hiệu -->
+        <div class="filter-group">
+          <div class="filter-group__title">Thương Hiệu</div>
+          <div class="filter-options">
+            <label class="filter-option"><input type="checkbox" name="brand" value="Nike"><span>Nike</span></label>
+            <label class="filter-option"><input type="checkbox" name="brand" value="Adidas"><span>Adidas</span></label>
+            <label class="filter-option"><input type="checkbox" name="brand" value="Puma"><span>Puma</span></label>
+            <label class="filter-option"><input type="checkbox" name="brand" value="Yonex"><span>Yonex</span></label>
+            <label class="filter-option"><input type="checkbox" name="brand" value="Wilson"><span>Wilson</span></label>
+            <label class="filter-option"><input type="checkbox" name="brand" value="Babolat"><span>Babolat</span></label>
+            <label class="filter-option"><input type="checkbox" name="brand" value="Victor"><span>Victor</span></label>
+            <label class="filter-option"><input type="checkbox" name="brand" value="Mizuno"><span>Mizuno</span></label>
+            <label class="filter-option"><input type="checkbox" name="brand" value="Selkirk"><span>Selkirk</span></label>
+          </div>
+        </div>
+
+        <!-- Khoảng giá -->
+        <div class="filter-group">
+          <div class="filter-group__title">Khoảng Giá</div>
+          <div class="filter-options">
+            <label class="filter-option"><input type="radio" name="price" value="all" checked><span>Tất cả</span></label>
+            <label class="filter-option"><input type="radio" name="price" value="0-500000"><span>Dưới 500K</span></label>
+            <label class="filter-option"><input type="radio" name="price" value="500000-1000000"><span>500K — 1 triệu</span></label>
+            <label class="filter-option"><input type="radio" name="price" value="1000000-3000000"><span>1 — 3 triệu</span></label>
+            <label class="filter-option"><input type="radio" name="price" value="3000000-99999999"><span>Trên 3 triệu</span></label>
+          </div>
+        </div>
+
+        <!-- Secondhand -->
+        <div class="filter-group">
+          <div class="filter-group__title">Tình Trạng</div>
+          <div class="filter-options">
+            <label class="filter-option"><input type="radio" name="condition" value="all" checked><span>Tất cả</span></label>
+            <label class="filter-option"><input type="radio" name="condition" value="new"><span>Hàng mới</span></label>
+            <label class="filter-option filter-option--secondhand"><input type="radio" name="condition" value="secondhand"><span>♻ Secondhand</span></label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- PRODUCTS GRID -->
+      <div class="products-main">
+        <div id="products-grid" class="product-grid"></div>
+        <div id="products-empty" class="products-empty" style="display:none">
+          <i class="fas fa-search"></i>
+          <p>Không tìm thấy sản phẩm phù hợp</p>
+          <button class="btn btn-outline" id="reset-filter">Xóa bộ lọc</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand-logo">SIGON<span>SPORT</span></div>
+        <p class="footer__desc">Chuyên cung cấp giày thể thao chính hãng và secondhand, vợt, dụng cụ thể thao chất lượng cao.</p>
+        <div class="footer__contact-item"><i class="fas fa-phone"></i><span>0909 123 456</span></div>
+        <div class="footer__contact-item"><i class="fas fa-envelope"></i><span>info@sigonsport.vn</span></div>
+        <div class="footer__social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Danh Mục</div>
+        <div class="footer__links">
+          <a href="products.html?sport=bong-da">Giày bóng đá</a>
+          <a href="products.html?sport=cau-long">Cầu lông</a>
+          <a href="products.html?sport=tennis">Tennis</a>
+          <a href="products.html?sport=pickleball">Pickleball</a>
+          <a href="products.html?secondhand=1">♻ Secondhand</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Hỗ Trợ</div>
+        <div class="footer__links">
+          <a href="about.html">Giới thiệu</a>
+          <a href="contact.html">Liên hệ</a>
+          <a href="#">Chính sách đổi trả</a>
+          <a href="#">Hướng dẫn chọn size</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Thanh Toán</div>
+        <div class="footer__payment" style="flex-wrap:wrap;gap:8px">
+          <div class="footer__payment-icon">COD</div>
+          <div class="footer__payment-icon">Momo</div>
+          <div class="footer__payment-icon">ZaloPay</div>
+          <div class="footer__payment-icon">VNPay</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copyright">© 2025 SIGON SPORT. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" class="back-to-top" aria-label="Về đầu trang"><i class="fas fa-chevron-up"></i></button>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script src="js/filter.js"></script>
+</body>
+</html>

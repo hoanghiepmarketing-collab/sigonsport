@@ -1,0 +1,131 @@
+/* ============================================
+   SIGON SPORT — Checkout Page
+============================================ */
+
+.checkout-steps {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.checkout-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #aaa;
+  font-weight: 600;
+}
+
+.checkout-step.active { color: var(--color-primary); }
+
+.step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ddd;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.checkout-step.active .step-num { background: var(--color-primary); }
+
+.checkout-step-sep {
+  flex: 1;
+  max-width: 40px;
+  height: 1px;
+  background: #ddd;
+}
+
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 767px) {
+  .checkout-layout { grid-template-columns: 1fr; }
+  .checkout-summary { order: -1; }
+}
+
+.checkout-section-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-dark);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 479px) { .form-row { grid-template-columns: 1fr; } }
+
+.form-group { margin-bottom: 14px; }
+
+.form-label {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-dark);
+  margin-bottom: 5px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-family: var(--font-body);
+  color: var(--color-dark);
+  background: white;
+  transition: var(--transition-fast);
+  min-height: 44px;
+}
+
+.form-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0,87,255,0.1);
+  outline: none;
+}
+
+.form-input.error { border-color: var(--color-accent); }
+
+.form-select { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+
+.form-textarea { min-height: 90px; resize: vertical; }
+
+/* PAYMENT METHODS */
+.payment-methods { display: flex; flex-direction: column; gap: 10px; }
+
+.payment-method { cursor: pointer; }
+.payment-method input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.payment-method__box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+}
+
+.payment-method input:checked + .payment-method__box {
+  border-color: var(--color-primary);
+  background: #f0f5ff;
+}
+
+.payment-method:hover .payment-method__box { border-color: var(--color-primary); }

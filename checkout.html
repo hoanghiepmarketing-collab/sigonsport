@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Thanh Toán | SIGON SPORT</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div id="toast-container" class="toast-container"></div>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header__main" style="padding:14px 0">
+      <a href="index.html" class="header__logo">
+        <span class="logo__main">SIGON<span>SPORT</span></span>
+        <span class="logo__sub">sigonsport.vn</span>
+      </a>
+      <div style="flex:1"></div>
+      <div style="display:flex;align-items:center;gap:16px;font-size:13px;color:#888">
+        <span><i class="fas fa-lock" style="color:#00B04F"></i> Thanh toán an toàn</span>
+        <span class="topbar__phone" style="color:#FF6B00"><i class="fas fa-phone"></i> 0909 123 456</span>
+      </div>
+    </div>
+  </div>
+  <!-- Checkout steps -->
+  <div style="background:var(--color-bg-light);border-top:1px solid var(--color-border);padding:10px 0">
+    <div class="container">
+      <div class="checkout-steps">
+        <div class="checkout-step active"><span class="step-num">1</span> Thông tin</div>
+        <div class="checkout-step-sep"></div>
+        <div class="checkout-step"><span class="step-num">2</span> Vận chuyển</div>
+        <div class="checkout-step-sep"></div>
+        <div class="checkout-step"><span class="step-num">3</span> Thanh toán</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main style="padding:24px 0 48px">
+  <div class="container">
+    <div class="checkout-layout">
+
+      <!-- FORM -->
+      <div class="checkout-form-wrap">
+        <h2 class="checkout-section-title"><i class="fas fa-user"></i> Thông Tin Giao Hàng</h2>
+        <form id="checkout-form" onsubmit="submitOrder(event)" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="full-name">Họ và tên <span style="color:#E5002B">*</span></label>
+              <input class="form-input" id="full-name" type="text" placeholder="Nguyễn Văn A" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Số điện thoại <span style="color:#E5002B">*</span></label>
+              <input class="form-input" id="phone" type="tel" placeholder="0909 123 456" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" id="email" type="email" placeholder="example@gmail.com">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="province">Tỉnh / Thành phố <span style="color:#E5002B">*</span></label>
+              <select class="form-input form-select" id="province" required>
+                <option value="">Chọn tỉnh/thành phố</option>
+                <option>TP. Hồ Chí Minh</option>
+                <option>Hà Nội</option>
+                <option>Đà Nẵng</option>
+                <option>Cần Thơ</option>
+                <option>Hải Phòng</option>
+                <option>Bình Dương</option>
+                <option>Đồng Nai</option>
+                <option>Khác</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="district">Quận / Huyện <span style="color:#E5002B">*</span></label>
+              <input class="form-input" id="district" type="text" placeholder="Quận 1" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="address">Địa chỉ cụ thể <span style="color:#E5002B">*</span></label>
+            <input class="form-input" id="address" type="text" placeholder="Số nhà, tên đường, phường/xã" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="note">Ghi chú đơn hàng</label>
+            <textarea class="form-input form-textarea" id="note" placeholder="Yêu cầu đặc biệt, giờ giao hàng..."></textarea>
+          </div>
+
+          <h2 class="checkout-section-title" style="margin-top:24px"><i class="fas fa-credit-card"></i> Phương Thức Thanh Toán</h2>
+          <div class="payment-methods">
+            <label class="payment-method">
+              <input type="radio" name="payment" value="cod" checked>
+              <span class="payment-method__box">
+                <i class="fas fa-money-bill-wave" style="color:#00B04F;font-size:20px"></i>
+                <div>
+                  <strong>Thanh toán khi nhận hàng (COD)</strong>
+                  <div style="font-size:12px;color:#888">Trả tiền mặt cho shipper khi nhận hàng</div>
+                </div>
+              </span>
+            </label>
+            <label class="payment-method">
+              <input type="radio" name="payment" value="momo">
+              <span class="payment-method__box">
+                <i class="fas fa-wallet" style="color:#D82D8B;font-size:20px"></i>
+                <div>
+                  <strong>Ví MoMo</strong>
+                  <div style="font-size:12px;color:#888">Thanh toán qua ví điện tử MoMo</div>
+                </div>
+              </span>
+            </label>
+            <label class="payment-method">
+              <input type="radio" name="payment" value="bank">
+              <span class="payment-method__box">
+                <i class="fas fa-university" style="color:#0057FF;font-size:20px"></i>
+                <div>
+                  <strong>Chuyển khoản ngân hàng</strong>
+                  <div style="font-size:12px;color:#888">Vietcombank / Techcombank / MB Bank</div>
+                </div>
+              </span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-accent" style="width:100%;justify-content:center;font-size:16px;margin-top:20px;min-height:52px">
+            <i class="fas fa-check-circle"></i> Đặt Hàng Ngay
+          </button>
+          <p style="text-align:center;font-size:12px;color:#aaa;margin-top:10px">
+            <i class="fas fa-lock"></i> Thông tin của bạn được mã hóa và bảo mật an toàn
+          </p>
+        </form>
+      </div>
+
+      <!-- ORDER SUMMARY -->
+      <div class="checkout-summary">
+        <div class="summary-box" style="background:white;border:1px solid var(--color-border);border-radius:10px;padding:20px;position:sticky;top:20px">
+          <div style="font-family:Montserrat,sans-serif;font-size:18px;font-weight:700;color:#111;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #eee">
+            Đơn Hàng Của Bạn
+          </div>
+          <div id="checkout-items" style="margin-bottom:16px"></div>
+          <div style="border-top:1px solid #eee;padding-top:12px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;color:#555">
+              <span>Tạm tính</span>
+              <span id="checkout-subtotal">0 ₫</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;color:#555">
+              <span>Phí vận chuyển</span>
+              <span id="checkout-ship" style="color:#00B04F">Miễn phí</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:2px solid #eee;font-size:20px;font-weight:700;color:#111">
+              <span>Tổng cộng</span>
+              <span id="checkout-total" style="color:#E5002B">0 ₫</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  renderCheckoutSummary();
+});
+
+function renderCheckoutSummary() {
+  const itemsEl = document.getElementById('checkout-items');
+  const subtotalEl = document.getElementById('checkout-subtotal');
+  const totalEl = document.getElementById('checkout-total');
+  const shipEl = document.getElementById('checkout-ship');
+
+  if (Cart.items.length === 0 && itemsEl) {
+    itemsEl.innerHTML = '<p style="color:#aaa;text-align:center;padding:20px">Giỏ hàng trống</p>';
+    return;
+  }
+
+  if (itemsEl) {
+    itemsEl.innerHTML = Cart.items.map(item => `
+      <div style="display:flex;gap:10px;margin-bottom:12px;align-items:center">
+        <img src="${item.img}" alt="${item.name}" style="width:56px;height:56px;object-fit:cover;border-radius:6px;border:1px solid #eee;flex-shrink:0">
+        <div style="flex:1;min-width:0">
+          <div style="font-size:12px;font-weight:600;color:#111;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${item.name}</div>
+          <div style="font-size:12px;color:#888">x${item.qty}</div>
+        </div>
+        <div style="font-size:13px;font-weight:700;color:#E5002B;flex-shrink:0">${formatPrice(item.price * item.qty)}</div>
+      </div>`).join('');
+  }
+
+  const subtotal = Cart.total();
+  const ship = subtotal >= 500000 ? 0 : 30000;
+  if (subtotalEl) subtotalEl.textContent = formatPrice(subtotal);
+  if (shipEl) shipEl.textContent = ship === 0 ? 'Miễn phí' : formatPrice(ship);
+  if (totalEl) totalEl.textContent = formatPrice(subtotal + ship);
+}
+
+function submitOrder(e) {
+  e.preventDefault();
+  const name = document.getElementById('full-name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const province = document.getElementById('province').value;
+  const address = document.getElementById('address').value.trim();
+
+  if (!name || !phone || !province || !address) {
+    showToast('Vui lòng điền đầy đủ thông tin bắt buộc!', 'error');
+    return;
+  }
+
+  if (Cart.items.length === 0) {
+    showToast('Giỏ hàng đang trống!', 'error');
+    return;
+  }
+
+  // Mock successful order
+  Cart.items = [];
+  Cart.save();
+  document.getElementById('checkout-form').style.display = 'none';
+  document.querySelector('.checkout-layout').innerHTML = `
+    <div style="text-align:center;padding:60px 20px;grid-column:1/-1">
+      <div style="font-size:64px;margin-bottom:16px">✅</div>
+      <h2 style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:900;color:#111;margin-bottom:8px">Đặt Hàng Thành Công!</h2>
+      <p style="color:#555;font-size:16px;margin-bottom:8px">Cảm ơn bạn đã mua sắm tại <strong>SIGON SPORT</strong></p>
+      <p style="color:#888;font-size:14px;margin-bottom:24px">Chúng tôi sẽ liên hệ xác nhận đơn hàng trong vòng 30 phút.</p>
+      <a href="index.html" class="btn btn-primary"><i class="fas fa-home"></i> Về Trang Chủ</a>
+      <a href="products.html" class="btn btn-outline" style="margin-left:12px"><i class="fas fa-shopping-bag"></i> Tiếp Tục Mua Sắm</a>
+    </div>`;
+}
+</script>
+</body>
+</html>

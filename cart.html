@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Giỏ Hàng | SIGON SPORT</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/cart-page.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div id="toast-container" class="toast-container"></div>
+<div id="cart-overlay" class="cart-overlay"></div>
+<div id="mobile-overlay" class="mobile-overlay"></div>
+<nav id="mobile-drawer" class="mobile-drawer">
+  <div class="mobile-drawer__header">
+    <span class="mobile-drawer__logo">SIGON<span style="color:#FFD700">SPORT</span></span>
+    <span id="drawer-close" class="mobile-drawer__close"><i class="fas fa-times"></i></span>
+  </div>
+  <div class="mobile-drawer__nav">
+    <div class="mobile-nav-item"><i class="fas fa-futbol"></i><a href="products.html?sport=bong-da" style="flex:1">Bóng Đá</a></div>
+    <div class="mobile-nav-item"><i class="fas fa-shuttlecock"></i><a href="products.html?sport=cau-long" style="flex:1">Cầu Lông</a></div>
+    <div class="mobile-nav-item"><i class="fas fa-table-tennis"></i><a href="products.html?sport=tennis" style="flex:1">Tennis</a></div>
+    <div class="mobile-nav-item"><i class="fas fa-circle"></i><a href="products.html?sport=pickleball" style="flex:1">Pickleball</a></div>
+    <div class="mobile-nav-item" style="color:#8B6914"><i class="fas fa-recycle"></i><a href="products.html?secondhand=1" style="color:#8B6914;flex:1">Secondhand</a></div>
+  </div>
+</nav>
+
+<header class="site-header">
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar__inner">
+        <div class="topbar__left">
+          <span class="topbar__item"><i class="fas fa-truck"></i>Miễn phí vận chuyển đơn từ 500K</span>
+          <span class="topbar__item"><i class="fas fa-shield-alt"></i>Hàng chính hãng 100%</span>
+        </div>
+        <div class="topbar__right">
+          <span class="topbar__phone"><i class="fas fa-phone"></i> 0909 123 456</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="header__main">
+      <button id="hamburger" class="header__hamburger" aria-label="Mở menu"><i class="fas fa-bars"></i></button>
+      <a href="index.html" class="header__logo">
+        <span class="logo__main">SIGON<span>SPORT</span></span>
+        <span class="logo__sub">sigonsport.vn</span>
+      </a>
+      <div class="header__search">
+        <div class="search-box">
+          <input class="search-input" type="text" placeholder="Tìm giày, vợt, dụng cụ thể thao..." aria-label="Tìm kiếm">
+          <button class="search-box__btn" aria-label="Tìm kiếm"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="search-suggestions"></div>
+      </div>
+      <div class="header__actions">
+        <button class="header__action-btn" onclick="openCart()" aria-label="Giỏ hàng">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-badge" class="cart-badge" style="display:none">0</span>
+          <span>Giỏ hàng</span>
+        </button>
+        <button class="header__action-btn" aria-label="Tài khoản"><i class="fas fa-user"></i><span>Tài khoản</span></button>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav" aria-label="Danh mục">
+    <div class="container">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="index.html#flash-sale" class="nav__link nav__link--hot"><i class="fas fa-fire"></i>FLASH SALE</a></li>
+        <li class="nav__item"><a href="products.html?sport=bong-da" class="nav__link"><i class="fas fa-futbol"></i>BÓNG ĐÁ</a></li>
+        <li class="nav__item"><a href="products.html?sport=cau-long" class="nav__link">CẦU LÔNG</a></li>
+        <li class="nav__item"><a href="products.html?sport=tennis" class="nav__link">TENNIS</a></li>
+        <li class="nav__item"><a href="products.html?sport=pickleball" class="nav__link">PICKLEBALL</a></li>
+        <li class="nav__item"><a href="products.html?secondhand=1" class="nav__link nav__link--secondhand"><i class="fas fa-recycle"></i>SECONDHAND</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main style="padding:24px 0 48px">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb" style="display:flex;align-items:center;gap:6px;padding:12px 0;font-size:12px;color:#888">
+      <a href="index.html" style="color:#888">Trang chủ</a>
+      <span style="font-size:10px;opacity:0.5"><i class="fas fa-chevron-right"></i></span>
+      <span>Giỏ hàng</span>
+    </nav>
+
+    <h1 style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:900;color:#111;margin-bottom:20px">
+      <i class="fas fa-shopping-cart"></i> Giỏ Hàng
+    </h1>
+
+    <div class="cart-page-layout">
+      <!-- Cart items -->
+      <div class="cart-page-items">
+        <div id="cart-page-body">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Order summary -->
+      <div class="cart-page-summary">
+        <div class="summary-box">
+          <div class="summary-title">Tóm Tắt Đơn Hàng</div>
+          <div class="summary-row">
+            <span>Tạm tính</span>
+            <span id="summary-subtotal">0 ₫</span>
+          </div>
+          <div class="summary-row">
+            <span>Phí vận chuyển</span>
+            <span id="summary-ship" style="color:#00B04F">Miễn phí</span>
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-row summary-row--total">
+            <span>Tổng cộng</span>
+            <span id="summary-total" style="color:#E5002B">0 ₫</span>
+          </div>
+          <a href="checkout.html" class="btn btn-accent" style="width:100%;justify-content:center;margin-top:16px;font-size:16px">
+            <i class="fas fa-credit-card"></i> Tiến Hành Thanh Toán
+          </a>
+          <a href="products.html" class="btn btn-outline" style="width:100%;justify-content:center;margin-top:8px">
+            <i class="fas fa-arrow-left"></i> Tiếp Tục Mua Sắm
+          </a>
+          <div class="summary-benefits">
+            <div><i class="fas fa-shield-alt" style="color:#00B04F"></i> Thanh toán an toàn & bảo mật</div>
+            <div><i class="fas fa-redo" style="color:#0057FF"></i> Đổi trả trong 7 ngày</div>
+            <div><i class="fas fa-truck" style="color:#FF6B00"></i> Miễn phí ship đơn từ 500K</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__bottom" style="padding-top:20px;border-top:1px solid rgba(255,255,255,0.1)">
+      <div class="footer__copyright">© 2025 SIGON SPORT. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" class="back-to-top" aria-label="Về đầu trang"><i class="fas fa-chevron-up"></i></button>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  renderCartPage();
+});
+
+function renderCartPage() {
+  const body = document.getElementById('cart-page-body');
+  const subtotalEl = document.getElementById('summary-subtotal');
+  const totalEl = document.getElementById('summary-total');
+  const shipEl = document.getElementById('summary-ship');
+  if (!body) return;
+
+  if (Cart.items.length === 0) {
+    body.innerHTML = `
+      <div style="text-align:center;padding:60px 20px;color:#aaa">
+        <i class="fas fa-shopping-cart" style="font-size:60px;display:block;margin-bottom:16px;color:#ddd"></i>
+        <h2 style="font-size:18px;color:#333;margin-bottom:8px">Giỏ hàng đang trống</h2>
+        <p style="margin-bottom:20px">Hãy thêm sản phẩm vào giỏ để tiến hành mua sắm</p>
+        <a href="products.html" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Mua Sắm Ngay</a>
+      </div>`;
+    if (subtotalEl) subtotalEl.textContent = formatPrice(0);
+    if (totalEl) totalEl.textContent = formatPrice(0);
+    return;
+  }
+
+  const subtotal = Cart.total();
+  const ship = subtotal >= 500000 ? 0 : 30000;
+
+  body.innerHTML = Cart.items.map(item => `
+    <div class="cart-page-item">
+      <img class="cart-page-item__img" src="${item.img}" alt="${item.name}">
+      <div class="cart-page-item__info">
+        <div class="cart-page-item__name"><a href="product-detail.html?id=${item.id}">${item.name}</a></div>
+        <div class="cart-page-item__price">${formatPrice(item.price)}</div>
+        <div class="cart-page-item__qty">
+          <button class="qty-btn" onclick="Cart.updateQty(${item.id}, ${item.qty - 1}); renderCartPage()">−</button>
+          <span class="qty-num">${item.qty}</span>
+          <button class="qty-btn" onclick="Cart.updateQty(${item.id}, ${item.qty + 1}); renderCartPage()">+</button>
+        </div>
+      </div>
+      <div class="cart-page-item__right">
+        <div class="cart-page-item__total">${formatPrice(item.price * item.qty)}</div>
+        <span class="cart-page-item__remove" onclick="Cart.remove(${item.id}); renderCartPage()" aria-label="Xóa">
+          <i class="fas fa-trash-alt"></i>
+        </span>
+      </div>
+    </div>`).join('');
+
+  if (subtotalEl) subtotalEl.textContent = formatPrice(subtotal);
+  if (shipEl) shipEl.textContent = ship === 0 ? 'Miễn phí' : formatPrice(ship);
+  if (totalEl) totalEl.textContent = formatPrice(subtotal + ship);
+}
+</script>
+</body>
+</html>

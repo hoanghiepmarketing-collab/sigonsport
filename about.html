@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Giới thiệu về SIGON SPORT - Thương hiệu thể thao chính hãng Việt Nam">
+  <title>Giới Thiệu | SIGON SPORT</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .about-hero {
+      background: linear-gradient(135deg, #0a0a2e, #0057FF);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    .about-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .about-hero h1 span { color: #FFD700; }
+    .about-hero p { font-size: 16px; opacity: 0.85; max-width: 600px; margin: 0 auto; }
+    .about-section { padding: 48px 0; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+    @media (max-width: 767px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-card {
+      background: white;
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+      border: 1px solid var(--color-border);
+      transition: var(--transition-normal);
+    }
+    .about-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .about-card__icon {
+      font-size: 40px;
+      width: 72px;
+      height: 72px;
+      background: var(--color-bg-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .about-card h3 { font-family: var(--font-heading); font-size: 18px; font-weight: 700; color: var(--color-dark); margin-bottom: 8px; }
+    .about-card p { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+    @media (max-width: 767px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    .stat-card { text-align: center; }
+    .stat-card__num { font-family: var(--font-heading); font-size: 36px; font-weight: 900; color: var(--color-primary); }
+    .stat-card__label { font-size: 13px; color: var(--color-text-muted); margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+<div id="toast-container" class="toast-container"></div>
+<div id="cart-overlay" class="cart-overlay"></div>
+<div id="cart-sidebar" class="cart-sidebar">
+  <div class="cart-sidebar__header">
+    <div class="cart-sidebar__title"><i class="fas fa-shopping-cart"></i> Giỏ Hàng</div>
+    <span class="cart-sidebar__close" onclick="closeCart()"><i class="fas fa-times"></i></span>
+  </div>
+  <div id="cart-body" class="cart-sidebar__body"></div>
+  <div id="cart-footer" class="cart-sidebar__footer" style="display:none">
+    <div class="cart-total"><span>Tổng cộng:</span><span id="cart-total" class="cart-total__price"></span></div>
+    <a href="checkout.html" class="btn btn-accent" style="width:100%;justify-content:center;margin-bottom:8px"><i class="fas fa-credit-card"></i> Thanh Toán Ngay</a>
+    <a href="cart.html" class="btn btn-outline" style="width:100%;justify-content:center">Xem Giỏ Hàng</a>
+  </div>
+</div>
+<div id="mobile-overlay" class="mobile-overlay"></div>
+<nav id="mobile-drawer" class="mobile-drawer">
+  <div class="mobile-drawer__header">
+    <span class="mobile-drawer__logo">SIGON<span style="color:#FFD700">SPORT</span></span>
+    <span id="drawer-close" class="mobile-drawer__close"><i class="fas fa-times"></i></span>
+  </div>
+  <div class="mobile-drawer__nav">
+    <div class="mobile-nav-item"><i class="fas fa-futbol"></i><a href="products.html?sport=bong-da" style="flex:1">Bóng Đá</a></div>
+    <div class="mobile-nav-item"><i class="fas fa-shuttlecock"></i><a href="products.html?sport=cau-long" style="flex:1">Cầu Lông</a></div>
+    <div class="mobile-nav-item"><i class="fas fa-table-tennis"></i><a href="products.html?sport=tennis" style="flex:1">Tennis</a></div>
+    <div class="mobile-nav-item"><i class="fas fa-circle"></i><a href="products.html?sport=pickleball" style="flex:1">Pickleball</a></div>
+    <div class="mobile-nav-item" style="color:#8B6914"><i class="fas fa-recycle"></i><a href="products.html?secondhand=1" style="color:#8B6914;flex:1">Secondhand</a></div>
+  </div>
+</nav>
+
+<header class="site-header">
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar__inner">
+        <div class="topbar__left">
+          <span class="topbar__item"><i class="fas fa-truck"></i>Miễn phí vận chuyển đơn từ 500K</span>
+        </div>
+        <div class="topbar__right">
+          <span class="topbar__phone"><i class="fas fa-phone"></i> 0909 123 456</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="header__main">
+      <button id="hamburger" class="header__hamburger" aria-label="Mở menu"><i class="fas fa-bars"></i></button>
+      <a href="index.html" class="header__logo">
+        <span class="logo__main">SIGON<span>SPORT</span></span>
+        <span class="logo__sub">sigonsport.vn</span>
+      </a>
+      <div class="header__search">
+        <div class="search-box">
+          <input class="search-input" type="text" placeholder="Tìm giày, vợt..." aria-label="Tìm kiếm">
+          <button class="search-box__btn" aria-label="Tìm kiếm"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="search-suggestions"></div>
+      </div>
+      <div class="header__actions">
+        <button class="header__action-btn" onclick="openCart()" aria-label="Giỏ hàng">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-badge" class="cart-badge" style="display:none">0</span>
+          <span>Giỏ hàng</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav" aria-label="Danh mục">
+    <div class="container">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="index.html#flash-sale" class="nav__link nav__link--hot"><i class="fas fa-fire"></i>FLASH SALE</a></li>
+        <li class="nav__item"><a href="products.html?sport=bong-da" class="nav__link"><i class="fas fa-futbol"></i>BÓNG ĐÁ</a></li>
+        <li class="nav__item"><a href="products.html?sport=cau-long" class="nav__link">CẦU LÔNG</a></li>
+        <li class="nav__item"><a href="products.html?sport=tennis" class="nav__link">TENNIS</a></li>
+        <li class="nav__item"><a href="products.html?sport=pickleball" class="nav__link">PICKLEBALL</a></li>
+        <li class="nav__item"><a href="products.html?secondhand=1" class="nav__link nav__link--secondhand"><i class="fas fa-recycle"></i>SECONDHAND</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div class="about-hero">
+  <div class="container">
+    <h1>SIGON <span>SPORT</span></h1>
+    <p>Năng động mỗi ngày — Chất lượng mỗi bước</p>
+  </div>
+</div>
+
+<main>
+  <!-- Giới thiệu -->
+  <section class="about-section" style="background:white">
+    <div class="container">
+      <div style="max-width:760px;margin:0 auto;text-align:center">
+        <h2 style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:900;color:#111;margin-bottom:16px">Về SIGON SPORT</h2>
+        <p style="font-size:15px;color:#555;line-height:1.8;margin-bottom:12px">
+          <strong>SIGON SPORT</strong> là thương hiệu thể thao được thành lập với sứ mệnh mang đến những sản phẩm thể thao chính hãng, chất lượng cao với giá cả phù hợp cho người Việt Nam.
+        </p>
+        <p style="font-size:15px;color:#555;line-height:1.8;margin-bottom:12px">
+          Chúng tôi chuyên cung cấp <strong>giày thể thao, vợt và dụng cụ</strong> cho các môn bóng đá, cầu lông, tennis và pickleball — cùng với danh mục <strong>Giày Secondhand</strong> chính hãng đặc biệt, giúp khách hàng tiết kiệm đến 80% so với giá mới.
+        </p>
+        <p style="font-size:15px;color:#555;line-height:1.8">
+          Với phương châm <em>"Năng động mỗi ngày — Chất lượng mỗi bước"</em>, SIGON SPORT cam kết đồng hành cùng bạn trên mọi sân bãi và đường đua.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="about-section" style="background:var(--color-bg-light)">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card__num">5000+</div>
+          <div class="stat-card__label">Khách hàng hài lòng</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__num">200+</div>
+          <div class="stat-card__label">Sản phẩm đang kinh doanh</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__num">10+</div>
+          <div class="stat-card__label">Thương hiệu chính hãng</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__num">4.9★</div>
+          <div class="stat-card__label">Điểm đánh giá trung bình</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cam kết -->
+  <section class="about-section" style="background:white">
+    <div class="container">
+      <h2 style="font-family:Montserrat,sans-serif;font-size:24px;font-weight:900;color:#111;text-align:center;margin-bottom:8px">Cam Kết Của Chúng Tôi</h2>
+      <p style="text-align:center;color:#888;font-size:14px;margin-bottom:0">Mỗi sản phẩm đều được kiểm duyệt nghiêm ngặt trước khi đến tay khách hàng</p>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-card__icon"><i class="fas fa-shield-alt" style="color:#0057FF;font-size:28px"></i></div>
+          <h3>Hàng Chính Hãng</h3>
+          <p>100% sản phẩm có nguồn gốc rõ ràng, tem nhãn đầy đủ, nhập khẩu chính ngạch.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card__icon"><i class="fas fa-redo" style="color:#E5002B;font-size:28px"></i></div>
+          <h3>Đổi Trả Dễ Dàng</h3>
+          <p>Chính sách đổi trả trong 7 ngày nếu sản phẩm có lỗi sản xuất hoặc không đúng mô tả.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card__icon"><i class="fas fa-headset" style="color:#00B04F;font-size:28px"></i></div>
+          <h3>Hỗ Trợ 24/7</h3>
+          <p>Đội ngũ tư vấn nhiệt tình, am hiểu sản phẩm, sẵn sàng hỗ trợ mọi lúc mọi nơi.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card__icon"><i class="fas fa-truck" style="color:#FF6B00;font-size:28px"></i></div>
+          <h3>Giao Hàng Nhanh</h3>
+          <p>Miễn phí vận chuyển đơn từ 500K. Giao hàng toàn quốc, nhanh 2-3 ngày.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card__icon"><i class="fas fa-recycle" style="color:#8B6914;font-size:28px"></i></div>
+          <h3>Secondhand Uy Tín</h3>
+          <p>Giày secondhand được kiểm định kỹ, ảnh thực tế, mô tả trung thực — không lừa dối.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card__icon"><i class="fas fa-tags" style="color:#0057FF;font-size:28px"></i></div>
+          <h3>Giá Tốt Nhất</h3>
+          <p>Cam kết giá cạnh tranh nhất thị trường. Tìm thấy rẻ hơn — chúng tôi hoàn tiền chênh lệch!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:linear-gradient(135deg,#0a0a2e,#0057FF);padding:48px 0;text-align:center;color:white">
+    <div class="container">
+      <h2 style="font-family:Montserrat,sans-serif;font-size:28px;font-weight:900;margin-bottom:12px">Sẵn Sàng Mua Sắm?</h2>
+      <p style="opacity:0.85;margin-bottom:24px;font-size:16px">Khám phá hàng trăm sản phẩm thể thao chính hãng ngay hôm nay</p>
+      <a href="products.html" class="btn btn-accent" style="font-size:16px;padding:12px 32px">
+        <i class="fas fa-shopping-bag"></i> Xem Sản Phẩm
+      </a>
+      <a href="contact.html" class="btn btn-outline" style="font-size:16px;padding:12px 32px;margin-left:12px;border-color:rgba(255,255,255,0.5);color:white">
+        <i class="fas fa-phone"></i> Liên Hệ Ngay
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__bottom" style="padding-top:20px">
+      <div class="footer__copyright">© 2025 SIGON SPORT. All rights reserved. | sigonsport.vn</div>
+      <div style="font-size:11px;opacity:0.4">Năng động mỗi ngày — Chất lượng mỗi bước</div>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" class="back-to-top" aria-label="Về đầu trang"><i class="fas fa-chevron-up"></i></button>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

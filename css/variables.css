@@ -1,0 +1,84 @@
+/* ============================================
+   SIGON SPORT — Design Tokens / CSS Variables
+   sigonsport.vn
+============================================ */
+
+:root {
+  /* === MÀU SẮC CHÍNH === */
+  --color-white:       #FFFFFF;
+  --color-bg-light:    #F5F5F5;
+  --color-bg-gray:     #ECECEC;
+  --color-border:      #E0E0E0;
+  --color-border-dark: #CCCCCC;
+  --color-dark:        #111111;
+  --color-text:        #333333;
+  --color-text-muted:  #888888;
+
+  /* Brand Colors */
+  --color-primary:     #0057FF;
+  --color-primary-dark:#0041CC;
+  --color-accent:      #E5002B;
+  --color-accent-dark: #B8001F;
+  --color-secondary:   #FF6B00;
+  --color-success:     #00B04F;
+  --color-secondhand:  #8B6914;
+
+  /* Top bar */
+  --color-topbar-bg:   #1a1a1a;
+  --color-topbar-text: #FFFFFF;
+
+  /* Header */
+  --color-header-bg:   #FFFFFF;
+  --color-nav-bg:      #0057FF;
+  --color-nav-text:    #FFFFFF;
+
+  /* === TYPOGRAPHY === */
+  --font-heading: 'Montserrat', 'Be Vietnam Pro', sans-serif;
+  --font-body:    'Be Vietnam Pro', sans-serif;
+
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-black:    900;
+
+  --fs-xs:   11px;
+  --fs-sm:   12px;
+  --fs-base: 14px;
+  --fs-md:   15px;
+  --fs-lg:   16px;
+  --fs-xl:   18px;
+  --fs-2xl:  20px;
+  --fs-3xl:  24px;
+  --fs-4xl:  28px;
+
+  /* === SPACING === */
+  --radius-sm:  3px;
+  --radius-md:  6px;
+  --radius-lg:  10px;
+  --radius-xl:  16px;
+  --radius-pill:999px;
+
+  --section-gap:    32px;
+  --section-gap-lg: 48px;
+  --container-max:  1200px;
+  --container-px:   16px;
+
+  /* === SHADOWS === */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md:  0 2px 8px rgba(0,0,0,0.12);
+  --shadow-lg:  0 4px 20px rgba(0,0,0,0.15);
+  --shadow-xl:  0 8px 40px rgba(0,0,0,0.18);
+
+  /* === TRANSITIONS === */
+  --transition-fast:   all 0.15s ease;
+  --transition-normal: all 0.25s ease;
+  --transition-slow:   all 0.4s ease;
+
+  /* === Z-INDEX === */
+  --z-dropdown: 100;
+  --z-header:   200;
+  --z-overlay:  300;
+  --z-drawer:   400;
+  --z-toast:    500;
+}
