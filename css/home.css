@@ -300,12 +300,16 @@
   position: relative;
   overflow: hidden;
   background: #111;
-  aspect-ratio: 16/6;
-  max-height: 460px;
+  width: 100%;
+  height: 460px;
+}
+
+@media (max-width: 1024px) {
+  .hero-slider { height: 380px; }
 }
 
 @media (max-width: 767px) {
-  .hero-slider { aspect-ratio: 16/9; max-height: 240px; }
+  .hero-slider { height: 240px; }
 }
 
 .slider__track {
