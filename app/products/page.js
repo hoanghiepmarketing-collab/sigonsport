@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -36,6 +36,14 @@ const SORT_OPTIONS = [
 const PAGE_SIZE = 12;
 
 export default function ProductsPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: '80px', textAlign: 'center' }}><i className="fas fa-spinner fa-spin fa-2x" style={{ color: '#0057FF' }}></i></div>}>
+      <ProductsPageInner />
+    </Suspense>
+  );
+}
+
+function ProductsPageInner() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
