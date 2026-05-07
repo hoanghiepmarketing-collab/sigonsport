@@ -17,6 +17,13 @@ export default function AdminLayout({ children }) {
       return;
     }
 
+    // Bypass auth khi dùng placeholder credentials (local dev preview)
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+    if (supabaseUrl.includes('placeholder')) {
+      setChecking(false);
+      return;
+    }
+
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) {
         router.replace('/admin/login');
