@@ -34,8 +34,11 @@
   --color-nav-text:    #F5EFE2;  /* Kem nhạt trên nav */
 
   /* === TYPOGRAPHY === */
-  --font-heading: 'Montserrat', 'Be Vietnam Pro', sans-serif;
+  /* Be Vietnam Pro đứng đầu — hỗ trợ tiếng Việt đầy đủ ở mọi weight */
+  --font-heading: 'Be Vietnam Pro', 'Montserrat', sans-serif;
   --font-body:    'Be Vietnam Pro', sans-serif;
+  /* Chỉ dùng Montserrat cho logo (text không dấu: SiGon, SECONDHAND) */
+  --font-logo:    'Montserrat', 'Be Vietnam Pro', sans-serif;
 
   --fw-regular:  400;
   --fw-medium:   500;

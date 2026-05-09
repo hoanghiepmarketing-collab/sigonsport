@@ -70,6 +70,7 @@ const NAV_ITEMS = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
@@ -184,29 +185,22 @@ export default function Header() {
 
             {/* Logo */}
             <Link href="/" className="header__logo">
-              {/* Dùng logo thật nếu đã đặt file vào public/images/logo.png */}
-              <img
-                src="/images/logo.png"
-                alt="SiGon Secondhand"
-                height="48"
-                style={{ height: '48px', width: 'auto', objectFit: 'contain' }}
-                onError={(e) => {
-                  // Fallback: SVG logo đúng màu khi chưa có file ảnh
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextSibling.style.display = 'block';
-                }}
-              />
-              <svg
-                width="140" height="48" viewBox="0 0 140 48" fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-label="SiGon Secondhand"
-                style={{ display: 'none' }}
-              >
-                <text x="0" y="33" fontFamily="Georgia, serif" fontWeight="700" fontSize="32" letterSpacing="-0.5">
-                  <tspan fill="#C44D28">Si</tspan><tspan fill="#2D5535">Gon</tspan>
-                </text>
-                <text x="2" y="46" fontFamily="Be Vietnam Pro, sans-serif" fontWeight="700" fontSize="9" fill="#2D5535" letterSpacing="3">SECONDHAND</text>
-              </svg>
+              {!logoError ? (
+                <img
+                  src="/images/logo.png"
+                  alt="SiGon Secondhand"
+                  style={{ height: '52px', width: 'auto', objectFit: 'contain' }}
+                  onError={() => setLogoError(true)}
+                />
+              ) : (
+                /* Fallback SVG — đúng màu thương hiệu, font Montserrat */
+                <svg width="150" height="52" viewBox="0 0 150 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="SiGon Secondhand">
+                  <text x="0" y="36" fontFamily="Montserrat, sans-serif" fontWeight="900" fontSize="34" letterSpacing="-1">
+                    <tspan fill="#C44D28">Si</tspan><tspan fill="#2D5535">Gon</tspan>
+                  </text>
+                  <text x="2" y="50" fontFamily="Montserrat, sans-serif" fontWeight="700" fontSize="9.5" fill="#2D5535" letterSpacing="3.5">SECONDHAND</text>
+                </svg>
+              )}
             </Link>
 
             {/* Search - desktop */}
