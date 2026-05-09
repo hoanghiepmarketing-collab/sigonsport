@@ -119,7 +119,7 @@ export default function ChinhSachDoiTraPage() {
             <p>Nếu khách hàng nhận hàng và không hài lòng, có thể hoàn trả trong vòng <strong>7 ngày</strong>, tuy nhiên:</p>
             <CondList items={[
               { type: 'no', text: <>Khách hàng chịu <strong>phí hoàn kho 50.000đ</strong></> },
-              { type: 'no', text: 'Không hoàn lại tiền hàng hoặc phí vận chuyển ban đầu' },
+              { type: 'dot', text: <>Hoàn tiền sau khi trừ phí hoàn kho — <strong>chỉ áp dụng khi hàng hoàn về đáp ứng đủ điều kiện</strong>; phí vận chuyển ban đầu không được hoàn lại</> },
             ]} />
           </Section>
 
