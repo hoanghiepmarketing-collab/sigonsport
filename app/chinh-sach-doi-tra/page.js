@@ -132,6 +132,10 @@ export default function ChinhSachDoiTraPage() {
               { type: 'no', text: <>Nếu đổi sang sản phẩm giá thấp hơn, phần chênh lệch <strong>không được hoàn lại</strong></> },
               { type: 'no', text: <>Toàn bộ chi phí vận chuyển (ship về + ship đơn mới đi) <strong>do khách hàng chịu</strong></> },
             ]} />
+            <HighlightBox color="yellow">
+              <i className="fas fa-rotate-left" style={{ marginRight: 6 }}></i>
+              <strong>Không tìm được sản phẩm ưng ý để đổi?</strong> Sigon sẽ hoàn lại <strong>85% giá trị đơn hàng</strong> — phần 15% còn lại là phí xử lý và kiểm định hàng hoàn. Phí vận chuyển không được hoàn lại.
+            </HighlightBox>
           </Section>
 
           <Section id="khong-doi" title="❌ Các trường hợp KHÔNG được đổi/trả" color="#dc2626">
@@ -140,6 +144,7 @@ export default function ChinhSachDoiTraPage() {
               { type: 'no', text: 'Sản phẩm đúng số đo như mô tả (chênh lệch ~1–2cm là bình thường)' },
               { type: 'no', text: 'Lỗi đã được công bố rõ trong phần mô tả sản phẩm' },
               { type: 'no', text: 'Sản phẩm đã qua giặt, không còn nhãn giá, hoặc hư hỏng do người mua' },
+              { type: 'no', text: <>Sản phẩm được <strong>khuyến mại trên 20% so với nguyên giá</strong> — không áp dụng đổi hoặc trả trong mọi trường hợp</> },
             ]} />
           </Section>
 
