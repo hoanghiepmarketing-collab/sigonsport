@@ -133,9 +133,13 @@ export default function ChinhSachGiaoHangPage() {
               <i className="fas fa-gift" style={{ marginRight: 6 }}></i>
               <strong>Tặng thêm:</strong> Đơn từ <strong>500.000đ</strong> trở lên được tặng <strong>1 đôi tất thể thao</strong> miễn phí — áp dụng tự động, không cần nhập mã.
             </HighlightBox>
+            <HighlightBox color="blue">
+              <i className="fas fa-bolt" style={{ marginRight: 6 }}></i>
+              <strong>Giao hàng Hoả tốc:</strong> Nếu khách yêu cầu giao Hoả tốc qua ứng dụng (Grab, Gojek, Be...), phí vận chuyển tính theo giá hiển thị trên app — <strong>khách hàng chịu toàn bộ phí ship</strong>, không áp dụng miễn phí vận chuyển.
+            </HighlightBox>
             <p style={{ fontSize: 12, color: '#94a3b8', marginTop: 10 }}>
               <i className="fas fa-circle-info" style={{ marginRight: 5 }}></i>
-              Phí vận chuyển có thể thay đổi tùy theo đơn vị vận chuyển.
+              Phí vận chuyển tiêu chuẩn có thể thay đổi tùy theo đơn vị vận chuyển.
             </p>
           </Section>
 
