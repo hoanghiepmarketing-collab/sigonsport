@@ -1,36 +1,37 @@
 /* ============================================
-   SIGON SPORT — Design Tokens / CSS Variables
-   sigonsport.vn
+   SiGon Secondhand — Design Tokens / CSS Variables
+   sigonsport.vn | Street Culture Palette
 ============================================ */
 
 :root {
-  /* === MÀU SẮC CHÍNH === */
-  --color-white:       #FFFFFF;
-  --color-bg-light:    #F5F5F5;
-  --color-bg-gray:     #ECECEC;
-  --color-border:      #E0E0E0;
-  --color-border-dark: #CCCCCC;
-  --color-dark:        #111111;
-  --color-text:        #333333;
-  --color-text-muted:  #888888;
+  /* === MÀU SẮC NỀN — lấy từ logo thật === */
+  --color-white:       #F5EFE2;  /* Kem nhạt — nền chính (theo logo) */
+  --color-bg-light:    #EDE6D6;  /* Kem đậm hơn — section xen kẽ */
+  --color-bg-gray:     #E2D9C8;
+  --color-border:      #D4C9B8;
+  --color-border-dark: #B8AA98;
+  --color-dark:        #1A2E1A;  /* Xanh đậm gần đen */
+  --color-text:        #2A3D2A;
+  --color-text-muted:  #6B7A6B;
 
-  /* Brand Colors */
-  --color-primary:     #0057FF;
-  --color-primary-dark:#0041CC;
-  --color-accent:      #E5002B;
+  /* Brand Colors — SiGon Logo Palette (xác nhận từ logo thật) */
+  --color-primary:     #2D5535;  /* Xanh lá rừng — màu chủ đạo (icon + Gon) */
+  --color-primary-dark:#1E3D24;  /* Hover xanh đậm */
+  --color-si:          #C44D28;  /* Terracotta — màu chữ "Si" trong logo */
+  --color-accent:      #E5002B;  /* Đỏ sale */
   --color-accent-dark: #B8001F;
-  --color-secondary:   #FF6B00;
-  --color-success:     #00B04F;
-  --color-secondhand:  #8B6914;
+  --color-secondary:   #C44D28;  /* Terracotta — accent phụ (đồng bộ với "Si") */
+  --color-success:     #2D7A3A;  /* Xanh lá — còn hàng */
+  --color-secondhand:  #8B5E3C;  /* Nâu da thuộc — badge 2HAND REAL */
 
   /* Top bar */
-  --color-topbar-bg:   #1a1a1a;
-  --color-topbar-text: #FFFFFF;
+  --color-topbar-bg:   #1E3D24;  /* Xanh lá rừng đậm */
+  --color-topbar-text: #F5EFE2;  /* Kem nhạt */
 
   /* Header */
   --color-header-bg:   #FFFFFF;
-  --color-nav-bg:      #0057FF;
-  --color-nav-text:    #FFFFFF;
+  --color-nav-bg:      #2D5535;  /* Xanh lá rừng — nav bar */
+  --color-nav-text:    #F5EFE2;  /* Kem nhạt trên nav */
 
   /* === TYPOGRAPHY === */
   --font-heading: 'Montserrat', 'Be Vietnam Pro', sans-serif;

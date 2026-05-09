@@ -365,7 +365,21 @@
 .slide__desc {
   font-size: var(--fs-base);
   opacity: 0.85;
+  margin-bottom: 10px;
+}
+
+/* Slogan dưới desc */
+.slide__slogan {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 
 .slider__prev,

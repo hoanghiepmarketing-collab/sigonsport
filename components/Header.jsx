@@ -157,12 +157,12 @@ export default function Header() {
             </div>
             <div className="topbar__right">
               <div className="topbar__social">
-                <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="TikTok"><i className="fab fa-tiktok"></i></a>
-                <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/SigonSecondhand" target="_blank" rel="noopener noreferrer" aria-label="Facebook SiGon Secondhand"><i className="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@sigonsecondhand" target="_blank" rel="noopener noreferrer" aria-label="TikTok SiGon Secondhand"><i className="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/sigonsecondhand" target="_blank" rel="noopener noreferrer" aria-label="Instagram SiGon Secondhand"><i className="fab fa-instagram"></i></a>
               </div>
-              <a href="tel:0901234567" className="topbar__phone">
-                <i className="fa fa-phone"></i> 0901.234.567
+              <a href="mailto:sigonseconhand@gmail.com" className="topbar__phone">
+                <i className="fa fa-envelope"></i> sigonseconhand@gmail.com
               </a>
             </div>
           </div>
@@ -184,8 +184,29 @@ export default function Header() {
 
             {/* Logo */}
             <Link href="/" className="header__logo">
-              <span className="logo__main">SIGON<span> SPORT</span></span>
-              <span className="logo__sub">sigonsport.vn</span>
+              {/* Dùng logo thật nếu đã đặt file vào public/images/logo.png */}
+              <img
+                src="/images/logo.png"
+                alt="SiGon Secondhand"
+                height="48"
+                style={{ height: '48px', width: 'auto', objectFit: 'contain' }}
+                onError={(e) => {
+                  // Fallback: SVG logo đúng màu khi chưa có file ảnh
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextSibling.style.display = 'block';
+                }}
+              />
+              <svg
+                width="140" height="48" viewBox="0 0 140 48" fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="SiGon Secondhand"
+                style={{ display: 'none' }}
+              >
+                <text x="0" y="33" fontFamily="Georgia, serif" fontWeight="700" fontSize="32" letterSpacing="-0.5">
+                  <tspan fill="#C44D28">Si</tspan><tspan fill="#2D5535">Gon</tspan>
+                </text>
+                <text x="2" y="46" fontFamily="Be Vietnam Pro, sans-serif" fontWeight="700" fontSize="9" fill="#2D5535" letterSpacing="3">SECONDHAND</text>
+              </svg>
             </Link>
 
             {/* Search - desktop */}
@@ -315,7 +336,7 @@ export default function Header() {
       <div className={`mobile-overlay${mobileOpen ? ' active' : ''}`} onClick={closeMobile}></div>
       <div className={`mobile-drawer${mobileOpen ? ' active' : ''}`}>
         <div className="mobile-drawer__header">
-          <span className="mobile-drawer__logo">SIGON<span style={{ color: '#FF6B00' }}> SPORT</span></span>
+          <span className="mobile-drawer__logo"><span style={{ color: '#C44D28' }}>Si</span><span style={{ color: '#2D5535' }}>Gon</span><span style={{ fontSize: '9px', color: '#2D5535', marginLeft: '5px', fontWeight: 700, letterSpacing: '2px' }}>SECONDHAND</span></span>
           <button className="mobile-drawer__close" onClick={closeMobile} aria-label="Đóng menu">
             <i className="fa fa-times"></i>
           </button>

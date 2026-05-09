@@ -7,46 +7,49 @@ import Footer from '../components/Footer';
 import ProductCard from '../components/ProductCard';
 import supabase from '../lib/supabase';
 
-// Dữ liệu slider
+// Dữ liệu slider — SiGon Secondhand brand voice
 const SLIDES = [
   {
-    label: 'BỘ SƯU TẬP MỚI 2024',
-    title: 'Giày Thể Thao Chính Hãng',
-    titleHighlight: 'Giá Tốt Nhất',
-    desc: 'Hàng nghìn mẫu giày từ Nike, Adidas, Puma, Yonex...',
-    bg: 'linear-gradient(135deg, #0a0a2e 0%, #0057FF 60%, #003bb5 100%)',
-    link: '/products',
-    cta: 'Khám phá ngay',
-  },
-  {
-    label: '⚡ FLASH SALE MỖI NGÀY',
-    title: 'Giảm Đến',
-    titleHighlight: '70% Tất Cả Sản Phẩm',
-    desc: 'Ưu đãi giới hạn — Nhanh tay kẻo hết!',
-    bg: 'linear-gradient(135deg, #1a0000 0%, #E5002B 60%, #a00020 100%)',
-    link: '/products?sort=discount',
-    cta: 'Xem Flash Sale',
-  },
-  {
-    label: '♻ SECONDHAND CHÍNH HÃNG',
-    title: 'Giày Đã Qua Sử Dụng',
-    titleHighlight: 'Tiết Kiệm Đến 80%',
-    desc: 'Hàng tuyển chọn, kiểm định kỹ lưỡng — giá cực tốt.',
-    bg: 'linear-gradient(135deg, #1a1000 0%, #8B6914 60%, #6b4d00 100%)',
+    label: '✌️ GIÀY TUYỂN — GIÁ NGON — CHẤT SÀI GÒN',
+    title: '2Hand Real',
+    titleHighlight: 'Chính Hãng Auth',
+    desc: 'Săn giày xịn không cần vét ví — ảnh thật 100%, tình trạng thật, giá thật.',
+    slogan: 'Giày tuyển giá ngon',
+    bg: 'linear-gradient(135deg, #1E3D24 0%, #2D5535 60%, #3a6b44 100%)',
     link: '/products?secondhand=true',
-    cta: 'Xem Secondhand',
+    cta: '👟 Săn giày ngay',
+  },
+  {
+    label: '⚡ DEAL NGON — NHANH TAY KẺO HẾT',
+    title: 'Flash Sale',
+    titleHighlight: 'Giảm Đến 70%',
+    desc: 'Hời cực — số lượng có hạn, hôm nay mà bỏ lỡ thì tiếc lắm đó!',
+    slogan: 'Giày tuyển giá ngon',
+    bg: 'linear-gradient(135deg, #3d1a0a 0%, #C44D28 60%, #a03820 100%)',
+    link: '/products?sort=discount',
+    cta: '🔥 Xem Flash Sale',
+  },
+  {
+    label: '♻ 2HAND REAL — MINH BẠCH TÌNH TRẠNG',
+    title: 'Giày Secondhand',
+    titleHighlight: 'Tiết Kiệm Đến 80%',
+    desc: 'Hàng auth tuyển chọn — ghi rõ tình trạng, ảnh góc thật, không tô hồng.',
+    slogan: 'Giày tuyển giá ngon',
+    bg: 'linear-gradient(135deg, #1a2e1a 0%, #2D5535 40%, #8B5E3C 100%)',
+    link: '/products?secondhand=true',
+    cta: '♻ Xem Secondhand',
   },
 ];
 
-const BRANDS = ['Nike', 'Adidas', 'Puma', 'Yonex', 'Victor', 'Wilson', 'Babolat', 'Mizuno', 'Joma', 'Selkirk'];
+const BRANDS = ['Nike', 'Adidas', 'Puma', 'Onitsuka Tiger', 'Yonex', 'Victor', 'Wilson', 'Babolat', 'Mizuno', 'Joma'];
 
 const CATEGORIES = [
-  { icon: '⚽', label: 'Giày Bóng Đá', href: '/products?sport=bong-da', color: '#0057FF' },
-  { icon: '🏸', label: 'Cầu Lông', href: '/products?sport=cau-long', color: '#E5002B' },
-  { icon: '🎾', label: 'Tennis', href: '/products?sport=tennis', color: '#FF6B00' },
-  { icon: '🏓', label: 'Pickleball', href: '/products?sport=pickleball', color: '#00B04F' },
-  { icon: '👟', label: 'Chạy Bộ', href: '/products?sport=running', color: '#7B2FBE' },
-  { icon: '♻', label: 'Secondhand', href: '/products?secondhand=true', color: '#8B6914', isSecondhand: true },
+  { icon: '⚽', label: 'Giày Bóng Đá', href: '/products?sport=bong-da', color: '#2D5535' },
+  { icon: '🏸', label: 'Cầu Lông', href: '/products?sport=cau-long', color: '#2D5535' },
+  { icon: '🎾', label: 'Tennis', href: '/products?sport=tennis', color: '#2D5535' },
+  { icon: '🏓', label: 'Pickleball', href: '/products?sport=pickleball', color: '#2D5535' },
+  { icon: '👟', label: 'Sneaker', href: '/products?sport=sneaker', color: '#C44D28' },
+  { icon: '♻', label: '2Hand Real', href: '/products?secondhand=true', color: '#8B5E3C', isSecondhand: true },
 ];
 
 const SPORT_TABS = [
@@ -193,6 +196,12 @@ export default function HomePage() {
                     {slide.title} <span>{slide.titleHighlight}</span>
                   </h1>
                   <p className="slide__desc">{slide.desc}</p>
+                  <p className="slide__slogan">
+                    <span style={{ color: '#E8650A', fontWeight: 800 }}>Si</span>
+                    <span style={{ color: '#ffffff', fontWeight: 800 }}>Gon</span>
+                    <span style={{ color: '#F5C518', margin: '0 6px' }}>✦</span>
+                    {slide.slogan.split('—').slice(1).join('—')}
+                  </p>
                   <Link href={slide.link} className="btn btn-primary">
                     {slide.cta} <i className="fa fa-arrow-right"></i>
                   </Link>
