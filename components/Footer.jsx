@@ -59,8 +59,8 @@ export default function Footer() {
             <div className="footer__links">
               <Link href="/about">Giới thiệu</Link>
               <Link href="/contact">Liên hệ</Link>
-              <a href="#">Chính sách đổi trả</a>
-              <a href="#">Chính sách vận chuyển</a>
+              <Link href="/chinh-sach-doi-tra">Chính sách đổi trả</Link>
+              <Link href="/chinh-sach-giao-hang">Chính sách vận chuyển</Link>
               <a href="#">Hướng dẫn chọn size</a>
               <a href="#">Câu hỏi thường gặp</a>
             </div>
