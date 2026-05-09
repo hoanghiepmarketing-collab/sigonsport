@@ -10,6 +10,7 @@ const TABLE_ROWS = [
   { area: 'Nội thành TP. Hồ Chí Minh', fee: '25.000đ' },
   { area: 'Ngoại thành TP. Hồ Chí Minh', fee: '35.000đ' },
   { area: 'Các tỉnh thành khác', fee: '40.000đ' },
+  { area: 'Đơn hàng từ 1.000.000đ', fee: 'MIỄN PHÍ 🎉', highlight: true },
 ];
 
 export default function ChinhSachGiaoHangPage() {
@@ -91,26 +92,47 @@ export default function ChinhSachGiaoHangPage() {
             </HighlightBox>
           </Section>
 
+          {/* Ưu đãi nổi bật */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 40 }}>
+            <div style={{ background: 'linear-gradient(135deg, #16a34a, #15803d)', borderRadius: 12, padding: '20px 20px', color: 'white', textAlign: 'center' }}>
+              <div style={{ fontSize: 32, marginBottom: 8 }}>🚚</div>
+              <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 18, marginBottom: 6 }}>MIỄN PHÍ VẬN CHUYỂN</div>
+              <div style={{ fontSize: 13, opacity: .9, lineHeight: 1.5 }}>Cho đơn hàng từ <strong style={{ fontSize: 16 }}>1.000.000đ</strong> trở lên — áp dụng toàn quốc</div>
+            </div>
+            <div style={{ background: 'linear-gradient(135deg, #ea580c, #c2410c)', borderRadius: 12, padding: '20px 20px', color: 'white', textAlign: 'center' }}>
+              <div style={{ fontSize: 32, marginBottom: 8 }}>🧦</div>
+              <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 18, marginBottom: 6 }}>TẶNG TẤT THỂ THAO</div>
+              <div style={{ fontSize: 13, opacity: .9, lineHeight: 1.5 }}>Miễn phí 1 đôi tất cho đơn hàng từ <strong style={{ fontSize: 16 }}>500.000đ</strong> trở lên</div>
+            </div>
+          </div>
+
           {/* 3. Phí */}
           <Section id="phi" title="💰 Phí giao hàng" color="#16a34a">
             <div style={{ overflowX: 'auto', marginTop: 4 }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14 }}>
                 <thead>
                   <tr style={{ background: '#f0fdf4' }}>
-                    <th style={{ padding: '10px 16px', textAlign: 'left', fontWeight: 700, color: '#0f172a', borderBottom: '2px solid #bbf7d0' }}>Khu vực</th>
+                    <th style={{ padding: '10px 16px', textAlign: 'left', fontWeight: 700, color: '#0f172a', borderBottom: '2px solid #bbf7d0' }}>Khu vực / Điều kiện</th>
                     <th style={{ padding: '10px 16px', textAlign: 'right', fontWeight: 700, color: '#0f172a', borderBottom: '2px solid #bbf7d0' }}>Phí vận chuyển</th>
                   </tr>
                 </thead>
                 <tbody>
                   {TABLE_ROWS.map((row, i) => (
-                    <tr key={i} style={{ background: i % 2 === 0 ? '#fff' : '#f8fafc' }}>
-                      <td style={{ padding: '11px 16px', color: '#374151', borderBottom: '1px solid #e2e8f0' }}>{row.area}</td>
-                      <td style={{ padding: '11px 16px', textAlign: 'right', fontWeight: 700, color: '#16a34a', borderBottom: '1px solid #e2e8f0' }}>{row.fee}</td>
+                    <tr key={i} style={{ background: row.highlight ? '#f0fdf4' : i % 2 === 0 ? '#fff' : '#f8fafc' }}>
+                      <td style={{ padding: '11px 16px', color: row.highlight ? '#166534' : '#374151', fontWeight: row.highlight ? 700 : 400, borderBottom: '1px solid #e2e8f0' }}>
+                        {row.highlight && <i className="fas fa-star" style={{ color: '#16a34a', marginRight: 6 }}></i>}
+                        {row.area}
+                      </td>
+                      <td style={{ padding: '11px 16px', textAlign: 'right', fontWeight: 700, color: row.highlight ? '#16a34a' : '#374151', borderBottom: '1px solid #e2e8f0' }}>{row.fee}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
+            <HighlightBox color="green">
+              <i className="fas fa-gift" style={{ marginRight: 6 }}></i>
+              <strong>Tặng thêm:</strong> Đơn từ <strong>500.000đ</strong> trở lên được tặng <strong>1 đôi tất thể thao</strong> miễn phí — áp dụng tự động, không cần nhập mã.
+            </HighlightBox>
             <p style={{ fontSize: 12, color: '#94a3b8', marginTop: 10 }}>
               <i className="fas fa-circle-info" style={{ marginRight: 5 }}></i>
               Phí vận chuyển có thể thay đổi tùy theo đơn vị vận chuyển.
@@ -215,9 +237,15 @@ function CondList({ items }) {
   );
 }
 
-function HighlightBox({ children }) {
+function HighlightBox({ children, color }) {
+  const themes = {
+    yellow: { bg: '#fffbeb', border: '#fde68a', text: '#92400e' },
+    green:  { bg: '#f0fdf4', border: '#bbf7d0', text: '#166534' },
+    blue:   { bg: '#eff6ff', border: '#bfdbfe', text: '#1e40af' },
+  };
+  const t = themes[color] || themes.yellow;
   return (
-    <div style={{ background: '#fffbeb', border: '1px solid #fde68a', borderRadius: 8, padding: '12px 16px', fontSize: 13, color: '#92400e', lineHeight: 1.65, marginTop: 12 }}>
+    <div style={{ background: t.bg, border: `1px solid ${t.border}`, borderRadius: 8, padding: '12px 16px', fontSize: 13, color: t.text, lineHeight: 1.65, marginTop: 12 }}>
       {children}
     </div>
   );
