@@ -2,26 +2,38 @@
 
 ## Thông Tin Thương Hiệu
 
-| Thuộc tính       | Giá trị                                         |
-|------------------|-------------------------------------------------|
-| **Tên thương hiệu** | **SIGON SPORT**                              |
-| **Domain**       | `sigonsport.vn`                                 |
-| **Slogan**       | *Năng động mỗi ngày — Chất lượng mỗi bước*      |
-| **Thị trường**   | Việt Nam                                        |
-| **Đối tượng**    | Người yêu thể thao, từ nghiệp dư đến chuyên nghiệp |
+| Thuộc tính          | Giá trị                                                              |
+|---------------------|----------------------------------------------------------------------|
+| **Tên thương hiệu** | **SiGon** / SIGON SPORT                                              |
+| **Tên mạng xã hội** | **SiGon Secondhand** (`@sigonsecondhand` FB · IG · TikTok)          |
+| **Domain**          | `sigonsport.vn`                                                      |
+| **Slogan**          | *Giày Real — Giá Hời — Chất Sài Gòn*                                |
+| **Thị trường**      | Việt Nam (trọng tâm TP.HCM)                                          |
+| **Đối tượng**       | Gen Z & Millennials trẻ (18–28), sinh viên, sneakerhead ngân sách hợp lý |
+| **Cửa hàng vật lý** | CN1: 160/11/19 Đặng Thuỳ Trâm, Bình Lợi Trung · CN2: 927/27B CMT8, Tân Sơn Nhất |
+| **Email**           | sigonseconhand@gmail.com                                             |
+
+### Ý Nghĩa Tên Thương Hiệu
+
+> **"SiGon"** = **Si** (đồ si / secondhand) + **Gon** (Sài Gòn)
+> → Chơi chữ địa phương: thương hiệu secondhand của người Sài Gòn, dành cho người Sài Gòn.
+> Cách viết chuẩn: **SiGon** (chữ S và G viết hoa), không phải "Sigon" hay "SIGON".
+> Logo nên nhấn mạnh sự đối lập S↑G↑ để tôn vinh wordplay này.
 
 ---
 
 ## Tổng Quan Dự Án
 
-**SIGON SPORT** (`sigonsport.vn`) là website thương mại điện tử chuyên cung cấp **sản phẩm thể thao chính hãng và secondhand** dành cho thị trường Việt Nam. Website hướng đến khách hàng trẻ trung, năng động, đam mê các môn thể thao hiện đại.
+**SiGon** (`sigonsport.vn`) là website thương mại điện tử chuyên về **giày thể thao secondhand chính hãng (2hand real)** và giày mới — dành cho cộng đồng Gen Z, sinh viên và sneakerhead Việt Nam muốn sở hữu giày xịn với ngân sách hợp lý.
+
+**Cốt lõi thương hiệu**: Secondhand KHÔNG phải là danh mục phụ — đây là **định danh** của SiGon. Giày 2hand real, minh bạch tình trạng, ảnh thực tế, giá thật. Giày mới (new) là danh mục bổ sung để phục vụ khách muốn đa dạng lựa chọn.
 
 ### Lĩnh Vực Kinh Doanh Chính
 
-1. **Giày thể thao** — giày chuyên dụng cho từng môn thể thao
-2. **Vợt thể thao** — vợt pickleball, tennis, cầu lông các cấp độ
-3. **Dụng cụ tập luyện** — phụ kiện, thiết bị cho bóng đá, pickleball, tennis, cầu lông
-4. **Giày Secondhand** ⭐ — giày thể thao cũ chính hãng, đã qua sử dụng, giá tốt cho khách hàng có nhu cầu
+1. **Giày Secondhand / 2Hand Real** ⭐ *(danh mục CHÍNH)* — giày thể thao chính hãng đã qua sử dụng, minh bạch tình trạng, ảnh thật, giá hợp lý
+2. **Giày thể thao mới** — giày chuyên dụng cho từng môn thể thao (bổ sung, không phải trọng tâm)
+3. **Vợt thể thao** — vợt pickleball, tennis, cầu lông các cấp độ
+4. **Dụng cụ tập luyện** — phụ kiện, thiết bị cho bóng đá, pickleball, tennis, cầu lông
 
 ### Các Môn Thể Thao Chuyên Biệt
 
@@ -31,6 +43,66 @@
 | 🏸 Cầu lông   | Vợt, giày cầu lông, cầu lông, túi vợt, băng cán             |
 | 🎾 Tennis     | Vợt, giày tennis, bóng tennis, túi vợt, dây cước            |
 | 🏓 Pickleball | Vợt pickleball, bóng pickleball, giày pickleball, phụ kiện   |
+
+---
+
+## Cá Tính & Giọng Nói Thương Hiệu
+
+### Persona Thương Hiệu
+
+SiGon là **người bạn sành giày ở Sài Gòn** — biết hàng real từ fake, biết deal ngon từ đắt vô lý, và sẵn sàng chia sẻ hết mình. Không phô trương, không corporate, không đứng đắn giả tạo.
+
+### Tính Cách Cốt Lõi
+
+| Tính cách        | Biểu hiện cụ thể                                                       |
+|------------------|------------------------------------------------------------------------|
+| 🏙️ **Sài Gòn Pride**  | Tự hào là dân Sài Gòn, dùng từ ngữ địa phương tự nhiên           |
+| ✌️ **Chill & Thân thiện** | Không bán hàng kiểu áp lực, tiếp cận như bạn bè                |
+| 🔍 **Chân thực (Real)**  | Ảnh thực tế, mô tả thật, không tô hồng tình trạng giày          |
+| 🔥 **Đam mê sneaker**    | Hiểu giày, sống giày, vui vì giày — không phải sales đơn thuần  |
+| 💸 **Vì cộng đồng**     | Giúp khách có đôi giày xịn mà không cần vét ví                   |
+
+### Giọng Nói (Brand Voice)
+
+**Ngôn ngữ dùng trên website & content:**
+
+```
+✅ NÊN dùng:
+- "giày real", "2hand real", "auth", "xịn xò"
+- "deal ngon", "hời cực", "tiết kiệm ngay"
+- "tình trạng thật", "ảnh thật 100%"
+- "săn ngay kẻo hết", "số lượng có hạn"
+- Emoji vừa phải: ✌️ 🔥 👟 💥 (không lạm dụng)
+- Viết thân mật: "bạn", "mình", "tụi mình"
+
+❌ KHÔNG dùng:
+- Giọng điệu cứng nhắc, corporate
+- "Quý khách", "Trân trọng kính báo" (quá formal)
+- Hứa hẹn quá mức về tình trạng giày
+- So sánh tiêu cực với đối thủ
+```
+
+### Đối Tượng Khách Hàng Chi Tiết
+
+**Primary Target — Gen Z Sneakerhead Sài Gòn:**
+- Tuổi: 18–25, sinh viên & người đi làm mới
+- Thu nhập: Hạn chế nhưng muốn style đẹp
+- Mindset: "Không cần new, cần real và xịn"
+- Hành vi: Săn deal trên Facebook, Instagram, TikTok
+- Pain point: Không đủ tiền mua mới, sợ mua phải hàng giả
+
+**Secondary Target — Millennials tiết kiệm:**
+- Tuổi: 26–32, biết giá trị của giày chính hãng
+- Mindset: "Secondhand chính hãng còn tốt hơn new fake"
+- Hành vi: So sánh kỹ trước khi mua, ưu tiên chất lượng
+
+### Kênh Mạng Xã Hội
+
+| Kênh       | Handle               | Nội dung chủ đạo                           |
+|------------|----------------------|--------------------------------------------|
+| Facebook   | /SigonSecondhand     | Bài đăng sản phẩm, livestream bán hàng     |
+| Instagram  | @sigonsecondhand     | Ảnh sản phẩm đẹp, reels, stories          |
+| TikTok     | @sigonsecondhand     | Vlog săn đồ, review giày, dance/fun content|
 
 ---
 
@@ -49,28 +121,35 @@
 
 ### Bảng Màu Chính
 
-| Tên         | Mã HEX    | CSS Variable          | Dùng cho                              |
-|-------------|-----------|----------------------|---------------------------------------|
-| Trắng tinh  | `#FFFFFF` | `--color-white`      | Nền chính, card sản phẩm              |
-| Xám nhạt    | `#F5F5F5` | `--color-bg-light`   | Nền section xen kẽ                    |
-| Xám trung   | `#E8E8E8` | `--color-border`     | Viền, phân tách                       |
-| Đen thể thao| `#111111` | `--color-dark`       | Tiêu đề, text chính                   |
-| Xanh dương  | `#0057FF` | `--color-primary`    | CTA chính, badge, nút mua             |
-| Đỏ năng động| `#E5002B` | `--color-accent`     | Giảm giá, nhãn HOT, khuyến mãi        |
-| Cam tươi    | `#FF6B00` | `--color-secondary`  | Nhãn MỚI, highlight, accent phụ       |
-| Xanh lá     | `#00B04F` | `--color-success`    | Còn hàng, miễn phí vận chuyển         |
+> **Triết lý màu SiGon**: Palette lấy cảm hứng từ street culture Sài Gòn — nền tối (underground), cam đường phố (năng lượng), kem vintage (hơi thở thrift/cũ mà chất). Tránh xa "corporate blue" của các brand thể thao mainstream.
+
+| Tên              | Mã HEX    | CSS Variable           | Dùng cho                                        |
+|------------------|-----------|------------------------|--------------------------------------------------|
+| Trắng kem        | `#FAFAF8` | `--color-white`        | Nền chính, card sản phẩm (ấm hơn pure white)    |
+| Kem vintage      | `#F2EDE8` | `--color-bg-light`     | Nền section xen kẽ — gợi cảm giác thrift/vintage|
+| Xám ranh giới    | `#E0DAD4` | `--color-border`       | Viền, phân tách                                  |
+| Đen Sài Gòn      | `#111111` | `--color-dark`         | Tiêu đề, text chính — mạnh & street              |
+| Cam đường phố    | `#E8650A` | `--color-primary`      | CTA chính, badge, nút mua — năng lượng street    |
+| Đỏ sale          | `#E5002B` | `--color-accent`       | Giảm giá, nhãn HOT, khuyến mãi                  |
+| Vàng highlight   | `#F5C518` | `--color-secondary`    | Nhãn MỚI, highlight, accent phụ — Gen Z pop     |
+| Xanh lá          | `#00A846` | `--color-success`      | Còn hàng, miễn phí vận chuyển                   |
+| Nâu secondhand   | `#8B5E3C` | `--color-secondhand`   | Badge SECONDHAND — màu da giày vintage           |
+| Nền tối          | `#1A1A1A` | `--color-dark-bg`      | Header/footer tối, dark section accent           |
 
 ### Typo
 
 ```css
 :root {
-  --font-heading: 'Montserrat', sans-serif;  /* font chữ tiêu đề */
-  --font-body:    'Be Vietnam Pro', sans-serif; /* font chữ thân */
-  --fw-bold: 700;
+  --font-heading: 'Montserrat', sans-serif;  /* font chữ tiêu đề — bold, street impact */
+  --font-body:    'Be Vietnam Pro', sans-serif; /* font chữ thân — dễ đọc, thân thiện */
+  --fw-black:  900; /* logo, hero headline — tối đa impact */
+  --fw-bold:   700;
   --fw-semibold: 600;
   --fw-regular: 400;
 }
 ```
+
+> **Logo typography**: Tên "**Si**Gon" nên dùng font Montserrat Black (900), 2 chữ cái S và G có thể được tô màu khác (cam `#E8650A`) để nhấn mạnh wordplay. Ví dụ: `<span class="logo-si">Si</span><span class="logo-gon">Gon</span>`
 
 ### Spacing & Radius
 
@@ -179,11 +258,14 @@
 
 ### Quy Tắc Hiển Thị Danh Mục Secondhand
 
-- Sản phẩm secondhand phải có **badge đặc biệt** `SECONDHAND` màu nâu vàng (`#8B6914`)
-- Bắt buộc hiển thị **tình trạng sản phẩm**: `Mới 90%` / `Mới 80%` / `Đã qua sử dụng`
-- Ghi rõ **lý do bán** và **số lần sử dụng** (nếu có) trong mô tả
-- Ảnh phải chụp thực tế, không dùng ảnh catalogue
+> ⭐ Đây là danh mục **cốt lõi và tự hào nhất** của SiGon — thiết kế phải nổi bật và truyền tải được sự minh bạch, chân thực của thương hiệu.
+
+- Sản phẩm secondhand phải có **badge đặc biệt** `2HAND REAL` hoặc `SECONDHAND` — màu nâu da thuộc (`#8B5E3C`) theo `--color-secondhand`
+- Bắt buộc hiển thị **tình trạng sản phẩm**: `Mới 95%` / `Mới 90%` / `Mới 80%` / `Đã qua sử dụng nhiều`
+- Ghi rõ **lý do bán** và **số lần sử dụng ước tính** trong mô tả (VD: "Mua dư size", "~15 buổi đá")
+- **Ảnh PHẢI là ảnh thực tế** — chụp nhiều góc, kể cả góc có vết mòn/bụi bẩn nhỏ (nếu có). Không dùng ảnh catalogue, không chỉnh màu che lỗi
 - Giá secondhand hiển thị kèm giá mới để khách thấy mức tiết kiệm
+- Nếu có khuyết điểm (trầy nhỏ, vết bẩn khó tẩy), phải **ghi chú rõ** — đây là cam kết "Real" của SiGon
 
 ---
 
@@ -217,13 +299,13 @@
   border: 2px solid transparent;
 }
 .btn-primary {
-  background: var(--color-primary);
+  background: var(--color-primary); /* #E8650A — cam đường phố */
   color: white;
 }
 .btn-primary:hover {
-  background: #0041cc;
+  background: #c9560a;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 87, 255, 0.35);
+  box-shadow: 0 4px 12px rgba(232, 101, 10, 0.40);
 }
 .btn-outline {
   border-color: var(--color-primary);
