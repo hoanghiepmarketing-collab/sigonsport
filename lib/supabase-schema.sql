@@ -199,3 +199,41 @@ create index if not exists idx_posts_status     on posts(status);
 create index if not exists idx_posts_slug       on posts(slug);
 create index if not exists idx_posts_category   on posts(category);
 create index if not exists idx_posts_created_at on posts(created_at desc);
+
+-- ============================================
+-- TABLE: categories
+-- ============================================
+create table if not exists categories (
+  id          uuid primary key default uuid_generate_v4(),
+  name        text not null,
+  slug        text unique not null,
+  type        text default 'sub',   -- 'sport' | 'product' | 'sub'
+  sport       text,                 -- môn thể thao liên quan (nếu có)
+  icon        text,                 -- emoji icon
+  description text,
+  sort_order  int default 0,
+  created_at  timestamptz default now()
+);
+
+alter table categories enable row level security;
+
+-- Public đọc
+create policy "categories_public_read"
+  on categories for select
+  to anon, authenticated
+  using (true);
+
+-- Admin full quyền
+create policy "categories_admin_write"
+  on categories for all
+  to authenticated
+  using (true) with check (true);
+
+create index if not exists idx_categories_type       on categories(type);
+create index if not exists idx_categories_sport      on categories(sport);
+create index if not exists idx_categories_sort_order on categories(sort_order);
+
+-- Supabase Storage bucket cho ảnh sản phẩm
+-- Chạy lệnh này nếu chưa có bucket (hoặc tạo thủ công trong Storage dashboard):
+-- insert into storage.buckets (id, name, public) values ('product-images', 'product-images', true)
+-- on conflict (id) do nothing;

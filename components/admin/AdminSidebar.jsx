@@ -23,7 +23,8 @@ const NAV_GROUPS = [
   {
     label: 'DANH MỤC',
     items: [
-      { href: '/admin/products', icon: 'fa-box-open', label: 'Sản phẩm' },
+      { href: '/admin/products',   icon: 'fa-box-open',  label: 'Sản phẩm' },
+      { href: '/admin/categories', icon: 'fa-tags',      label: 'Danh mục' },
     ],
   },
   {
