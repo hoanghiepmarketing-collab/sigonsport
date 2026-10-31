@@ -1,0 +1,352 @@
+/*
+Theme Name:   SiGon Child
+Theme URI:    https://sigon.vn
+Description:  Child theme cho SiGon — Giày Real Giá Hời Chất Sài Gòn
+Author:       SiGon
+Author URI:   https://sigon.vn
+Template:     twentytwentyfive
+Version:      1.0.0
+Text Domain:  sigon-child
+*/
+
+/* =============================================
+   IMPORT GOOGLE FONTS
+============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap');
+
+/* =============================================
+   DESIGN TOKENS — SIGON BRAND
+============================================= */
+:root {
+  --color-white:        #F5EFE2;
+  --color-bg-light:     #EDE6D6;
+  --color-primary:      #2D5535;
+  --color-primary-dark: #1E3D24;
+  --color-si:           #C44D28;
+  --color-accent:       #E5002B;
+  --color-secondhand:   #8B5E3C;
+  --color-success:      #2D7A3A;
+
+  --font-heading: 'Be Vietnam Pro', 'Montserrat', sans-serif;
+  --font-body:    'Be Vietnam Pro', sans-serif;
+  --font-logo:    'Montserrat', 'Be Vietnam Pro', sans-serif;
+
+  --fw-black:    900;
+  --fw-bold:     700;
+  --fw-semibold: 600;
+  --fw-regular:  400;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --section-gap: 48px;
+  --container-max: 1200px;
+}
+
+/* =============================================
+   BASE
+============================================= */
+body {
+  font-family: var(--font-body) !important;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6,
+.site-title, .entry-title {
+  font-family: var(--font-heading) !important;
+  font-weight: var(--fw-bold);
+  color: #1a1a1a;
+}
+
+/* =============================================
+   HEADER
+============================================= */
+.site-header,
+#masthead,
+.ast-primary-header-bar {
+  background-color: var(--color-primary) !important;
+}
+
+.site-title a,
+.ast-site-identity .site-title a {
+  font-family: var(--font-logo) !important;
+  font-weight: var(--fw-black) !important;
+  font-size: 26px !important;
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+.ast-nav-menu > li > a,
+.main-navigation a {
+  font-family: var(--font-body) !important;
+  font-weight: var(--fw-semibold) !important;
+  color: #ffffff !important;
+  font-size: 14px;
+}
+
+.ast-nav-menu > li > a:hover,
+.main-navigation a:hover {
+  color: var(--color-si) !important;
+}
+
+/* =============================================
+   FOOTER
+============================================= */
+.site-footer, #colophon, .ast-footer-area {
+  background-color: var(--color-primary-dark) !important;
+  color: #cccccc !important;
+}
+
+.site-footer a, .ast-footer-area a {
+  color: var(--color-bg-light) !important;
+}
+
+.site-footer a:hover { color: var(--color-si) !important; }
+
+/* =============================================
+   BUTTONS
+============================================= */
+button,
+input[type="submit"],
+.wp-block-button__link,
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #place_order {
+  font-family: var(--font-body) !important;
+  font-weight: var(--fw-semibold) !important;
+  background-color: var(--color-primary) !important;
+  color: #ffffff !important;
+  border-radius: var(--radius-md) !important;
+  border: 2px solid transparent !important;
+  padding: 10px 20px !important;
+  min-height: 44px;
+  font-size: 14px !important;
+  transition: all 0.2s ease !important;
+}
+
+button:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover {
+  background-color: var(--color-primary-dark) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(45,85,53,0.35) !important;
+}
+
+/* =============================================
+   PRODUCT CARDS
+============================================= */
+.woocommerce ul.products li.product {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  overflow: hidden;
+  padding-bottom: 16px !important;
+}
+
+.woocommerce ul.products li.product:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+.woocommerce ul.products li.product img {
+  transition: transform 0.3s ease;
+}
+
+.woocommerce ul.products li.product:hover img {
+  transform: scale(1.04);
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+  font-family: var(--font-heading) !important;
+  font-weight: var(--fw-semibold) !important;
+  font-size: 14px !important;
+  padding: 8px 12px 4px !important;
+  line-height: 1.4;
+}
+
+.woocommerce ul.products li.product .price,
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+  font-family: var(--font-heading) !important;
+  font-weight: var(--fw-bold) !important;
+  color: var(--color-primary) !important;
+  font-size: 16px !important;
+  padding: 0 12px !important;
+}
+
+.woocommerce ul.products li.product .price del { color: #aaa !important; font-size: 13px !important; }
+.woocommerce ul.products li.product .price ins { color: var(--color-accent) !important; text-decoration: none !important; font-weight: var(--fw-bold) !important; }
+
+/* Sale badge */
+.woocommerce span.onsale {
+  background-color: var(--color-accent) !important;
+  color: #ffffff !important;
+  font-size: 11px !important;
+  font-weight: var(--fw-bold) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 3px 7px !important;
+  min-height: auto !important;
+  min-width: auto !important;
+}
+
+/* =============================================
+   SECONDHAND BADGE
+============================================= */
+.badge-secondhand {
+  display: inline-block;
+  background-color: var(--color-secondhand);
+  color: #ffffff;
+  font-weight: var(--fw-bold);
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* =============================================
+   SINGLE PRODUCT
+============================================= */
+.woocommerce div.product .product_title {
+  font-family: var(--font-heading) !important;
+  font-weight: var(--fw-bold) !important;
+  font-size: 24px !important;
+}
+
+.woocommerce div.product p.price { font-size: 28px !important; color: var(--color-accent) !important; }
+
+/* =============================================
+   INPUTS
+============================================= */
+input[type="text"], input[type="email"], input[type="tel"],
+input[type="password"], input[type="search"], textarea, select {
+  font-family: var(--font-body) !important;
+  font-size: 16px !important;
+  border-radius: var(--radius-md) !important;
+  border: 1px solid #ddd !important;
+  padding: 10px 14px !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--color-primary) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(45,85,53,0.15) !important;
+}
+
+/* =============================================
+   PAGINATION
+============================================= */
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+  font-family: var(--font-body) !important;
+  color: var(--color-primary) !important;
+}
+
+.woocommerce nav.woocommerce-pagination ul li span.current,
+.woocommerce nav.woocommerce-pagination ul li a:hover {
+  background: var(--color-primary) !important;
+  color: #ffffff !important;
+}
+
+/* =============================================
+   STAR RATING
+============================================= */
+.woocommerce .star-rating span::before { color: #F5A623 !important; }
+
+/* =============================================
+   RESPONSIVE
+============================================= */
+@media (max-width: 767px) {
+  body { font-size: 14px; }
+  button, .woocommerce a.button, .woocommerce button.button { min-height: 44px !important; }
+  .site-title a { font-size: 20px !important; }
+}
+
+@media (max-width: 480px) {
+  .woocommerce ul.products { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* =============================================
+   SHOP PAGE — LAYOUT FIX
+   Override Twenty Twenty-Five is-layout-constrained
+============================================= */
+
+/* Bust out of the 645px content-size constraint */
+.is-layout-constrained > .sigon-shop-wrap,
+.is-layout-constrained > .sigon-filter-toggle {
+  max-width: 1400px !important;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Also widen the WooCommerce blocks above the grid */
+.woocommerce-shop main > *,
+.woocommerce-product-category main > *,
+.woocommerce-taxonomy main > * {
+  max-width: 1400px !important;
+}
+
+/* WooCommerce block product grid — 3 columns in products area */
+.sigon-products-area .wc-block-product-template {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 16px !important;
+}
+
+/* Block theme product cards */
+.wc-block-product {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  overflow: hidden;
+  transition: box-shadow .2s, transform .2s;
+}
+.wc-block-product:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  transform: translateY(-2px);
+}
+.wc-block-product img { transition: transform .3s; }
+.wc-block-product:hover img { transform: scale(1.04); }
+
+.wc-block-components-product-name {
+  font-family: var(--font-heading) !important;
+  font-weight: var(--fw-semibold) !important;
+  font-size: 14px !important;
+  line-height: 1.4;
+}
+.wc-block-components-product-price {
+  font-family: var(--font-heading) !important;
+  font-weight: var(--fw-bold) !important;
+  color: var(--color-primary) !important;
+}
+.wc-block-components-product-price del { color: #aaa !important; font-size: 13px !important; }
+.wc-block-components-product-price ins {
+  color: var(--color-accent) !important;
+  text-decoration: none !important;
+}
+
+/* Add-to-cart button block */
+.wp-block-woocommerce-product-button a,
+.wc-block-product .add_to_cart_button {
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* 2-col on mobile */
+@media (max-width: 900px) {
+  .sigon-products-area .wc-block-product-template {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 480px) {
+  .sigon-products-area .wc-block-product-template {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+}

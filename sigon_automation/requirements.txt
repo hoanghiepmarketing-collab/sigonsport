@@ -1,0 +1,16 @@
+# SiGon Secondhand — Python Dependencies
+# Cài đặt: pip install -r requirements.txt
+
+# ─── Gemini AI ────────────────────────────────────────────────────────────────
+google-generativeai>=0.8.0
+
+# ─── Xử lý ảnh ───────────────────────────────────────────────────────────────
+Pillow>=10.0.0
+
+# ─── HTTP requests (Facebook / Instagram API) ─────────────────────────────────
+requests>=2.31.0
+
+# ─── Google Drive & Sheets API ────────────────────────────────────────────────
+google-api-python-client>=2.100.0
+google-auth-httplib2>=0.1.1
+google-auth-oauthlib>=1.1.0

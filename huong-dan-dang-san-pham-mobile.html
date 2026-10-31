@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hướng Dẫn Đăng Sản Phẩm – SiGon Sport</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green: #2D5535;
+      --green-dark: #1E3D24;
+      --green-light: #e8f0ea;
+      --si: #C44D28;
+      --cream: #F5EFE2;
+      --brown: #8B5E3C;
+      --red: #E5002B;
+      --text: #1a1a1a;
+      --text-muted: #666;
+      --border: #ddd;
+      --white: #fff;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    body {
+      font-family: -apple-system, 'Be Vietnam Pro', 'Segoe UI', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    .header {
+      background: var(--green-dark);
+      color: white;
+      padding: 20px 16px 16px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .header .logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+    .header .logo span { color: #f5a623; }
+    .header .subtitle {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-top: 2px;
+    }
+
+    /* NAV TABS */
+    .nav-tabs {
+      background: var(--green);
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      border-bottom: 3px solid var(--green-dark);
+    }
+    .nav-tabs::-webkit-scrollbar { display: none; }
+    .nav-tab {
+      flex-shrink: 0;
+      padding: 10px 16px;
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -3px;
+      transition: all 0.2s;
+    }
+    .nav-tab.active {
+      color: white;
+      border-bottom-color: #f5a623;
+    }
+
+    /* CONTENT */
+    .content { display: none; }
+    .content.active { display: block; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+      color: white;
+      padding: 28px 16px 24px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .hero p {
+      font-size: 13px;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+    .hero .time-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    /* SECTION */
+    .section {
+      padding: 16px;
+    }
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* STEP CARD */
+    .step-card {
+      background: var(--white);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .step-info { flex: 1 }
+    .step-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .step-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+    .step-toggle {
+      font-size: 18px;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+    }
+    .step-card.open .step-toggle { transform: rotate(180deg); }
+
+    .step-body {
+      display: none;
+      padding: 0 16px 16px;
+      border-top: 1px solid #f0f0f0;
+    }
+    .step-card.open .step-body { display: block; }
+
+    /* MOCK SCREEN */
+    .mock-screen {
+      background: #1a1a2e;
+      border-radius: 16px;
+      margin: 12px 0;
+      overflow: hidden;
+      border: 3px solid #333;
+      position: relative;
+    }
+    .mock-statusbar {
+      background: #000;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+    }
+    .mock-statusbar span { color: white; font-size: 9px; }
+    .mock-browser-bar {
+      background: #f1f1f1;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .mock-url-pill {
+      flex: 1;
+      background: white;
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: #444;
+      border: 1px solid #ddd;
+    }
+    .mock-body {
+      background: white;
+      padding: 12px;
+      min-height: 80px;
+    }
+    .mock-field {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 8px 10px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      color: #999;
+    }
+    .mock-field.filled {
+      color: #1a1a1a;
+      border-color: var(--green);
+      background: #f9fffe;
+    }
+    .mock-btn {
+      background: var(--green);
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+    .mock-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* WP MENU MOCK */
+    .wp-menu-mock {
+      background: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 12px 0;
+    }
+    .wp-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+    }
+    .wp-menu-item.active {
+      background: var(--green);
+      color: white;
+    }
+    .wp-menu-item .icon {
+      width: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .wp-menu-arrow {
+      margin-left: auto;
+      font-size: 10px;
+      opacity: 0.4;
+    }
+
+    /* TIPS & NOTES */
+    .tip {
+      background: var(--green-light);
+      border-left: 3px solid var(--green);
+      border-radius: 0 8px 8px 0;
+      padding: 10px 12px;
+      margin: 10px 0;
+      font-size: 13px;
+    }
+    .tip strong { color: var(--green-dark); }
+    .warning {
+      background: #fff3cd;
+      border-left: 3px solid #f0a500;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 12px;
+      margin: 10px 0;
+      font-size: 13px;
+    }
+    .warning strong { color: #856404; }
+    .error-note {
+      background: #fdecea;
+      border-left: 3px solid var(--red);
+      border-radius: 0 8px 8px 0;
+      padding: 10px 12px;
+      margin: 10px 0;
+      font-size: 13px;
+    }
+    .error-note strong { color: #8b1a1a; }
+
+    /* CHECKLIST */
+    .checklist {
+      list-style: none;
+      margin: 10px 0;
+    }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 5px 0;
+      font-size: 13px;
+      border-bottom: 1px dashed #eee;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist .check-icon {
+      width: 20px;
+      height: 20px;
+      background: var(--green-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .checklist .req { color: var(--red); font-size: 10px; font-weight: 700; }
+
+    /* TAG */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .tag-required { background: #fdecea; color: var(--red); }
+    .tag-optional { background: #e8f0ea; color: var(--green); }
+    .tag-secondhand { background: #f3ebe4; color: var(--brown); }
+
+    /* INLINE STEPS */
+    .inline-steps { counter-reset: istep; }
+    .inline-step {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .inline-step::before {
+      counter-increment: istep;
+      content: counter(istep);
+      width: 22px;
+      height: 22px;
+      background: var(--si);
+      color: white;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* CATEGORY GRID */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 10px 0;
+    }
+    .cat-item {
+      background: #f8f8f8;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 12px;
+      text-align: center;
+    }
+    .cat-item .cat-icon { font-size: 20px; margin-bottom: 4px; }
+    .cat-item .cat-name { font-weight: 700; font-size: 11px; color: var(--text); }
+    .cat-item .cat-sub { font-size: 10px; color: var(--text-muted); margin-top: 2px; line-height: 1.3; }
+
+    /* PHOTO GUIDE */
+    .photo-rule {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 13px;
+    }
+    .photo-rule:last-child { border-bottom: none; }
+    .photo-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .photo-icon-wrap.good { background: #e8f5e9; }
+    .photo-icon-wrap.bad { background: #fdecea; }
+
+    /* SECONDHAND BADGE */
+    .badge-2h {
+      display: inline-block;
+      background: var(--brown);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      vertical-align: middle;
+    }
+
+    /* CONDITION SELECT MOCK */
+    .condition-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin: 8px 0;
+    }
+    .cond-opt {
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 8px;
+      text-align: center;
+      font-size: 12px;
+    }
+    .cond-opt.selected {
+      border-color: var(--green);
+      background: var(--green-light);
+    }
+    .cond-opt .cond-pct {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--green);
+    }
+    .cond-opt .cond-label {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    /* QUICK REFERENCE */
+    .quick-ref {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 12px;
+    }
+    .quick-ref-header {
+      background: var(--green-dark);
+      color: white;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .quick-ref-row {
+      display: flex;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 12px;
+    }
+    .quick-ref-row:last-child { border-bottom: none; }
+    .qr-label {
+      background: #f8f8f8;
+      padding: 10px 12px;
+      width: 100px;
+      flex-shrink: 0;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .qr-value {
+      padding: 10px 12px;
+      color: var(--text);
+      flex: 1;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 20px 16px;
+      font-size: 12px;
+      margin-top: 24px;
+    }
+    .footer strong { color: white; }
+
+    /* SMOOTH SCROLL */
+    html { scroll-behavior: smooth; }
+
+    /* PRINT HIDE */
+    @media print {
+      .header, .nav-tabs { position: static; }
+      .step-body { display: block !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="logo"><span>Si</span>Gon Sport</div>
+  <div class="subtitle">📱 Hướng dẫn đăng sản phẩm bằng điện thoại</div>
+</header>
+
+<!-- NAV TABS -->
+<nav class="nav-tabs" id="navTabs">
+  <div class="nav-tab active" onclick="switchTab('giay-moi')">👟 Giày Mới</div>
+  <div class="nav-tab" onclick="switchTab('secondhand')">♻️ Secondhand</div>
+  <div class="nav-tab" onclick="switchTab('chuphinh')">📸 Chụp Hình</div>
+  <div class="nav-tab" onclick="switchTab('luu-y')">⚠️ Lưu Ý</div>
+  <div class="nav-tab" onclick="switchTab('quan-ly')">⚙️ Quản Lý</div>
+</nav>
+
+<!-- ===== TAB: GIÀY MỚI ===== -->
+<div class="content active" id="tab-giay-moi">
+
+  <div class="hero">
+    <h1>Đăng Giày Mới 🆕</h1>
+    <p>Làm theo từng bước, mỗi bước chỉ 1–2 phút<br>Tổng thời gian đăng 1 sản phẩm: ~10 phút</p>
+    <div class="time-badge">⏱ Khoảng 10 phút / sản phẩm</div>
+  </div>
+
+  <div class="section">
+
+    <!-- STEP 1 -->
+    <div class="step-card open" id="step1">
+      <div class="step-header" onclick="toggleStep('step1')">
+        <div class="step-num">1</div>
+        <div class="step-info">
+          <div class="step-title">Đăng nhập WP Admin</div>
+          <div class="step-desc">Mở trình duyệt, vào trang quản trị</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="mock-screen">
+          <div class="mock-statusbar"><span>9:41</span><span>📶 🔋</span></div>
+          <div class="mock-browser-bar">
+            <div class="mock-url-pill">sigon.vn/wp-admin</div>
+            <span style="font-size:16px">↩</span>
+          </div>
+          <div class="mock-body">
+            <div class="mock-label">Tên đăng nhập</div>
+            <div class="mock-field filled">ten.sigon</div>
+            <div class="mock-label">Mật khẩu</div>
+            <div class="mock-field filled">••••••••••</div>
+            <div class="mock-btn">Đăng nhập</div>
+          </div>
+        </div>
+        <div class="inline-steps">
+          <div class="inline-step">Mở Chrome / Safari, gõ vào ô địa chỉ: <strong>sigon.vn/wp-admin</strong></div>
+          <div class="inline-step">Nhập <strong>Tên đăng nhập</strong> và <strong>Mật khẩu</strong> được cấp</div>
+          <div class="inline-step">Nhấn <strong>"Đăng nhập"</strong></div>
+        </div>
+        <div class="tip"><strong>💡 Mẹo:</strong> Lưu mật khẩu vào trình duyệt để lần sau đăng nhập nhanh hơn</div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-card" id="step2">
+      <div class="step-header" onclick="toggleStep('step2')">
+        <div class="step-num">2</div>
+        <div class="step-info">
+          <div class="step-title">Vào Thêm Sản Phẩm Mới</div>
+          <div class="step-desc">Tìm menu Sản phẩm trong trang quản trị</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="wp-menu-mock">
+          <div class="wp-menu-item"><span class="icon">🏠</span> Trang quản trị <span class="wp-menu-arrow">›</span></div>
+          <div class="wp-menu-item"><span class="icon">📝</span> Bài viết <span class="wp-menu-arrow">›</span></div>
+          <div class="wp-menu-item active"><span class="icon">👟</span> Sản phẩm <span class="wp-menu-arrow">▾</span></div>
+          <div class="wp-menu-item" style="padding-left:40px; background:#2D5535">→ <strong>Thêm sản phẩm mới</strong></div>
+          <div class="wp-menu-item"><span class="icon">⚙️</span> WooCommerce <span class="wp-menu-arrow">›</span></div>
+        </div>
+        <div class="inline-steps">
+          <div class="inline-step">Nhấn vào <strong>"Sản phẩm"</strong> trong menu bên trái (hoặc menu ☰ trên mobile)</div>
+          <div class="inline-step">Nhấn <strong>"Thêm sản phẩm mới"</strong></div>
+          <div class="inline-step">Trang "Thêm sản phẩm mới" sẽ mở ra</div>
+        </div>
+        <div class="tip"><strong>💡 Phím tắt:</strong> Vào thẳng <strong>sigon.vn/wp-admin/post-new.php?post_type=product</strong></div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-card" id="step3">
+      <div class="step-header" onclick="toggleStep('step3')">
+        <div class="step-num">3</div>
+        <div class="step-info">
+          <div class="step-title">Nhập tên sản phẩm</div>
+          <div class="step-desc">Tên đầy đủ, rõ ràng, có thương hiệu</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="mock-screen">
+          <div class="mock-statusbar"><span>9:41</span><span>📶 🔋</span></div>
+          <div class="mock-body">
+            <div class="mock-label">Tên sản phẩm <span class="tag tag-required">BẮT BUỘC</span></div>
+            <div class="mock-field filled">Nike Mercurial Vapor 15 Elite FG – Sân Cỏ Tự Nhiên</div>
+          </div>
+        </div>
+        <div class="inline-steps">
+          <div class="inline-step">Nhấn vào ô <strong>"Tên sản phẩm"</strong> ở trên cùng</div>
+          <div class="inline-step">Nhập theo công thức: <strong>[Thương hiệu] [Tên model] [Loại sân/môn]</strong></div>
+        </div>
+
+        <div class="section-title" style="margin-top:12px">Ví dụ tên đúng</div>
+        <ul class="checklist">
+          <li><div class="check-icon">✅</div><div>Nike Phantom GX Elite FG – Giày Bóng Đá Sân Cỏ</div></li>
+          <li><div class="check-icon">✅</div><div>Adidas Adizero Ubersonic 4 – Giày Tennis</div></li>
+          <li><div class="check-icon">✅</div><div>Yonex Power Cushion Eclipsion Z3 – Giày Cầu Lông</div></li>
+          <li><div class="check-icon">❌</div><div style="color:#999">giày bóng đá nike (thiếu model, viết thường)</div></li>
+          <li><div class="check-icon">❌</div><div style="color:#999">SP001 (không ai tìm được)</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-card" id="step4">
+      <div class="step-header" onclick="toggleStep('step4')">
+        <div class="step-num">4</div>
+        <div class="step-info">
+          <div class="step-title">Nhập giá sản phẩm</div>
+          <div class="step-desc">Giá gốc + giá khuyến mãi (nếu có)</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="mock-screen">
+          <div class="mock-statusbar"><span>9:41</span><span>📶 🔋</span></div>
+          <div class="mock-body">
+            <div style="font-size:12px; font-weight:700; color:#333; margin-bottom:8px">📦 Dữ liệu sản phẩm — Cài đặt chung</div>
+            <div class="mock-label">Giá thông thường (₫) <span class="tag tag-required">BẮT BUỘC</span></div>
+            <div class="mock-field filled">3290000</div>
+            <div class="mock-label">Giá khuyến mãi (₫) <span class="tag tag-optional">TUỲ CHỌN</span></div>
+            <div class="mock-field filled">2590000</div>
+          </div>
+        </div>
+        <div class="inline-steps">
+          <div class="inline-step">Cuộn xuống, tìm phần <strong>"Dữ liệu sản phẩm"</strong></div>
+          <div class="inline-step">Nhấn <strong>"Cài đặt chung"</strong></div>
+          <div class="inline-step">Nhập <strong>"Giá thông thường"</strong> — nhập số, không có dấu chấm/phẩy (VD: <strong>3290000</strong>)</div>
+          <div class="inline-step">Nếu đang giảm giá: nhập thêm <strong>"Giá khuyến mãi"</strong> thấp hơn giá gốc</div>
+        </div>
+        <div class="warning"><strong>⚠️ Lưu ý:</strong> Nhập số thuần, không gõ chữ "đ" hay dấu phân cách. Ví dụ: <strong>3290000</strong> chứ không phải "3.290.000đ"</div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step-card" id="step5">
+      <div class="step-header" onclick="toggleStep('step5')">
+        <div class="step-num">5</div>
+        <div class="step-info">
+          <div class="step-title">Chọn danh mục</div>
+          <div class="step-desc">Chọn đúng danh mục để khách tìm được</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="cat-grid">
+          <div class="cat-item">
+            <div class="cat-icon">⚽</div>
+            <div class="cat-name">Bóng Đá</div>
+            <div class="cat-sub">FG / TF / Futsal</div>
+          </div>
+          <div class="cat-item">
+            <div class="cat-icon">🏸</div>
+            <div class="cat-name">Cầu Lông</div>
+            <div class="cat-sub">Giày, Vợt, Phụ kiện</div>
+          </div>
+          <div class="cat-item">
+            <div class="cat-icon">🎾</div>
+            <div class="cat-name">Tennis</div>
+            <div class="cat-sub">Giày, Vợt, Bóng</div>
+          </div>
+          <div class="cat-item">
+            <div class="cat-icon">🏓</div>
+            <div class="cat-name">Pickleball</div>
+            <div class="cat-sub">Vợt, Giày, Bóng</div>
+          </div>
+        </div>
+        <div class="inline-steps">
+          <div class="inline-step">Tìm phần <strong>"Danh mục sản phẩm"</strong> ở cột bên phải (hoặc cuộn xuống dưới trên mobile)</div>
+          <div class="inline-step">Tích chọn danh mục phù hợp — có thể chọn nhiều (VD: "Giày Bóng Đá" + "Sân Cỏ Tự Nhiên")</div>
+          <div class="inline-step">Nếu không thấy danh mục cần, nhấn <strong>"+ Thêm danh mục mới"</strong></div>
+        </div>
+        <div class="tip"><strong>💡 Tip:</strong> Chọn cả danh mục cha lẫn danh mục con. VD: tích cả "Giày Thể Thao" và "Giày Bóng Đá"</div>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="step-card" id="step6">
+      <div class="step-header" onclick="toggleStep('step6')">
+        <div class="step-num">6</div>
+        <div class="step-info">
+          <div class="step-title">Upload ảnh sản phẩm</div>
+          <div class="step-desc">Ảnh đẹp = bán được hàng</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="mock-screen">
+          <div class="mock-statusbar"><span>9:41</span><span>📶 🔋</span></div>
+          <div class="mock-body">
+            <div style="font-size:12px; font-weight:700; color:#333; margin-bottom:8px">🖼 Ảnh sản phẩm</div>
+            <div style="border: 2px dashed #ddd; border-radius: 8px; padding: 20px; text-align: center; color: #999; font-size: 12px; margin-bottom:8px">
+              + Đặt ảnh sản phẩm<br><span style="font-size:10px">Nhấn để chọn ảnh chính</span>
+            </div>
+            <div style="font-size:12px; font-weight:700; color:#333; margin-bottom:6px">📎 Album hình ảnh</div>
+            <div style="display:flex; gap:6px">
+              <div style="width:50px;height:50px;background:#f0f0f0;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px">👟</div>
+              <div style="width:50px;height:50px;background:#f0f0f0;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px">👟</div>
+              <div style="width:50px;height:50px;background:#f0f0f0;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px">👟</div>
+              <div style="width:50px;height:50px;border:2px dashed #ddd;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#999">+</div>
+            </div>
+          </div>
+        </div>
+        <div class="inline-steps">
+          <div class="inline-step">Cuộn lên tìm phần <strong>"Ảnh sản phẩm"</strong> ở cột phải → nhấn <strong>"Đặt ảnh sản phẩm"</strong> để chọn ảnh CHÍNH (ảnh đẹp nhất)</div>
+          <div class="inline-step">Nhấn <strong>"Thêm ảnh thư viện sản phẩm"</strong> → chọn thêm 3–5 ảnh góc khác nhau</div>
+          <div class="inline-step">Chọn từ thư viện ảnh trong điện thoại hoặc chụp trực tiếp</div>
+        </div>
+        <div class="tip">
+          <strong>📸 Yêu cầu ảnh tối thiểu:</strong><br>
+          ✅ Ảnh chính: nền trắng hoặc nền gỗ, giày nhìn rõ 2 bên<br>
+          ✅ Ảnh phụ: góc đế, góc trên, góc nghiêng, tag/logo thương hiệu
+        </div>
+        <div class="warning"><strong>⚠️</strong> Không dùng ảnh catalogue từ Google — phải là ảnh hàng thực tế shop đang có</div>
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="step-card" id="step7">
+      <div class="step-header" onclick="toggleStep('step7')">
+        <div class="step-num">7</div>
+        <div class="step-info">
+          <div class="step-title">Nhập mô tả ngắn</div>
+          <div class="step-desc">Thông tin quan trọng hiện ngay dưới giá</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="mock-screen">
+          <div class="mock-statusbar"><span>9:41</span><span>📶 🔋</span></div>
+          <div class="mock-body">
+            <div class="mock-label">Mô tả ngắn của sản phẩm</div>
+            <div style="border:1px solid var(--green); border-radius:6px; padding:8px; font-size:12px; line-height:1.6; color:#333">
+              ✅ Giày bóng đá sân cỏ tự nhiên<br>
+              ✅ Đế đinh FG, phù hợp sân cỏ thật<br>
+              ✅ Size: 39–44<br>
+              ✅ Hàng chính hãng, fullbox
+            </div>
+          </div>
+        </div>
+        <div class="inline-steps">
+          <div class="inline-step">Cuộn xuống tìm <strong>"Mô tả ngắn của sản phẩm"</strong></div>
+          <div class="inline-step">Gõ 3–5 gạch đầu dòng ngắn gọn, highlight điểm nổi bật</div>
+        </div>
+        <div class="tip">
+          <strong>Công thức mô tả ngắn:</strong><br>
+          • Loại giày / môn thể thao<br>
+          • Loại đế (FG/TF/IC) hoặc công dụng<br>
+          • Size có sẵn<br>
+          • Tình trạng hàng (fullbox/no box)
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 8 -->
+    <div class="step-card" id="step8">
+      <div class="step-header" onclick="toggleStep('step8')">
+        <div class="step-num">8</div>
+        <div class="step-info">
+          <div class="step-title">Thêm thuộc tính Size</div>
+          <div class="step-desc">Để khách lọc và chọn size</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="inline-steps">
+          <div class="inline-step">Trong "Dữ liệu sản phẩm", nhấn tab <strong>"Thuộc tính"</strong></div>
+          <div class="inline-step">Nhấn <strong>"Thêm"</strong> → chọn <strong>"Size"</strong> từ danh sách</div>
+          <div class="inline-step">Nhập các size có sẵn, ngăn cách bởi dấu <strong>|</strong> — VD: <code>38 | 39 | 40 | 41 | 42 | 43</code></div>
+          <div class="inline-step">Tick ô <strong>"Dùng cho biến thể"</strong> nếu muốn khách chọn size khi mua</div>
+          <div class="inline-step">Nhấn <strong>"Lưu thuộc tính"</strong></div>
+        </div>
+        <div class="tip"><strong>💡 Tip:</strong> Nếu còn nhiều size → dùng dấu | ngăn cách. Nếu chỉ còn 1 size → nhập 1 số duy nhất</div>
+      </div>
+    </div>
+
+    <!-- STEP 9 -->
+    <div class="step-card" id="step9">
+      <div class="step-header" onclick="toggleStep('step9')">
+        <div class="step-num">9</div>
+        <div class="step-info">
+          <div class="step-title">Kiểm kê kho hàng</div>
+          <div class="step-desc">Nhập số lượng tồn kho</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="inline-steps">
+          <div class="inline-step">Trong "Dữ liệu sản phẩm", nhấn tab <strong>"Kiểm kê kho hàng"</strong></div>
+          <div class="inline-step">Tick <strong>"Bật quản lý kho hàng"</strong></div>
+          <div class="inline-step">Nhập số lượng tồn kho (VD: <strong>3</strong>)</div>
+          <div class="inline-step">Trạng thái: chọn <strong>"Còn hàng"</strong></div>
+        </div>
+        <div class="warning"><strong>⚠️</strong> Nếu sản phẩm chỉ còn 1 cái → nhập <strong>1</strong>. Khi bán hết, trang sẽ tự hiện "Hết hàng"</div>
+      </div>
+    </div>
+
+    <!-- STEP 10 -->
+    <div class="step-card" id="step10">
+      <div class="step-header" onclick="toggleStep('step10')">
+        <div class="step-num">10</div>
+        <div class="step-info">
+          <div class="step-title">Xuất bản sản phẩm</div>
+          <div class="step-desc">Kiểm tra lại rồi nhấn Xuất bản</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <ul class="checklist">
+          <li><div class="check-icon">☐</div><div>Tên sản phẩm đầy đủ, rõ ràng <span class="req">BẮT BUỘC</span></div></li>
+          <li><div class="check-icon">☐</div><div>Giá thông thường đã nhập <span class="req">BẮT BUỘC</span></div></li>
+          <li><div class="check-icon">☐</div><div>Đã chọn danh mục đúng <span class="req">BẮT BUỘC</span></div></li>
+          <li><div class="check-icon">☐</div><div>Đã có ít nhất 1 ảnh sản phẩm <span class="req">BẮT BUỘC</span></div></li>
+          <li><div class="check-icon">☐</div><div>Mô tả ngắn đã điền</div></li>
+          <li><div class="check-icon">☐</div><div>Số lượng kho đã nhập</div></li>
+        </ul>
+        <div class="mock-screen" style="margin-top:12px">
+          <div class="mock-statusbar"><span>9:41</span><span>📶 🔋</span></div>
+          <div class="mock-body" style="text-align:center; padding:16px">
+            <div style="font-size:13px; font-weight:700; color:#333; margin-bottom:12px">📤 Xuất bản</div>
+            <div style="background:#f0f7f1; border:1px solid #c3e0c8; border-radius:8px; padding:10px; font-size:11px; color:#2D5535; margin-bottom:10px">
+              ✅ Trạng thái: Công khai<br>📅 Xuất bản ngay lập tức
+            </div>
+            <div class="mock-btn">Xuất bản</div>
+          </div>
+        </div>
+        <div class="inline-steps">
+          <div class="inline-step">Cuộn lên đầu trang, tìm ô <strong>"Xuất bản"</strong> ở cột phải</div>
+          <div class="inline-step">Kiểm tra trạng thái là <strong>"Công khai"</strong></div>
+          <div class="inline-step">Nhấn nút <strong>"Xuất bản"</strong> màu xanh</div>
+          <div class="inline-step">Thấy thông báo <em>"Sản phẩm đã được xuất bản"</em> → thành công! 🎉</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.section -->
+</div><!-- /#tab-giay-moi -->
+
+
+<!-- ===== TAB: SECONDHAND ===== -->
+<div class="content" id="tab-secondhand">
+
+  <div class="hero" style="background: linear-gradient(135deg, #6B3F1F 0%, #4a2a12 100%)">
+    <h1>Đăng Giày Secondhand ♻️</h1>
+    <p><span class="badge-2h">2HAND REAL</span> Đây là sản phẩm cốt lõi của SiGon<br>Mô tả <strong>thật</strong>, ảnh <strong>thật</strong>, giá <strong>thật</strong></p>
+    <div class="time-badge">⏱ Khoảng 15 phút / sản phẩm</div>
+  </div>
+
+  <div class="section">
+
+    <div class="quick-ref">
+      <div class="quick-ref-header">📋 Secondhand khác gì với giày mới?</div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Danh mục</div>
+        <div class="qr-value">Chọn danh mục <strong>Secondhand</strong> (VD: Giày Bóng Đá Secondhand)</div>
+      </div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Giá gốc</div>
+        <div class="qr-value">Nhập giá mới để khách thấy mức tiết kiệm (VD: 3.200.000đ)</div>
+      </div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Giá sale</div>
+        <div class="qr-value">Nhập giá bán thực tế của hàng 2hand (VD: 890.000đ)</div>
+      </div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Mô tả ngắn</div>
+        <div class="qr-value">PHẢI có: tình trạng, số lần dùng, lý do bán</div>
+      </div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Ảnh</div>
+        <div class="qr-value">Ảnh thực tế, chụp nhiều góc kể cả vết mòn nhỏ</div>
+      </div>
+    </div>
+
+    <!-- STEP SH1 -->
+    <div class="step-card open" id="sh1">
+      <div class="step-header" onclick="toggleStep('sh1')">
+        <div class="step-num" style="background:var(--brown)">1</div>
+        <div class="step-info">
+          <div class="step-title">Chọn tình trạng sản phẩm</div>
+          <div class="step-desc">Đây là thông tin quan trọng nhất</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="condition-options">
+          <div class="cond-opt selected">
+            <div class="cond-pct">95%</div>
+            <div class="cond-label">Như mới, chưa dùng nhiều</div>
+          </div>
+          <div class="cond-opt">
+            <div class="cond-pct">90%</div>
+            <div class="cond-label">Dùng vài buổi, còn đẹp</div>
+          </div>
+          <div class="cond-opt">
+            <div class="cond-pct">80%</div>
+            <div class="cond-label">Dùng thường xuyên</div>
+          </div>
+          <div class="cond-opt">
+            <div class="cond-pct">70%</div>
+            <div class="cond-label">Có vết mòn, vẫn dùng tốt</div>
+          </div>
+        </div>
+        <div class="inline-steps">
+          <div class="inline-step">Đánh giá trung thực tình trạng giày theo thang trên</div>
+          <div class="inline-step">Ghi vào <strong>Mô tả ngắn</strong>: <code>Tình trạng: Mới 90%</code></div>
+          <div class="inline-step">Ghi rõ số buổi sử dụng ước tính (VD: <em>~15 buổi đá</em>)</div>
+        </div>
+        <div class="error-note"><strong>⛔ Cam kết SiGon:</strong> Không được ghi tình trạng cao hơn thực tế. Nếu giày 80% thì ghi 80%, không ghi 90%.</div>
+      </div>
+    </div>
+
+    <!-- STEP SH2 -->
+    <div class="step-card" id="sh2">
+      <div class="step-header" onclick="toggleStep('sh2')">
+        <div class="step-num" style="background:var(--brown)">2</div>
+        <div class="step-info">
+          <div class="step-title">Điền mô tả ngắn chuẩn</div>
+          <div class="step-desc">Thông tin minh bạch, tạo tin tưởng</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="mock-screen">
+          <div class="mock-statusbar"><span>9:41</span><span>📶 🔋</span></div>
+          <div class="mock-body">
+            <div style="border:1px solid var(--brown); border-radius:6px; padding:10px; font-size:12px; line-height:1.8; color:#333">
+              ♻️ <strong>SECONDHAND REAL – Mới 85%</strong><br>
+              📦 Adidas X Speedportal.1 FG<br>
+              👟 Size: 42 (EU) – Chỉ còn 1 đôi<br>
+              ⏱ Đã dùng: ~20 buổi đá<br>
+              💬 Lý do bán: Mua dư size, không hợp foot<br>
+              ✅ Hàng auth 100%, có ảnh thật<br>
+              ❗ Nhược điểm: Vết mòn nhỏ ở đế ngoài (xem ảnh 4)
+            </div>
+          </div>
+        </div>
+        <div class="tip">
+          <strong>📝 Template mô tả ngắn 2hand:</strong><br>
+          <code>
+            ♻️ SECONDHAND REAL – Mới [X]%<br>
+            📦 [Tên model đầy đủ]<br>
+            👟 Size: [XX] – Chỉ còn 1 đôi<br>
+            ⏱ Đã dùng: ~[N] buổi<br>
+            💬 Lý do bán: [lý do]<br>
+            ✅ Hàng auth 100%<br>
+            ❗ Nhược điểm: [nếu có, ghi thật]
+          </code>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP SH3 -->
+    <div class="step-card" id="sh3">
+      <div class="step-header" onclick="toggleStep('sh3')">
+        <div class="step-num" style="background:var(--brown)">3</div>
+        <div class="step-info">
+          <div class="step-title">Chụp ảnh đúng cách cho 2hand</div>
+          <div class="step-desc">Ảnh thật → khách tin → mua nhiều hơn</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="photo-rule">
+          <div class="photo-icon-wrap good">📸</div>
+          <div><strong>Góc bắt buộc (ít nhất 5 ảnh):</strong><br>
+          1. Ảnh tổng 2 giày nhìn từ trên<br>
+          2. Giày trái – nhìn từ bên<br>
+          3. Giày phải – nhìn từ bên<br>
+          4. Góc đế (quan trọng – thấy mức mòn)<br>
+          5. Tag / logo thương hiệu (chứng minh auth)
+          </div>
+        </div>
+        <div class="photo-rule">
+          <div class="photo-icon-wrap good">✅</div>
+          <div><strong>Nên chụp thêm:</strong><br>
+          • Vết mòn / trầy nhỏ nếu có (để khách biết)<br>
+          • Lót trong giày<br>
+          • Size tab trong giày
+          </div>
+        </div>
+        <div class="photo-rule">
+          <div class="photo-icon-wrap bad">❌</div>
+          <div><strong>KHÔNG được:</strong><br>
+          • Dùng ảnh catalogue / ảnh Google<br>
+          • Chỉnh màu che khuyết điểm<br>
+          • Chụp tối, mờ, không thấy rõ
+          </div>
+        </div>
+        <div class="error-note"><strong>⛔ Quan trọng:</strong> Nếu giày có vết trầy hoặc mòn — PHẢI chụp ảnh đó và nêu rõ trong mô tả. Đây là cam kết "Real" của SiGon.</div>
+      </div>
+    </div>
+
+    <!-- STEP SH4 -->
+    <div class="step-card" id="sh4">
+      <div class="step-header" onclick="toggleStep('sh4')">
+        <div class="step-num" style="background:var(--brown)">4</div>
+        <div class="step-info">
+          <div class="step-title">Chọn danh mục đúng</div>
+          <div class="step-desc">Phải chọn mục Secondhand</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <ul class="checklist">
+          <li><div class="check-icon">♻️</div><div>Giày bóng đá 2hand → chọn <strong>"Giày Bóng Đá Secondhand"</strong></div></li>
+          <li><div class="check-icon">♻️</div><div>Giày cầu lông 2hand → chọn <strong>"Giày Cầu Lông Secondhand"</strong></div></li>
+          <li><div class="check-icon">♻️</div><div>Sneaker / đa dụng 2hand → chọn <strong>"Sneaker Lifestyle Secondhand"</strong></div></li>
+        </ul>
+        <div class="warning"><strong>⚠️</strong> Không đặt hàng 2hand vào danh mục giày mới — khách sẽ nhầm và khiếu nại</div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /#tab-secondhand -->
+
+
+<!-- ===== TAB: CHỤP HÌNH ===== -->
+<div class="content" id="tab-chuphinh">
+
+  <div class="hero" style="background: linear-gradient(135deg, #1a3a5c 0%, #0d2238 100%)">
+    <h1>Hướng Dẫn Chụp Hình 📸</h1>
+    <p>Ảnh đẹp quyết định 70% khả năng bán được hàng<br>Chụp đúng cách ngay từ đầu, tiết kiệm thời gian edit</p>
+  </div>
+
+  <div class="section">
+
+    <div class="section-title">⚙️ Cài đặt điện thoại</div>
+    <div class="step-card open" id="cam1">
+      <div class="step-header" onclick="toggleStep('cam1')">
+        <div class="step-num" style="background:#1a3a5c">📱</div>
+        <div class="step-info">
+          <div class="step-title">Trước khi chụp</div>
+          <div class="step-desc">Chuẩn bị máy ảnh đúng cách</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <ul class="checklist">
+          <li><div class="check-icon">✅</div><div>Lau sạch lens camera trước khi chụp</div></li>
+          <li><div class="check-icon">✅</div><div>Chụp ở chế độ <strong>tự nhiên / auto</strong>, không dùng filter làm sáng quá</div></li>
+          <li><div class="check-icon">✅</div><div>Tắt HDR nếu màu sắc bị giả</div></li>
+          <li><div class="check-icon">✅</div><div>Chụp ngang (landscape) cho ảnh tổng, dọc (portrait) cho ảnh chi tiết</div></li>
+          <li><div class="check-icon">✅</div><div>Độ phân giải: để mặc định cao nhất</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-title">💡 Ánh sáng</div>
+    <div class="step-card open" id="cam2">
+      <div class="step-header" onclick="toggleStep('cam2')">
+        <div class="step-num" style="background:#f5a623">💡</div>
+        <div class="step-info">
+          <div class="step-title">Ánh sáng chuẩn nhất</div>
+          <div class="step-desc">Không cần studio, chỉ cần ánh sáng tự nhiên</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="photo-rule">
+          <div class="photo-icon-wrap good">☀️</div>
+          <div>
+            <strong>Tốt nhất:</strong> Ánh sáng tự nhiên từ cửa sổ, buổi sáng hoặc chiều. Đặt giày gần cửa sổ, ánh sáng chiếu từ 1 bên.
+          </div>
+        </div>
+        <div class="photo-rule">
+          <div class="photo-icon-wrap good">🔦</div>
+          <div>
+            <strong>Nếu trong nhà tối:</strong> Bật đèn trần + đèn bàn chiếu từ 2 phía. Tránh 1 đèn chiếu thẳng (tạo bóng xấu).
+          </div>
+        </div>
+        <div class="photo-rule">
+          <div class="photo-icon-wrap bad">❌</div>
+          <div>
+            <strong>Tránh:</strong> Flash điện thoại trực tiếp (màu trắng, bóng cứng), chụp ngược sáng, chụp dưới đèn màu vàng quá.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">🖼 Nền chụp</div>
+    <div class="step-card open" id="cam3">
+      <div class="step-header" onclick="toggleStep('cam3')">
+        <div class="step-num" style="background:#888">🖼</div>
+        <div class="step-info">
+          <div class="step-title">Chọn nền phù hợp</div>
+          <div class="step-desc">Nền đơn giản = giày nổi bật hơn</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="photo-rule">
+          <div class="photo-icon-wrap good">✅</div>
+          <div>
+            <strong>Nền trắng/xám nhạt:</strong> Tấm cartong trắng, giấy trắng khổ lớn, tường trắng. Giày hiện rõ nhất.
+          </div>
+        </div>
+        <div class="photo-rule">
+          <div class="photo-icon-wrap good">✅</div>
+          <div>
+            <strong>Nền gỗ/sàn đá:</strong> Texture tự nhiên, cho ảnh lifestyle đẹp, phù hợp sneaker.
+          </div>
+        </div>
+        <div class="photo-rule">
+          <div class="photo-icon-wrap bad">❌</div>
+          <div>
+            <strong>Tránh:</strong> Nền sàn gạch bẩn, giường/chăn, nền có nhiều đồ vật lộn xộn xung quanh.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">👟 Góc chụp chuẩn</div>
+    <div class="quick-ref">
+      <div class="quick-ref-header">Checklist góc chụp bắt buộc</div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Góc 1</div>
+        <div class="qr-value">📸 Nhìn từ trên xuống — 2 giày đặt song song</div>
+      </div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Góc 2</div>
+        <div class="qr-value">📸 Nhìn từ bên – 45° góc nghiêng</div>
+      </div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Góc 3</div>
+        <div class="qr-value">📸 Nhìn từ phía sau</div>
+      </div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Góc 4</div>
+        <div class="qr-value">📸 Đế giày — lật ngửa lên chụp</div>
+      </div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Góc 5</div>
+        <div class="qr-value">📸 Logo thương hiệu / tag size bên trong</div>
+      </div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Góc +</div>
+        <div class="qr-value">📸 Chi tiết đặc biệt của model (nếu có)</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /#tab-chuphinh -->
+
+
+<!-- ===== TAB: LƯU Ý ===== -->
+<div class="content" id="tab-luu-y">
+
+  <div class="hero" style="background: linear-gradient(135deg, #7b1a1a 0%, #4a0d0d 100%)">
+    <h1>Những Lỗi Hay Gặp ⚠️</h1>
+    <p>Đọc để tránh bị sửa bài hoặc xoá sản phẩm</p>
+  </div>
+
+  <div class="section">
+
+    <div class="section-title">❌ Lỗi thường gặp</div>
+
+    <div class="step-card open" id="err1">
+      <div class="step-header" onclick="toggleStep('err1')">
+        <div class="step-num" style="background:var(--red)">!</div>
+        <div class="step-info">
+          <div class="step-title">Nhập giá sai định dạng</div>
+          <div class="step-desc">Lỗi phổ biến nhất</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <ul class="checklist">
+          <li><div class="check-icon">❌</div><div><strong>Sai:</strong> 3.290.000 / 3,290,000 / 3290000đ / "3tr2"</div></li>
+          <li><div class="check-icon">✅</div><div><strong>Đúng:</strong> <code>3290000</code> (số thuần, không ký tự thừa)</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-card" id="err2">
+      <div class="step-header" onclick="toggleStep('err2')">
+        <div class="step-num" style="background:var(--red)">!</div>
+        <div class="step-info">
+          <div class="step-title">Quên chọn danh mục</div>
+          <div class="step-desc">Sản phẩm sẽ bị "Chưa phân loại"</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="error-note">Nếu không chọn danh mục, sản phẩm sẽ vào mục "Chưa phân loại" — khách không thể tìm thấy qua menu.</div>
+        <div class="tip"><strong>Fix:</strong> Cuộn qua phần "Danh mục sản phẩm" và tick ít nhất 1 danh mục trước khi xuất bản.</div>
+      </div>
+    </div>
+
+    <div class="step-card" id="err3">
+      <div class="step-header" onclick="toggleStep('err3')">
+        <div class="step-num" style="background:var(--red)">!</div>
+        <div class="step-info">
+          <div class="step-title">Đặt hàng 2hand vào mục giày mới</div>
+          <div class="step-desc">Gây hiểu lầm, khách khiếu nại</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="error-note"><strong>⛔ Nghiêm cấm:</strong> Đặt sản phẩm secondhand vào danh mục giày mới để "bán nhanh hơn". Điều này vi phạm cam kết "Real" của SiGon và gây mất uy tín thương hiệu.</div>
+      </div>
+    </div>
+
+    <div class="step-card" id="err4">
+      <div class="step-header" onclick="toggleStep('err4')">
+        <div class="step-num" style="background:var(--red)">!</div>
+        <div class="step-info">
+          <div class="step-title">Upload ảnh catalogue / ảnh Google</div>
+          <div class="step-desc">Khách sẽ nhận hàng khác với ảnh</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="error-note"><strong>⛔ Không được dùng:</strong> Ảnh lấy từ Google, website khác, hoặc ảnh chụp màn hình. Tất cả ảnh phải là <strong>hàng thực tế đang có trong kho</strong>.</div>
+        <div class="tip"><strong>✅ Đúng:</strong> Tự chụp hàng đang có tại shop. Xem tab "Chụp Hình" để chụp đẹp hơn.</div>
+      </div>
+    </div>
+
+    <div class="step-card" id="err5">
+      <div class="step-header" onclick="toggleStep('err5')">
+        <div class="step-num" style="background:#f0a500">!</div>
+        <div class="step-info">
+          <div class="step-title">Quên cập nhật tồn kho</div>
+          <div class="step-desc">Sản phẩm hết hàng nhưng vẫn hiện "Còn hàng"</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="warning"><strong>⚠️</strong> Khi bán hết 1 sản phẩm: vào Sản phẩm → Chỉnh sửa → Kiểm kê kho hàng → đổi thành <strong>"Hết hàng"</strong> hoặc số lượng về 0.</div>
+      </div>
+    </div>
+
+    <div class="section-title" style="margin-top:8px">📞 Liên hệ hỗ trợ</div>
+    <div class="quick-ref">
+      <div class="quick-ref-header">Cần giúp đỡ?</div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Quản lý</div>
+        <div class="qr-value"><a href="tel:0878627139" style="color:var(--green); font-weight:700">0878.627.139</a></div>
+      </div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Email</div>
+        <div class="qr-value"><a href="mailto:sigonsport@gmail.com" style="color:var(--green)">sigonsport@gmail.com</a></div>
+      </div>
+      <div class="quick-ref-row">
+        <div class="qr-label">WP Admin</div>
+        <div class="qr-value"><a href="https://sigon.vn/wp-admin" style="color:var(--green)">sigon.vn/wp-admin</a></div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /#tab-luu-y -->
+
+
+<!-- ===== TAB: QUẢN LÝ ===== -->
+<div class="content" id="tab-quan-ly">
+
+  <div class="hero">
+    <h1>Quản Lý Danh Mục ⚙️</h1>
+    <p>Bổ sung thương hiệu mới, size mới<br>và các thao tác quản trị cơ bản</p>
+  </div>
+
+  <div class="section">
+
+    <div class="section-title">🏷️ Thêm Thương Hiệu Mới</div>
+    <div class="step-card open" id="ql1">
+      <div class="step-header" onclick="toggleStep('ql1')">
+        <div class="step-num">1</div>
+        <div class="step-info">
+          <div class="step-title">Vào trang quản lý thương hiệu</div>
+          <div class="step-desc">Truy cập link sau trên trình duyệt</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="tip">Mở trình duyệt và vào:<br><strong><a href="https://sigon.vn/wp-admin/edit-tags.php?taxonomy=pa_thuong-hieu" style="color:var(--green)">sigon.vn/wp-admin/edit-tags.php?taxonomy=pa_thuong-hieu</a></strong></div>
+        <div class="tip" style="margin-top:8px">Hoặc vào <strong>WP Admin → Sản phẩm → Thương hiệu</strong> trong menu trái.</div>
+      </div>
+    </div>
+
+    <div class="step-card" id="ql2">
+      <div class="step-header" onclick="toggleStep('ql2')">
+        <div class="step-num">2</div>
+        <div class="step-info">
+          <div class="step-title">Điền thông tin thương hiệu</div>
+          <div class="step-desc">Tên hiển thị và slug (không dấu)</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="quick-ref">
+          <div class="quick-ref-row"><div class="qr-label">Tên</div><div class="qr-value">Ví dụ: <strong>New Balance</strong></div></div>
+          <div class="quick-ref-row"><div class="qr-label">Slug</div><div class="qr-value">Tự động tạo — không cần nhập</div></div>
+          <div class="quick-ref-row"><div class="qr-label">Mô tả</div><div class="qr-value">Bỏ trống được</div></div>
+        </div>
+        <div class="tip" style="margin-top:8px">✅ Nhấn <strong>"Thêm thương hiệu mới"</strong> → thương hiệu sẽ xuất hiện ngay trong dropdown khi đăng sản phẩm.</div>
+      </div>
+    </div>
+
+    <div class="section-title" style="margin-top:16px">📏 Thêm Size Mới</div>
+    <div class="step-card" id="ql3">
+      <div class="step-header" onclick="toggleStep('ql3')">
+        <div class="step-num">1</div>
+        <div class="step-info">
+          <div class="step-title">Vào trang quản lý size</div>
+          <div class="step-desc">Truy cập link sau trên trình duyệt</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="tip">Mở trình duyệt và vào:<br><strong><a href="https://sigon.vn/wp-admin/edit-tags.php?taxonomy=pa_size" style="color:var(--green)">sigon.vn/wp-admin/edit-tags.php?taxonomy=pa_size</a></strong></div>
+        <div class="tip" style="margin-top:8px">Hoặc vào <strong>WP Admin → Sản phẩm → Thuộc tính → Size → Cấu hình các terms</strong>.</div>
+      </div>
+    </div>
+
+    <div class="step-card" id="ql4">
+      <div class="step-header" onclick="toggleStep('ql4')">
+        <div class="step-num">2</div>
+        <div class="step-info">
+          <div class="step-title">Điền số size cần thêm</div>
+          <div class="step-desc">Nhập số nguyên, ví dụ: 46</div>
+        </div>
+        <div class="step-toggle">▾</div>
+      </div>
+      <div class="step-body">
+        <div class="quick-ref">
+          <div class="quick-ref-row"><div class="qr-label">Tên</div><div class="qr-value">Ví dụ: <strong>46</strong></div></div>
+          <div class="quick-ref-row"><div class="qr-label">Slug</div><div class="qr-value">Tự động tạo — không cần nhập</div></div>
+        </div>
+        <div class="tip" style="margin-top:8px">✅ Nhấn <strong>"Thêm size mới"</strong> → size sẽ xuất hiện ngay trong dropdown khi đăng sản phẩm.</div>
+        <div class="warning" style="margin-top:8px">⚠️ Không xóa size cũ nếu đang có sản phẩm dùng size đó — sẽ làm mất thông tin thuộc tính.</div>
+      </div>
+    </div>
+
+    <div class="section-title" style="margin-top:16px">🔗 Link nhanh Quản Trị</div>
+    <div class="quick-ref">
+      <div class="quick-ref-header">Truy cập nhanh</div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Thương hiệu</div>
+        <div class="qr-value"><a href="https://sigon.vn/wp-admin/edit-tags.php?taxonomy=pa_thuong-hieu" style="color:var(--green)">Quản lý →</a></div>
+      </div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Size</div>
+        <div class="qr-value"><a href="https://sigon.vn/wp-admin/edit-tags.php?taxonomy=pa_size" style="color:var(--green)">Quản lý →</a></div>
+      </div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Danh mục</div>
+        <div class="qr-value"><a href="https://sigon.vn/wp-admin/edit-tags.php?taxonomy=product_cat" style="color:var(--green)">Quản lý →</a></div>
+      </div>
+      <div class="quick-ref-row">
+        <div class="qr-label">Tất cả SP</div>
+        <div class="qr-value"><a href="https://sigon.vn/wp-admin/edit.php?post_type=product" style="color:var(--green)">Quản lý →</a></div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /#tab-quan-ly -->
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <strong>SiGon Sport</strong> – Giày Real · Giá Hời · Chất Sài Gòn<br>
+  <span style="font-size:11px">Tài liệu nội bộ – Không chia sẻ ra ngoài</span>
+</footer>
+
+<script>
+  function switchTab(id) {
+    // Update tabs
+    document.querySelectorAll('.nav-tab').forEach(function(t) { t.classList.remove('active'); });
+    event.target.classList.add('active');
+    // Update content
+    document.querySelectorAll('.content').forEach(function(c) { c.classList.remove('active'); });
+    document.getElementById('tab-' + id).classList.add('active');
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleStep(id) {
+    var card = document.getElementById(id);
+    card.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

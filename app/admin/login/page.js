@@ -50,7 +50,7 @@ export default function AdminLoginPage() {
               <input
                 type="email" required
                 value={email} onChange={e => setEmail(e.target.value)}
-                placeholder="admin@sigonsport.vn"
+                placeholder="admin@sigon.vn"
                 style={{
                   width: '100%', padding: '10px 14px', borderRadius: 8,
                   border: '1.5px solid #334155', background: '#0f172a',

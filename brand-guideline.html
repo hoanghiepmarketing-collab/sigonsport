@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SiGon Brand Guideline — sigon.vn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:        #F5EFE2;
+      --cream-dark:   #EDE6D6;
+      --cream-darker: #E2D9C8;
+      --green:        #2D5535;
+      --green-dark:   #1E3D24;
+      --si:           #C44D28;
+      --red:          #E5002B;
+      --brown:        #8B5E3C;
+      --success:      #2D7A3A;
+      --text:         #2A3D2A;
+      --text-muted:   #6B7A6B;
+      --border:       #D4C9B8;
+      --white:        #FFFFFF;
+      --font-head:    'Montserrat', sans-serif;
+      --font-body:    'Be Vietnam Pro', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    .sidebar {
+      position: fixed;
+      left: 0; top: 0; bottom: 0;
+      width: 240px;
+      background: var(--green-dark);
+      padding: 32px 0;
+      overflow-y: auto;
+      z-index: 100;
+    }
+    .sidebar-logo {
+      padding: 0 24px 28px;
+      border-bottom: 1px solid rgba(245,239,226,.15);
+      margin-bottom: 20px;
+    }
+    .sidebar-logo .logo-text {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: 26px;
+      line-height: 1;
+    }
+    .sidebar-logo .logo-si  { color: #C44D28; }
+    .sidebar-logo .logo-gon { color: #F5EFE2; }
+    .sidebar-logo .logo-sub {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: rgba(245,239,226,.5);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .sidebar nav a {
+      display: block;
+      padding: 9px 24px;
+      color: rgba(245,239,226,.7);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all .2s;
+      border-left: 3px solid transparent;
+    }
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      color: #F5EFE2;
+      background: rgba(255,255,255,.08);
+      border-left-color: #C44D28;
+    }
+    .sidebar nav .nav-section {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(245,239,226,.35);
+      padding: 20px 24px 6px;
+    }
+
+    /* ── LAYOUT ── */
+    .content {
+      margin-left: 240px;
+      min-height: 100vh;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--green-dark);
+      padding: 80px 64px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      right: -60px; top: -60px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(196,77,40,.15);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: 120px; bottom: -80px;
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      background: rgba(45,85,53,.4);
+    }
+    .hero-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(245,239,226,.5);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: 64px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 .si  { color: #C44D28; }
+    .hero h1 .gon { color: #F5EFE2; }
+    .hero h1 .rest{ color: rgba(245,239,226,.4); font-size: 40px; font-weight: 700; display: block; margin-top: 6px; }
+    .hero-desc {
+      color: rgba(245,239,226,.7);
+      font-size: 16px;
+      max-width: 500px;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-meta-item { }
+    .hero-meta-item .label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(245,239,226,.4);
+    }
+    .hero-meta-item .value {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(245,239,226,.85);
+      margin-top: 2px;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 64px;
+      border-bottom: 1px solid var(--border);
+    }
+    section:last-child { border-bottom: none; }
+    section.alt { background: var(--cream-dark); }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--si);
+      margin-bottom: 10px;
+    }
+    h2.section-title {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 36px;
+      color: var(--green-dark);
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+
+    /* ── DIVIDER ── */
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    /* ── LOGO SECTION ── */
+    .logo-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .logo-card {
+      border-radius: 12px;
+      padding: 48px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .logo-card.on-cream  { background: var(--cream); border: 2px solid var(--border); }
+    .logo-card.on-green  { background: var(--green); }
+    .logo-card.on-dark   { background: var(--green-dark); }
+    .logo-card .logo-render {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: 42px;
+      line-height: 1;
+    }
+    .logo-card .logo-render .si { color: #C44D28; }
+    .logo-card.on-cream .logo-render .gon { color: #2D5535; }
+    .logo-card.on-green .logo-render .gon,
+    .logo-card.on-dark .logo-render .gon  { color: #F5EFE2; }
+    .logo-card .logo-sub-text {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .logo-card.on-cream  .logo-sub-text { color: var(--green); }
+    .logo-card.on-green  .logo-sub-text,
+    .logo-card.on-dark   .logo-sub-text { color: rgba(245,239,226,.6); }
+    .logo-card .card-label {
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .logo-card.on-cream  .card-label { color: var(--text-muted); }
+    .logo-card.on-green  .card-label,
+    .logo-card.on-dark   .card-label { color: rgba(245,239,226,.5); }
+
+    .logo-rules {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .logo-rule-card {
+      border-radius: 10px;
+      padding: 20px 24px;
+      border: 1.5px solid var(--border);
+    }
+    .logo-rule-card.do-card { border-color: var(--success); background: rgba(45,122,58,.05); }
+    .logo-rule-card.dont-card { border-color: var(--red); background: rgba(229,0,43,.05); }
+    .logo-rule-card .rule-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    .do-card .rule-header { color: var(--success); }
+    .dont-card .rule-header { color: var(--red); }
+    .logo-rule-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .logo-rule-card ul li {
+      font-size: 13px;
+      color: var(--text);
+      padding-left: 16px;
+      position: relative;
+    }
+    .logo-rule-card ul li::before {
+      content: '·';
+      position: absolute;
+      left: 4px;
+      color: var(--text-muted);
+    }
+
+    /* ── COLOR PALETTE ── */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .color-swatch {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .swatch-block {
+      height: 100px;
+    }
+    .swatch-info {
+      background: var(--white);
+      padding: 14px 16px;
+    }
+    .swatch-name {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .swatch-hex {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .swatch-var {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .swatch-role {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px solid var(--border);
+    }
+    .color-secondary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .color-swatch.sm .swatch-block { height: 64px; }
+
+    /* ── TYPOGRAPHY ── */
+    .type-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .type-card {
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      overflow: hidden;
+    }
+    .type-card-header {
+      background: var(--green);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .type-card-header .font-name {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--cream);
+    }
+    .type-card-header .font-role {
+      font-size: 11px;
+      background: rgba(255,255,255,.15);
+      color: var(--cream);
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+    .type-card-body {
+      background: var(--white);
+      padding: 28px 24px;
+    }
+    .type-specimen {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .type-weights {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .type-weight-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .type-weight-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      width: 80px;
+      flex-shrink: 0;
+    }
+    .type-sample {
+      font-size: 20px;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .type-scale {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      overflow: hidden;
+    }
+    .type-scale-header {
+      background: var(--green-dark);
+      padding: 14px 24px;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--cream);
+    }
+    .type-scale-row {
+      display: flex;
+      align-items: center;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--cream-dark);
+      gap: 24px;
+    }
+    .type-scale-row:last-child { border-bottom: none; }
+    .ts-info {
+      width: 120px;
+      flex-shrink: 0;
+    }
+    .ts-name { font-weight: 700; font-size: 12px; color: var(--text); }
+    .ts-meta { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+    .ts-sample { color: var(--text); flex: 1; }
+
+    /* ── VOICE ── */
+    .voice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .voice-card {
+      border-radius: 12px;
+      padding: 28px;
+      border: 1.5px solid var(--border);
+    }
+    .voice-card h4 {
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .voice-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .voice-card ul li {
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 6px;
+    }
+    .do-card-voice { background: rgba(45,122,58,.05); border-color: var(--success); }
+    .do-card-voice h4 { color: var(--success); }
+    .do-card-voice ul li { background: rgba(45,122,58,.08); color: var(--text); }
+    .dont-card-voice { background: rgba(229,0,43,.04); border-color: var(--red); }
+    .dont-card-voice h4 { color: var(--red); }
+    .dont-card-voice ul li { background: rgba(229,0,43,.07); color: var(--text); }
+
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .persona-card {
+      border-radius: 12px;
+      padding: 24px 16px;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      text-align: center;
+    }
+    .persona-icon { font-size: 32px; margin-bottom: 12px; }
+    .persona-trait {
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .persona-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── COMPONENTS ── */
+    .comp-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: var(--cream);
+    }
+    .btn-primary:hover { background: var(--green-dark); }
+    .btn-si {
+      background: var(--si);
+      color: var(--white);
+    }
+    .btn-si:hover { background: #a83d1f; }
+    .btn-outline {
+      border-color: var(--green);
+      color: var(--green);
+      background: transparent;
+    }
+    .btn-outline:hover { background: var(--green); color: var(--cream); }
+    .btn-ghost {
+      color: var(--green);
+      background: transparent;
+      border-color: transparent;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .btn-danger { background: var(--red); color: white; }
+    .btn-sm { padding: 7px 14px; font-size: 12px; }
+    .btn-lg { padding: 14px 28px; font-size: 16px; }
+
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-hot  { background: var(--red);     color: white; }
+    .badge-new  { background: var(--green);   color: var(--cream); }
+    .badge-sale { background: var(--si);      color: white; }
+    .badge-2h   { background: var(--brown);   color: white; }
+    .badge-stock{ background: var(--success); color: white; }
+    .badge-condition { background: var(--cream-darker); color: var(--text); border: 1px solid var(--border); }
+
+    .comp-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      margin-top: 32px;
+    }
+
+    /* ── PRODUCT CARD DEMO ── */
+    .card-demo-row {
+      display: grid;
+      grid-template-columns: repeat(3, 240px);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .product-card {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all .25s;
+      position: relative;
+    }
+    .product-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+      transform: translateY(-3px);
+    }
+    .card-img {
+      aspect-ratio: 1;
+      background: var(--cream-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      position: relative;
+    }
+    .card-badges {
+      position: absolute;
+      top: 10px; left: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .card-body { padding: 14px; }
+    .card-brand {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .card-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .card-condition {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+    .card-price {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .price-sale { font-weight: 800; font-size: 16px; color: var(--si); }
+    .price-orig { font-size: 12px; color: var(--text-muted); text-decoration: line-through; }
+    .price-discount {
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(229,0,43,.1);
+      color: var(--red);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    /* ── SPACING ── */
+    .spacing-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .spacing-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .spacing-block { background: var(--green); border-radius: 4px; width: 40px; }
+    .spacing-label { font-size: 11px; color: var(--text-muted); text-align: center; }
+
+    .radius-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .radius-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .radius-block {
+      width: 64px; height: 64px;
+      background: var(--green);
+    }
+    .radius-label { font-size: 11px; color: var(--text-muted); text-align: center; }
+
+    /* ── TARGETS ── */
+    .target-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .target-card {
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      overflow: hidden;
+    }
+    .target-header {
+      padding: 20px 24px;
+      background: var(--green);
+    }
+    .target-header.secondary { background: var(--green-dark); }
+    .target-tier {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: rgba(245,239,226,.5);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .target-name {
+      font-weight: 800;
+      font-size: 17px;
+      color: var(--cream);
+    }
+    .target-body {
+      background: var(--white);
+      padding: 20px 24px;
+    }
+    .target-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+    .target-key {
+      font-weight: 700;
+      color: var(--green);
+      width: 80px;
+      flex-shrink: 0;
+    }
+    .target-val { color: var(--text); }
+
+    /* ── SOCIALS ── */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .social-card {
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      overflow: hidden;
+    }
+    .social-header {
+      padding: 20px 24px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .social-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .fb .social-header   { background: #1877F2; }
+    .ig .social-header   { background: linear-gradient(135deg,#833AB4,#FD1D1D,#F77737); }
+    .tt .social-header   { background: #010101; }
+    .social-icon-fb { background: rgba(255,255,255,.2); color: white; }
+    .social-icon-ig { background: rgba(255,255,255,.2); color: white; }
+    .social-icon-tt { background: rgba(255,255,255,.15); color: white; }
+    .social-name { font-weight: 800; font-size: 15px; color: white; }
+    .social-handle { font-size: 12px; color: rgba(255,255,255,.7); margin-top: 2px; }
+    .social-body {
+      background: var(--white);
+      padding: 16px 20px;
+    }
+    .social-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .social-body ul li {
+      font-size: 13px;
+      color: var(--text);
+      padding-left: 14px;
+      position: relative;
+    }
+    .social-body ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-size: 11px;
+    }
+
+    /* ── DO DONT ── */
+    .do-dont-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .do-dont-card {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .do-dont-head {
+      padding: 16px 24px;
+      font-weight: 800;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .do-head  { background: var(--success); color: white; }
+    .dont-head{ background: var(--red);     color: white; }
+    .do-dont-body {
+      border: 1.5px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+    }
+    .do-dont-item {
+      padding: 12px 20px;
+      font-size: 13px;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .do-dont-item:last-child { border-bottom: none; }
+    .do-dont-item .icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── INFO BOX ── */
+    .info-box {
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-top: 24px;
+      border: 1.5px solid var(--border);
+    }
+    .info-box.tip    { background: rgba(45,85,53,.06); border-color: rgba(45,85,53,.25); }
+    .info-box.warning{ background: rgba(196,77,40,.06); border-color: rgba(196,77,40,.3); }
+    .info-box h5 {
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .info-box.tip h5    { color: var(--green); }
+    .info-box.warning h5{ color: var(--si); }
+    .info-box p { font-size: 13px; color: var(--text); }
+
+    /* ── CODE ── */
+    code {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      background: rgba(45,85,53,.1);
+      color: var(--green-dark);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    pre {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      background: var(--green-dark);
+      color: #a8d5b5;
+      padding: 20px 24px;
+      border-radius: 10px;
+      overflow-x: auto;
+      line-height: 1.7;
+      margin: 16px 0;
+    }
+    pre .comment { color: rgba(168,213,181,.5); }
+    pre .key     { color: #81d4fa; }
+    pre .val     { color: #c5e1a5; }
+    pre .str     { color: #f48fb1; }
+
+    /* ── TABLE ── */
+    .table-wrap { overflow-x: auto; margin: 24px 0; }
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      background: var(--green);
+      color: var(--cream);
+      font-weight: 700;
+      font-size: 12px;
+      padding: 11px 16px;
+      text-align: left;
+      letter-spacing: .5px;
+    }
+    td {
+      padding: 11px 16px;
+      font-size: 13px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    tr:nth-child(even) td { background: var(--cream-dark); }
+    tr:last-child td { border-bottom: none; }
+
+    /* ── FOOTER ── */
+    .guide-footer {
+      background: var(--green-dark);
+      padding: 40px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-brand .logo-text {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: 24px;
+    }
+    .footer-brand .logo-text .si  { color: #C44D28; }
+    .footer-brand .logo-text .gon { color: #F5EFE2; }
+    .footer-brand .footer-sub {
+      font-size: 11px;
+      color: rgba(245,239,226,.4);
+      margin-top: 4px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    .footer-meta { text-align: right; font-size: 12px; color: rgba(245,239,226,.4); line-height: 1.8; }
+    .footer-meta strong { color: rgba(245,239,226,.7); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .sidebar { display: none; }
+      .content { margin-left: 0; }
+      .hero { padding: 48px 32px; }
+      section { padding: 48px 32px; }
+      .guide-footer { padding: 32px; }
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 40px; }
+      .hero h1 .rest { font-size: 26px; }
+      .logo-showcase { grid-template-columns: 1fr; }
+      .color-grid { grid-template-columns: repeat(2, 1fr); }
+      .color-secondary-grid { grid-template-columns: repeat(2, 1fr); }
+      .type-showcase { grid-template-columns: 1fr; }
+      .persona-grid { grid-template-columns: repeat(2, 1fr); }
+      .voice-grid { grid-template-columns: 1fr; }
+      .target-grid { grid-template-columns: 1fr; }
+      .social-grid { grid-template-columns: 1fr; }
+      .do-dont-grid { grid-template-columns: 1fr; }
+      .card-demo-row { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SIDEBAR NAV -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-text"><span class="logo-si">Si</span><span class="logo-gon">Gon</span></div>
+    <div class="logo-sub">Brand Guideline</div>
+  </div>
+  <nav>
+    <div class="nav-section">Thương hiệu</div>
+    <a href="#overview">Tổng quan</a>
+    <a href="#logo">Logo & Nhận diện</a>
+    <a href="#colors">Màu sắc</a>
+    <a href="#typography">Typography</a>
+
+    <div class="nav-section">Nội dung</div>
+    <a href="#voice">Giọng nói & Tone</a>
+    <a href="#audience">Đối tượng</a>
+    <a href="#social">Mạng xã hội</a>
+
+    <div class="nav-section">Giao diện</div>
+    <a href="#components">UI Components</a>
+    <a href="#spacing">Spacing & Layout</a>
+    <a href="#secondhand">Secondhand Rules</a>
+
+    <div class="nav-section">Quy tắc</div>
+    <a href="#dodont">Do & Don't</a>
+  </nav>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="content">
+
+  <!-- HERO -->
+  <div class="hero" id="overview">
+    <div class="hero-label">Brand Identity System — v1.0 · 2026</div>
+    <h1>
+      <span class="si">Si</span><span class="gon">Gon</span>
+      <span class="rest">Brand Guideline</span>
+    </h1>
+    <p class="hero-desc">
+      Tài liệu nhận diện thương hiệu chính thức của SiGon Secondhand. Hướng dẫn sử dụng logo, màu sắc, typography, giọng nói và các quy tắc thiết kế đảm bảo tính nhất quán trên mọi kênh.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="label">Domain</div>
+        <div class="value">sigon.vn</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Thị trường</div>
+        <div class="value">Việt Nam · TP.HCM</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Slogan</div>
+        <div class="value">Giày Real — Giá Hời — Chất Sài Gòn</div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="label">Phiên bản</div>
+        <div class="value">1.0 · Tháng 5/2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section>
+    <div class="section-label">Tổng quan</div>
+    <h2 class="section-title">Ý nghĩa thương hiệu</h2>
+    <p class="section-desc">Mọi quyết định thiết kế đều bắt nguồn từ DNA này.</p>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th>Thuộc tính</th><th>Giá trị</th></tr>
+        <tr><td><strong>Tên thương hiệu</strong></td><td><strong>SiGon</strong> / SIGON SPORT</td></tr>
+        <tr><td><strong>Tên mạng xã hội</strong></td><td>SiGon Secondhand · @sigonsecondhand</td></tr>
+        <tr><td><strong>Slogan</strong></td><td><em>Giày Real — Giá Hời — Chất Sài Gòn</em></td></tr>
+        <tr><td><strong>Ý nghĩa tên</strong></td><td><strong>Si</strong> (đồ si / secondhand) + <strong>Gon</strong> (Sài Gòn) — thương hiệu secondhand của người Sài Gòn</td></tr>
+        <tr><td><strong>Cách viết đúng</strong></td><td><strong>SiGon</strong> — chữ S và G viết hoa. Không viết "Sigon" hay "SIGON"</td></tr>
+        <tr><td><strong>Cửa hàng</strong></td><td>CN1: 160/11/19 Đặng Thuỳ Trâm, Bình Lợi Trung · CN2: 927/27B CMT8, Tân Sơn Nhất</td></tr>
+        <tr><td><strong>Email</strong></td><td>sigonseconhand@gmail.com</td></tr>
+      </table>
+    </div>
+
+    <div class="info-box warning">
+      <h5>⚠ Wordplay quan trọng</h5>
+      <p>Tên "SiGon" là chơi chữ địa phương: <strong>Si</strong> (đồ si / secondhand) + <strong>Gon</strong> (Sài Gòn). Hai chữ S và G phải luôn được viết hoa và có thể tô màu khác nhau để tôn vinh wordplay này — <span style="color:#C44D28;font-weight:700">Si</span> màu terracotta, <strong>Gon</strong> màu xanh rừng.</p>
+    </div>
+  </section>
+
+  <!-- LOGO -->
+  <section class="alt" id="logo">
+    <div class="section-label">Logo & Nhận diện</div>
+    <h2 class="section-title">Logo SiGon</h2>
+    <p class="section-desc">Logo dạng wordmark với typography Montserrat Black. Hai màu chủ đạo tạo sự tương phản và nhấn mạnh wordplay địa phương.</p>
+
+    <div class="logo-showcase">
+      <div class="logo-card on-cream">
+        <div class="logo-render"><span class="si">Si</span><span class="gon">Gon</span></div>
+        <div class="logo-sub-text">Secondhand</div>
+        <div class="card-label">Nền sáng (Cream)</div>
+      </div>
+      <div class="logo-card on-green">
+        <div class="logo-render"><span class="si">Si</span><span class="gon">Gon</span></div>
+        <div class="logo-sub-text">Secondhand</div>
+        <div class="card-label">Nền xanh lá</div>
+      </div>
+      <div class="logo-card on-dark">
+        <div class="logo-render"><span class="si">Si</span><span class="gon">Gon</span></div>
+        <div class="logo-sub-text">Secondhand</div>
+        <div class="card-label">Nền tối</div>
+      </div>
+    </div>
+
+    <div class="info-box tip" style="margin-bottom:32px">
+      <h5>Cấu trúc logo trong HTML</h5>
+      <pre><span class="comment">&lt;!-- Chuẩn dùng trên website --&gt;</span>
+&lt;span class="logo-si"&gt;Si&lt;/span&gt;&lt;span class="logo-gon"&gt;Gon&lt;/span&gt;
+
+<span class="comment">/* CSS */</span>
+.logo-si  { <span class="key">color</span>: <span class="str">#C44D28</span>; <span class="key">font-family</span>: <span class="str">'Montserrat'</span>; <span class="key">font-weight</span>: <span class="val">900</span>; }
+.logo-gon { <span class="key">color</span>: <span class="str">#2D5535</span>; <span class="key">font-family</span>: <span class="str">'Montserrat'</span>; <span class="key">font-weight</span>: <span class="val">900</span>; }</pre>
+    </div>
+
+    <div class="logo-rules">
+      <div class="logo-rule-card do-card">
+        <div class="rule-header">✓ NÊN làm</div>
+        <ul>
+          <li>Viết <strong>SiGon</strong> — S và G viết hoa</li>
+          <li>Giữ tỉ lệ màu Si:Gon nhất quán</li>
+          <li>Dùng trên nền cream, xanh, hoặc tối</li>
+          <li>Khoảng trống xung quanh logo tối thiểu = chiều cao chữ "S"</li>
+          <li>Font Montserrat Black (900) cho wordmark</li>
+        </ul>
+      </div>
+      <div class="logo-rule-card dont-card">
+        <div class="rule-header">✗ KHÔNG làm</div>
+        <ul>
+          <li>Không viết "Sigon", "SIGON", "sigon"</li>
+          <li>Không đặt logo trên nền phức tạp, loang lổ</li>
+          <li>Không kéo giãn hoặc bóp méo tỉ lệ</li>
+          <li>Không đổi font logo sang font khác</li>
+          <li>Không dùng màu khác ngoài bảng màu chuẩn</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLORS -->
+  <section id="colors">
+    <div class="section-label">Màu sắc</div>
+    <h2 class="section-title">Bảng màu thương hiệu</h2>
+    <p class="section-desc">Palette lấy cảm hứng từ street culture Sài Gòn — nền kem vintage, xanh rừng underground, terracotta đường phố. Tránh xa "corporate blue" của các brand mainstream.</p>
+
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#2D5535"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Xanh lá rừng</div>
+          <div class="swatch-hex">#2D5535</div>
+          <div class="swatch-var">--color-primary</div>
+          <div class="swatch-role">Màu chủ đạo — nav bar, icon, tiêu đề</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#C44D28"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Terracotta / Gạch</div>
+          <div class="swatch-hex">#C44D28</div>
+          <div class="swatch-var">--color-si</div>
+          <div class="swatch-role">Màu chữ "Si" — accent nổi bật</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#F5EFE2"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Kem nhạt</div>
+          <div class="swatch-hex">#F5EFE2</div>
+          <div class="swatch-var">--color-white</div>
+          <div class="swatch-role">Nền chính — đúng màu nền logo gốc</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#1E3D24"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Xanh lá đậm</div>
+          <div class="swatch-hex">#1E3D24</div>
+          <div class="swatch-var">--color-primary-dark</div>
+          <div class="swatch-role">Hover, topbar, footer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-label">Màu hỗ trợ</div>
+    <div class="color-secondary-grid">
+      <div class="color-swatch sm">
+        <div class="swatch-block" style="background:#E5002B"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Đỏ sale</div>
+          <div class="swatch-hex">#E5002B · --color-accent</div>
+          <div class="swatch-role">Giảm giá, nhãn HOT</div>
+        </div>
+      </div>
+      <div class="color-swatch sm">
+        <div class="swatch-block" style="background:#8B5E3C"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Nâu da thuộc</div>
+          <div class="swatch-hex">#8B5E3C · --color-secondhand</div>
+          <div class="swatch-role">Badge 2HAND REAL</div>
+        </div>
+      </div>
+      <div class="color-swatch sm">
+        <div class="swatch-block" style="background:#2D7A3A"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Xanh lá nhạt</div>
+          <div class="swatch-hex">#2D7A3A · --color-success</div>
+          <div class="swatch-role">Còn hàng, miễn phí ship</div>
+        </div>
+      </div>
+      <div class="color-swatch sm">
+        <div class="swatch-block" style="background:#EDE6D6"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Kem đậm</div>
+          <div class="swatch-hex">#EDE6D6 · --color-bg-light</div>
+          <div class="swatch-role">Nền section xen kẽ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box tip" style="margin-top:32px">
+      <h5>Cặp màu nền — chữ được khuyến nghị</h5>
+      <p>Xanh rừng (#2D5535) trên kem (#F5EFE2) · Terracotta (#C44D28) trên trắng (#FFFFFF) · Xanh đậm (#1E3D24) trên kem nhạt. Không dùng xanh trên xanh hoặc terracotta trên nền màu cam.</p>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section class="alt" id="typography">
+    <div class="section-label">Typography</div>
+    <h2 class="section-title">Hệ thống chữ</h2>
+    <p class="section-desc">Be Vietnam Pro cho toàn bộ nội dung. Montserrat dành riêng cho logo và wordmark không dấu. Cả hai đều là Google Fonts — miễn phí, tải nhanh.</p>
+
+    <div class="type-showcase">
+      <div class="type-card">
+        <div class="type-card-header">
+          <span class="font-name">Be Vietnam Pro</span>
+          <span class="font-role">Font chính</span>
+        </div>
+        <div class="type-card-body">
+          <div class="type-specimen">Chữ thường có dấu</div>
+          <div class="type-weights">
+            <div class="type-weight-row">
+              <span class="type-weight-label">Regular 400</span>
+              <span class="type-sample" style="font-family:'Be Vietnam Pro';font-weight:400">Giày real, giá hời</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">Medium 500</span>
+              <span class="type-sample" style="font-family:'Be Vietnam Pro';font-weight:500">Giày real, giá hời</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">Semibold 600</span>
+              <span class="type-sample" style="font-family:'Be Vietnam Pro';font-weight:600">Giày real, giá hời</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">Bold 700</span>
+              <span class="type-sample" style="font-family:'Be Vietnam Pro';font-weight:700">Giày real, giá hời</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">Black 900</span>
+              <span class="type-sample" style="font-family:'Be Vietnam Pro';font-weight:900">Giày real, giá hời</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="type-card">
+        <div class="type-card-header">
+          <span class="font-name">Montserrat</span>
+          <span class="font-role">Logo / Wordmark</span>
+        </div>
+        <div class="type-card-body">
+          <div class="type-specimen">Không dấu — logo only</div>
+          <div class="type-weights">
+            <div class="type-weight-row">
+              <span class="type-weight-label">Bold 700</span>
+              <span class="type-sample" style="font-family:'Montserrat';font-weight:700">SiGon Sport</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">ExtraBold 800</span>
+              <span class="type-sample" style="font-family:'Montserrat';font-weight:800">SiGon Sport</span>
+            </div>
+            <div class="type-weight-row">
+              <span class="type-weight-label">Black 900</span>
+              <span class="type-sample" style="font-family:'Montserrat';font-weight:900">SiGon Sport</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-scale">
+      <div class="type-scale-header">Thang kích thước chữ</div>
+      <div class="type-scale-row">
+        <div class="ts-info"><div class="ts-name">Hero / H1</div><div class="ts-meta">32–48px · Black 900</div></div>
+        <div class="ts-sample" style="font-family:'Be Vietnam Pro';font-weight:900;font-size:36px;line-height:1.1">Săn Giày Real Ngay</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="ts-info"><div class="ts-name">H2 Section</div><div class="ts-meta">24–28px · ExtraBold 800</div></div>
+        <div class="ts-sample" style="font-family:'Be Vietnam Pro';font-weight:800;font-size:24px">Sản phẩm nổi bật</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="ts-info"><div class="ts-name">H3 Card</div><div class="ts-meta">18–20px · Bold 700</div></div>
+        <div class="ts-sample" style="font-family:'Be Vietnam Pro';font-weight:700;font-size:18px">Nike Mercurial Vapor 15</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="ts-info"><div class="ts-name">Body</div><div class="ts-meta">14–15px · Regular 400</div></div>
+        <div class="ts-sample" style="font-family:'Be Vietnam Pro';font-weight:400;font-size:14px">Giày bóng đá sân cỏ tự nhiên, chính hãng Nike, còn 95%.</div>
+      </div>
+      <div class="type-scale-row">
+        <div class="ts-info"><div class="ts-name">Caption</div><div class="ts-meta">11–12px · Semibold 600</div></div>
+        <div class="ts-sample" style="font-family:'Be Vietnam Pro';font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:1px">FLASH SALE · CHỈ HÔM NAY</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICE -->
+  <section id="voice">
+    <div class="section-label">Giọng nói & Tone</div>
+    <h2 class="section-title">Brand Voice</h2>
+    <p class="section-desc">SiGon là người bạn sành giày ở Sài Gòn — không phô trương, không corporate, không đứng đắn giả tạo. Thân mật như bạn bè, chân thực như chợ trời xịn.</p>
+
+    <div class="persona-grid" style="margin-bottom:40px">
+      <div class="persona-card">
+        <div class="persona-icon">🏙️</div>
+        <div class="persona-trait">Sài Gòn Pride</div>
+        <div class="persona-desc">Tự hào là dân Sài Gòn, dùng từ ngữ địa phương tự nhiên</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">✌️</div>
+        <div class="persona-trait">Chill & Thân thiện</div>
+        <div class="persona-desc">Không bán hàng kiểu áp lực, tiếp cận như bạn bè</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">🔍</div>
+        <div class="persona-trait">Chân thực (Real)</div>
+        <div class="persona-desc">Ảnh thực tế, mô tả thật, không tô hồng tình trạng</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">🔥</div>
+        <div class="persona-trait">Đam mê sneaker</div>
+        <div class="persona-desc">Hiểu giày, sống giày — không phải sales đơn thuần</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">💸</div>
+        <div class="persona-trait">Vì cộng đồng</div>
+        <div class="persona-desc">Giúp khách có đôi giày xịn mà không cần vét ví</div>
+      </div>
+    </div>
+
+    <div class="voice-grid">
+      <div class="voice-card do-card-voice">
+        <h4>✅ NÊN dùng</h4>
+        <ul>
+          <li>"giày real", "2hand real", "auth", "xịn xò"</li>
+          <li>"deal ngon", "hời cực", "tiết kiệm ngay"</li>
+          <li>"tình trạng thật", "ảnh thật 100%"</li>
+          <li>"săn ngay kẻo hết", "số lượng có hạn"</li>
+          <li>Emoji vừa phải: ✌️ 🔥 👟 💥</li>
+          <li>Xưng hô thân mật: "bạn", "mình", "tụi mình"</li>
+        </ul>
+      </div>
+      <div class="voice-card dont-card-voice">
+        <h4>❌ KHÔNG dùng</h4>
+        <ul>
+          <li>Giọng điệu cứng nhắc, corporate</li>
+          <li>"Quý khách", "Trân trọng kính báo"</li>
+          <li>Hứa hẹn quá mức về tình trạng giày</li>
+          <li>So sánh tiêu cực với đối thủ</li>
+          <li>Emoji lạm dụng (mỗi post &gt; 5 emoji)</li>
+          <li>Tiếng Anh trộn quá nhiều không cần thiết</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box tip" style="margin-top:32px">
+      <h5>Ví dụ viết caption đúng tone</h5>
+      <p>✅ "Adidas X Speedportal dư size — anh bán rẻ cho đứa nào hợp 🔥 Tình trạng 90%, ~15 buổi đá, còn thơm. Inbox ngay kẻo hết nha!"<br><br>❌ "Kính gửi Quý khách, chúng tôi xin trân trọng thông báo sản phẩm Adidas X hiện đang được bày bán với mức giá ưu đãi..."</p>
+    </div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section class="alt" id="audience">
+    <div class="section-label">Đối tượng khách hàng</div>
+    <h2 class="section-title">Chân dung khách hàng</h2>
+    <p class="section-desc">Hai nhóm khách hàng chủ yếu — cùng mindset "giày xịn không cần mua mới", khác nhau về độ tuổi và hành vi mua.</p>
+
+    <div class="target-grid">
+      <div class="target-card">
+        <div class="target-header">
+          <div class="target-tier">Primary Target</div>
+          <div class="target-name">Gen Z Sneakerhead Sài Gòn</div>
+        </div>
+        <div class="target-body">
+          <div class="target-row"><span class="target-key">Tuổi</span><span class="target-val">18–25 · sinh viên & người đi làm mới</span></div>
+          <div class="target-row"><span class="target-key">Thu nhập</span><span class="target-val">Hạn chế nhưng muốn style đẹp</span></div>
+          <div class="target-row"><span class="target-key">Mindset</span><span class="target-val">"Không cần new, cần real và xịn"</span></div>
+          <div class="target-row"><span class="target-key">Hành vi</span><span class="target-val">Săn deal trên Facebook, Instagram, TikTok</span></div>
+          <div class="target-row"><span class="target-key">Pain point</span><span class="target-val">Không đủ tiền mua mới, sợ mua phải hàng giả</span></div>
+        </div>
+      </div>
+      <div class="target-card">
+        <div class="target-header secondary">
+          <div class="target-tier">Secondary Target</div>
+          <div class="target-name">Millennials tiết kiệm</div>
+        </div>
+        <div class="target-body">
+          <div class="target-row"><span class="target-key">Tuổi</span><span class="target-val">26–32 · biết giá trị giày chính hãng</span></div>
+          <div class="target-row"><span class="target-key">Thu nhập</span><span class="target-val">Có, nhưng ưu tiên chi tiêu thông minh</span></div>
+          <div class="target-row"><span class="target-key">Mindset</span><span class="target-val">"Secondhand chính hãng còn tốt hơn new fake"</span></div>
+          <div class="target-row"><span class="target-key">Hành vi</span><span class="target-val">So sánh kỹ trước khi mua, ưu tiên chất lượng</span></div>
+          <div class="target-row"><span class="target-key">Pain point</span><span class="target-val">Khó tìm nguồn uy tín, sợ mua phải giày không như mô tả</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL -->
+  <section id="social">
+    <div class="section-label">Mạng xã hội</div>
+    <h2 class="section-title">Kênh truyền thông</h2>
+    <p class="section-desc">Handle thống nhất <strong>@sigonsecondhand</strong> trên mọi kênh. Nội dung điều chỉnh theo format từng nền tảng nhưng giữ cùng tone và visual identity.</p>
+
+    <div class="social-grid">
+      <div class="social-card fb">
+        <div class="social-header">
+          <div class="social-icon social-icon-fb">f</div>
+          <div>
+            <div class="social-name">Facebook</div>
+            <div class="social-handle">/SigonSecondhand</div>
+          </div>
+        </div>
+        <div class="social-body">
+          <ul>
+            <li>Bài đăng sản phẩm hằng ngày</li>
+            <li>Livestream bán hàng tối</li>
+            <li>Album ảnh sản phẩm real</li>
+            <li>Chia sẻ deal mới · Flash sale</li>
+          </ul>
+        </div>
+      </div>
+      <div class="social-card ig">
+        <div class="social-header">
+          <div class="social-icon social-icon-ig">📷</div>
+          <div>
+            <div class="social-name">Instagram</div>
+            <div class="social-handle">@sigonsecondhand</div>
+          </div>
+        </div>
+        <div class="social-body">
+          <ul>
+            <li>Ảnh sản phẩm aesthetic đẹp</li>
+            <li>Reels unboxing · review ngắn</li>
+            <li>Stories thăm dò ý kiến</li>
+            <li>Highlight: 2Hand Real, New Arrival</li>
+          </ul>
+        </div>
+      </div>
+      <div class="social-card tt">
+        <div class="social-header">
+          <div class="social-icon social-icon-tt">▶</div>
+          <div>
+            <div class="social-name">TikTok</div>
+            <div class="social-handle">@sigonsecondhand</div>
+          </div>
+        </div>
+        <div class="social-body">
+          <ul>
+            <li>Vlog đi săn đồ secondhand</li>
+            <li>Review giày real vs fake</li>
+            <li>GRWM · outfit của ngày</li>
+            <li>Hướng dẫn chọn size, nhận biết hàng auth</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section class="alt" id="components">
+    <div class="section-label">UI Components</div>
+    <h2 class="section-title">Bộ thành phần giao diện</h2>
+    <p class="section-desc">Các thành phần UI tái sử dụng đảm bảo tính nhất quán trên toàn bộ website sigon.vn.</p>
+
+    <div class="comp-label">Nút bấm (Buttons)</div>
+    <div class="comp-row">
+      <a class="btn btn-primary">Mua ngay</a>
+      <a class="btn btn-si">Thêm vào giỏ</a>
+      <a class="btn btn-outline">Xem thêm</a>
+      <a class="btn btn-ghost">Tìm hiểu thêm →</a>
+      <a class="btn btn-danger">Xóa</a>
+    </div>
+    <div class="comp-row">
+      <a class="btn btn-primary btn-sm">Mua ngay · SM</a>
+      <a class="btn btn-primary">Mua ngay · MD</a>
+      <a class="btn btn-primary btn-lg">Mua ngay · LG</a>
+    </div>
+
+    <div class="comp-label">Badge / Nhãn</div>
+    <div class="comp-row">
+      <span class="badge badge-hot">HOT</span>
+      <span class="badge badge-new">MỚI</span>
+      <span class="badge badge-sale">-30%</span>
+      <span class="badge badge-2h">2HAND REAL</span>
+      <span class="badge badge-stock">Còn hàng</span>
+      <span class="badge badge-condition">Mới 90%</span>
+    </div>
+
+    <div class="comp-label">Card sản phẩm mẫu</div>
+    <div class="card-demo-row">
+
+      <!-- Card: New -->
+      <div class="product-card">
+        <div class="card-img">
+          👟
+          <div class="card-badges">
+            <span class="badge badge-hot">HOT</span>
+            <span class="badge badge-sale">-27%</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-brand">Nike</div>
+          <div class="card-name">Mercurial Vapor 15 Elite FG</div>
+          <div class="card-price">
+            <span class="price-sale">3.290.000 ₫</span>
+            <span class="price-orig">4.500.000 ₫</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card: Secondhand -->
+      <div class="product-card">
+        <div class="card-img">
+          ⚽
+          <div class="card-badges">
+            <span class="badge badge-2h">2HAND REAL</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-brand">Adidas</div>
+          <div class="card-name">X Speedportal.1 FG — Đã qua sử dụng</div>
+          <div class="card-condition">Tình trạng: Mới 85% · ~20 buổi</div>
+          <div class="card-price">
+            <span class="price-sale">890.000 ₫</span>
+            <span class="price-orig">3.200.000 ₫</span>
+            <span class="price-discount">-72%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card: Racket -->
+      <div class="product-card">
+        <div class="card-img">
+          🏸
+          <div class="card-badges">
+            <span class="badge badge-new">MỚI</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-brand">Yonex</div>
+          <div class="card-name">Astrox 99 Pro Badminton Racket</div>
+          <div class="card-price">
+            <span class="price-sale">4.150.000 ₫</span>
+            <span class="price-orig">4.800.000 ₫</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <pre><span class="comment">/* Card sản phẩm — các class chính */</span>
+.product-card          <span class="comment">{ /* wrapper */ }</span>
+.product-card:hover    <span class="comment">{ transform: translateY(-3px); box-shadow: ...; }</span>
+.card-img              <span class="comment">{ aspect-ratio: 1; background: var(--cream-dark); }</span>
+.card-badges           <span class="comment">{ position: absolute; top: 10px; left: 10px; }</span>
+.badge-2h              <span class="comment">{ background: var(--color-secondhand); /* #8B5E3C */ }</span>
+.card-condition        <span class="comment">{ color: var(--color-secondhand); font-weight: 600; }</span>
+.price-sale            <span class="comment">{ color: var(--color-si); font-weight: 800; }</span></pre>
+  </section>
+
+  <!-- SPACING -->
+  <section id="spacing">
+    <div class="section-label">Spacing & Layout</div>
+    <h2 class="section-title">Hệ thống khoảng cách</h2>
+    <p class="section-desc">Spacing scale dựa trên bội số 8px. Radius nhỏ để giữ cảm giác clean — không bo tròn quá mức kiểu "bubbly".</p>
+
+    <div class="comp-label">Spacing scale</div>
+    <div class="spacing-row">
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:4px"></div>
+        <div class="spacing-label">4px<br>xs</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:8px"></div>
+        <div class="spacing-label">8px<br>sm</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:12px"></div>
+        <div class="spacing-label">12px<br>md-sm</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:16px"></div>
+        <div class="spacing-label">16px<br>md</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:24px"></div>
+        <div class="spacing-label">24px<br>lg</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:32px"></div>
+        <div class="spacing-label">32px<br>xl</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:48px"></div>
+        <div class="spacing-label">48px<br>2xl</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-block" style="height:64px"></div>
+        <div class="spacing-label">64px<br>section</div>
+      </div>
+    </div>
+
+    <div class="comp-label">Border radius</div>
+    <div class="radius-row">
+      <div class="radius-item">
+        <div class="radius-block" style="border-radius:3px"></div>
+        <div class="radius-label">3px<br>--radius-sm<br>Badge</div>
+      </div>
+      <div class="radius-item">
+        <div class="radius-block" style="border-radius:6px"></div>
+        <div class="radius-label">6px<br>--radius-md<br>Button, Input</div>
+      </div>
+      <div class="radius-item">
+        <div class="radius-block" style="border-radius:10px"></div>
+        <div class="radius-label">10px<br>--radius-lg<br>Card</div>
+      </div>
+      <div class="radius-item">
+        <div class="radius-block" style="border-radius:16px"></div>
+        <div class="radius-label">16px<br>--radius-xl<br>Modal, Drawer</div>
+      </div>
+      <div class="radius-item">
+        <div class="radius-block" style="border-radius:999px"></div>
+        <div class="radius-label">999px<br>--radius-pill<br>Search bar</div>
+      </div>
+    </div>
+
+    <div class="comp-label">Responsive grid</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Breakpoint</th><th>Màn hình</th><th>Grid sản phẩm</th><th>Ghi chú</th></tr>
+        <tr><td><code>&lt; 480px</code></td><td>Mobile nhỏ</td><td>2 cột</td><td>Nav thu gọn, hamburger</td></tr>
+        <tr><td><code>480–767px</code></td><td>Mobile lớn</td><td>2 cột</td><td>Drawer nav từ trái</td></tr>
+        <tr><td><code>768–1023px</code></td><td>Tablet</td><td>3 cột</td><td>Menu ngang đơn giản</td></tr>
+        <tr><td><code>≥ 1024px</code></td><td>Desktop</td><td>4 cột</td><td>Full mega menu</td></tr>
+        <tr><td><code>≥ 1280px</code></td><td>Desktop XL</td><td>4 cột</td><td>Max-width 1200px centered</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECONDHAND -->
+  <section class="alt" id="secondhand">
+    <div class="section-label">Danh mục cốt lõi</div>
+    <h2 class="section-title">Quy tắc Secondhand</h2>
+    <p class="section-desc">Secondhand KHÔNG phải là danh mục phụ — đây là định danh của SiGon. Mọi sản phẩm 2hand phải tuân theo bộ quy tắc chặt chẽ dưới đây để giữ vững cam kết "Real".</p>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th>Yếu tố</th><th>Quy tắc bắt buộc</th></tr>
+        <tr><td><strong>Badge</strong></td><td>Luôn có badge <span class="badge badge-2h">2HAND REAL</span> màu nâu da thuộc (#8B5E3C)</td></tr>
+        <tr><td><strong>Tình trạng</strong></td><td>Ghi rõ: Mới 95% / Mới 90% / Mới 80% / Đã qua sử dụng nhiều</td></tr>
+        <tr><td><strong>Lý do bán</strong></td><td>Ghi chú ngắn: "Mua dư size", "Không hợp foot", "Thay đôi khác"...</td></tr>
+        <tr><td><strong>Số lần dùng</strong></td><td>Ước tính: "~15 buổi đá", "~5 lần mang", "Chưa đánh ra giải"</td></tr>
+        <tr><td><strong>Ảnh sản phẩm</strong></td><td>Ảnh THỰC TẾ — chụp nhiều góc, kể cả góc có vết mòn. Không dùng ảnh catalogue</td></tr>
+        <tr><td><strong>Giá hiển thị</strong></td><td>Giá bán + Giá mới để so sánh + % tiết kiệm</td></tr>
+        <tr><td><strong>Khuyết điểm</strong></td><td>PHẢI ghi chú rõ mọi trầy, bẩn, mòn — đây là cam kết "Real" của SiGon</td></tr>
+        <tr><td><strong>Size</strong></td><td>Thường chỉ 1 size duy nhất — hiển thị rõ ràng, không để nhầm</td></tr>
+      </table>
+    </div>
+
+    <div class="info-box warning">
+      <h5>⭐ Cam kết thương hiệu</h5>
+      <p>Mỗi sản phẩm secondhand là đại diện cho uy tín của SiGon. Một mô tả không trung thực có thể mất vĩnh viễn một khách hàng. <strong>Minh bạch là lợi thế cạnh tranh</strong>, không phải điểm yếu.</p>
+    </div>
+  </section>
+
+  <!-- DO DONT -->
+  <section id="dodont">
+    <div class="section-label">Quy tắc</div>
+    <h2 class="section-title">Do & Don't</h2>
+    <p class="section-desc">Tóm tắt các quy tắc quan trọng nhất cho mọi người khi làm việc với thương hiệu SiGon.</p>
+
+    <div class="do-dont-grid">
+      <div class="do-dont-card">
+        <div class="do-dont-head do-head">✓ NÊN LÀM</div>
+        <div class="do-dont-body">
+          <div class="do-dont-item"><span class="icon">✓</span>Viết <strong>SiGon</strong> — S và G luôn viết hoa</div>
+          <div class="do-dont-item"><span class="icon">✓</span>Dùng ảnh thực tế cho sản phẩm secondhand</div>
+          <div class="do-dont-item"><span class="icon">✓</span>Ghi rõ tình trạng, lý do bán, số lần dùng</div>
+          <div class="do-dont-item"><span class="icon">✓</span>Giọng văn thân mật, gần gũi kiểu bạn bè</div>
+          <div class="do-dont-item"><span class="icon">✓</span>Badge 2HAND REAL màu nâu #8B5E3C</div>
+          <div class="do-dont-item"><span class="icon">✓</span>Nút bấm tối thiểu 44px trên mobile</div>
+          <div class="do-dont-item"><span class="icon">✓</span>Font Montserrat cho logo, Be Vietnam Pro cho text</div>
+          <div class="do-dont-item"><span class="icon">✓</span>Hiển thị giá mới bên cạnh giá secondhand</div>
+        </div>
+      </div>
+      <div class="do-dont-card">
+        <div class="do-dont-head dont-head">✗ KHÔNG LÀM</div>
+        <div class="do-dont-body">
+          <div class="do-dont-item"><span class="icon">✗</span>Không viết "Sigon", "SIGON", "sigon"</div>
+          <div class="do-dont-item"><span class="icon">✗</span>Không dùng ảnh catalogue cho hàng 2hand</div>
+          <div class="do-dont-item"><span class="icon">✗</span>Không che giấu khuyết điểm của sản phẩm</div>
+          <div class="do-dont-item"><span class="icon">✗</span>Không viết kiểu "Quý khách", "Kính gửi"</div>
+          <div class="do-dont-item"><span class="icon">✗</span>Không kéo giãn hoặc đổi màu logo tùy tiện</div>
+          <div class="do-dont-item"><span class="icon">✗</span>Không dùng TailwindCSS, Bootstrap, jQuery</div>
+          <div class="do-dont-item"><span class="icon">✗</span>Không bỏ qua responsive cho màn hình 375px</div>
+          <div class="do-dont-item"><span class="icon">✗</span>Không để mọi chức năng quan trọng chỉ có hover</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="guide-footer">
+    <div class="footer-brand">
+      <div class="logo-text"><span class="si">Si</span><span class="gon">Gon</span></div>
+      <div class="footer-sub">Brand Identity System</div>
+    </div>
+    <div class="footer-meta">
+      <div><strong>sigon.vn</strong></div>
+      <div>sigonseconhand@gmail.com</div>
+      <div>Phiên bản 1.0 · Tháng 5/2026</div>
+      <div style="margin-top:8px;opacity:.5">Giày Real — Giá Hời — Chất Sài Gòn</div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  // Active nav highlight on scroll
+  const sections = document.querySelectorAll('[id]');
+  const links = document.querySelectorAll('.sidebar nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    links.forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+
+</body>
+</html>

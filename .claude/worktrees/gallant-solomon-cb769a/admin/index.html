@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dashboard | SIGON SPORT Admin</title>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="admin-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar__logo">
+      <div class="sidebar__logo-main">SIGON<span>SPORT</span></div>
+      <div class="sidebar__logo-sub">Admin Panel</div>
+    </div>
+    <nav class="sidebar__nav">
+      <div class="nav-label">Tổng quan</div>
+      <a href="/admin/index.html" class="nav-item active">
+        <i class="fas fa-chart-pie"></i> Dashboard
+      </a>
+      <div class="nav-label">Quản lý</div>
+      <a href="/admin/products.html" class="nav-item">
+        <i class="fas fa-box"></i> Sản phẩm
+      </a>
+      <a href="/admin/orders.html" class="nav-item">
+        <i class="fas fa-shopping-bag"></i> Đơn hàng
+      </a>
+      <div class="nav-label">Khác</div>
+      <a href="/" class="nav-item" target="_blank">
+        <i class="fas fa-external-link-alt"></i> Xem website
+      </a>
+    </nav>
+    <div class="sidebar__footer">
+      <div class="sidebar__user">
+        <div class="avatar" id="sidebar-avatar">A</div>
+        <div>
+          <div class="sidebar__user-name" id="sidebar-user">Admin</div>
+          <div class="sidebar__user-role">Quản trị viên</div>
+        </div>
+      </div>
+      <button class="btn-logout" id="btn-logout">
+        <i class="fas fa-sign-out-alt"></i> Đăng xuất
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <span class="topbar__title">Dashboard</span>
+      <div class="topbar__actions">
+        <span style="color:var(--text-muted);font-size:13px" id="last-updated"></span>
+        <button class="btn btn-outline btn-sm" onclick="loadDashboard()">
+          <i class="fas fa-sync"></i> Làm mới
+        </button>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- STAT CARDS -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card__icon stat-card__icon--blue"><i class="fas fa-shopping-bag"></i></div>
+          <div>
+            <div class="stat-card__value" id="stat-orders">—</div>
+            <div class="stat-card__label">Tổng đơn hàng</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon stat-card__icon--green"><i class="fas fa-coins"></i></div>
+          <div>
+            <div class="stat-card__value" id="stat-revenue">—</div>
+            <div class="stat-card__label">Doanh thu</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon stat-card__icon--orange"><i class="fas fa-box"></i></div>
+          <div>
+            <div class="stat-card__value" id="stat-products">—</div>
+            <div class="stat-card__label">Sản phẩm</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon stat-card__icon--red"><i class="fas fa-clock"></i></div>
+          <div>
+            <div class="stat-card__value" id="stat-pending">—</div>
+            <div class="stat-card__label">Chờ xử lý</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUICK ACTIONS -->
+      <div class="card" style="margin-bottom:20px">
+        <div class="card__header">
+          <span class="card__title"><i class="fas fa-bolt" style="color:var(--warning)"></i> Thao tác nhanh</span>
+        </div>
+        <div class="card__body" style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="/admin/products.html" class="btn btn-primary"><i class="fas fa-plus"></i> Thêm sản phẩm</a>
+          <a href="/admin/orders.html" class="btn btn-outline"><i class="fas fa-list"></i> Xem đơn hàng</a>
+          <a href="/" class="btn btn-outline" target="_blank"><i class="fas fa-eye"></i> Xem website</a>
+        </div>
+      </div>
+
+      <!-- RECENT ORDERS -->
+      <div class="card">
+        <div class="card__header">
+          <span class="card__title"><i class="fas fa-shopping-bag"></i> Đơn hàng gần đây</span>
+          <a href="/admin/orders.html" class="btn btn-outline btn-sm">Xem tất cả</a>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Mã đơn</th>
+                <th>Khách hàng</th>
+                <th>Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th>Thời gian</th>
+              </tr>
+            </thead>
+            <tbody id="recent-orders-body">
+              <tr><td colspan="5" style="text-align:center;padding:40px;color:var(--text-muted)"><i class="fas fa-spinner fa-spin"></i></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap"></div>
+
+<script src="/admin/js/admin-common.js"></script>
+<script src="/admin/js/dashboard.js"></script>
+<script>
+  document.getElementById('last-updated').textContent =
+    'Cập nhật: ' + new Date().toLocaleTimeString('vi-VN');
+</script>
+</body>
+</html>

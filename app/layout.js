@@ -10,7 +10,7 @@ export const metadata = {
   openGraph: {
     title: 'SIGON SPORT — Năng động mỗi ngày, Chất lượng mỗi bước',
     description: 'Website thể thao chuyên nghiệp với hàng nghìn sản phẩm chính hãng và secondhand.',
-    url: 'https://sigonsport.vn',
+    url: 'https://sigon.vn',
     siteName: 'SIGON SPORT',
     locale: 'vi_VN',
     type: 'website',
@@ -24,6 +24,13 @@ export default function RootLayout({ children }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        {/* Google Fonts — Be Vietnam Pro (tiếng Việt đầy đủ) + Montserrat (logo) */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body>
         {/* Font Awesome Icons */}

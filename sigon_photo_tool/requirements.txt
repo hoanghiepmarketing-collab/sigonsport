@@ -1,0 +1,5 @@
+# SiGon Photo Tool — Dependencies
+# Cài đặt: pip install -r requirements.txt
+
+google-genai>=0.7.0
+Pillow>=10.0.0

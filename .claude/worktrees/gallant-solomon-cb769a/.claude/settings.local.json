@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(python --version 2>$null)",
+      "PowerShell(node --version 2>$null)",
+      "PowerShell(Start-Process powershell -ArgumentList \"-NoExit\", \"-Command\", \"Set-Location 'h:\\\\Dự án Claude\\\\Giày'; python -m http.server 3000\")",
+      "PowerShell(Start-Process \"http://localhost:3000\")",
+      "Bash(python -m http.server 3000)",
+      "Bash(vercel --version)",
+      "Bash(npx vercel *)",
+      "Bash(vercel --prod)",
+      "mcp__Claude_Preview__preview_start",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "mcp__Claude_in_Chrome__list_connected_browsers",
+      "mcp__Claude_in_Chrome__switch_browser",
+      "Bash(grep -n \"chính sách\\\\|chinh-sach\\\\|doi-tra\\\\|bao-mat\\\\|dieu-khoan\\\\|policy\\\\|chinh_sach\" \"H:\\\\Dự án Claude\\\\Giày\\\\index.html\" -i | head -30)",
+      "Bash(git commit *)"
+    ]
+  }
+}

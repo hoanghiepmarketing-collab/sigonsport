@@ -26,7 +26,7 @@ export default function Footer() {
             </div>
             <div className="footer__contact-item">
               <i className="fa fa-envelope"></i>
-              <span><a href="mailto:info@sigonsport.vn">info@sigonsport.vn</a></span>
+              <span><a href="mailto:info@sigon.vn">info@sigon.vn</a></span>
             </div>
             <div className="footer__contact-item">
               <i className="fa fa-clock"></i>

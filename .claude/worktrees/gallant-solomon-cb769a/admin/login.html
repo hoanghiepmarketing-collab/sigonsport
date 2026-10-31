@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Đăng nhập Admin | SIGON SPORT</title>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="login-logo-main">SIGON<span>SPORT</span></div>
+      <div class="login-logo-sub">Trang quản trị</div>
+    </div>
+
+    <h2 class="login-title">Đăng nhập</h2>
+    <p class="login-desc">Nhập tài khoản admin để tiếp tục</p>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label class="form-label">Tài khoản</label>
+        <input class="form-control" type="text" id="username" placeholder="admin" required autocomplete="username">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Mật khẩu</label>
+        <div style="position:relative">
+          <input class="form-control" type="password" id="password" placeholder="••••••••" required autocomplete="current-password" style="padding-right:40px">
+          <button type="button" id="toggle-pw" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted)"><i class="fas fa-eye"></i></button>
+        </div>
+      </div>
+
+      <div id="login-error" style="display:none;color:var(--accent);font-size:13px;margin-bottom:12px;padding:10px;background:#fef2f2;border-radius:6px">
+        <i class="fas fa-exclamation-circle"></i> <span></span>
+      </div>
+
+      <button type="submit" id="login-btn" class="btn btn-primary" style="width:100%;justify-content:center;padding:12px">
+        <i class="fas fa-sign-in-alt"></i> Đăng nhập
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="toast-wrap"></div>
+
+<script>
+  // Redirect if already logged in
+  if (localStorage.getItem('sigon_admin_token')) {
+    window.location.href = '/admin/index.html';
+  }
+
+  document.getElementById('toggle-pw').addEventListener('click', function() {
+    const pw = document.getElementById('password');
+    const icon = this.querySelector('i');
+    if (pw.type === 'password') { pw.type = 'text'; icon.className = 'fas fa-eye-slash'; }
+    else { pw.type = 'password'; icon.className = 'fas fa-eye'; }
+  });
+
+  document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('login-btn');
+    const errBox = document.getElementById('login-error');
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang đăng nhập...';
+    errBox.style.display = 'none';
+
+    try {
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Đăng nhập thất bại');
+
+      localStorage.setItem('sigon_admin_token', data.token);
+      localStorage.setItem('sigon_admin_user', data.username);
+      window.location.href = '/admin/index.html';
+    } catch (err) {
+      errBox.style.display = 'block';
+      errBox.querySelector('span').textContent = err.message;
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Đăng nhập';
+    }
+  });
+</script>
+</body>
+</html>

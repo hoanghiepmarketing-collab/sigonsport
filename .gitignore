@@ -4,3 +4,6 @@ node_modules/
 .env.local
 .env*.local
 package-lock.json
+# Sensitive files
+tool/credentials.json
+tool/token.json

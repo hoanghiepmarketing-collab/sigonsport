@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sản phẩm | SIGON SPORT Admin</title>
+  <link rel="stylesheet" href="/admin/css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="sidebar__logo">
+      <div class="sidebar__logo-main">SIGON<span>SPORT</span></div>
+      <div class="sidebar__logo-sub">Admin Panel</div>
+    </div>
+    <nav class="sidebar__nav">
+      <div class="nav-label">Tổng quan</div>
+      <a href="/admin/index.html" class="nav-item"><i class="fas fa-chart-pie"></i> Dashboard</a>
+      <div class="nav-label">Quản lý</div>
+      <a href="/admin/products.html" class="nav-item active"><i class="fas fa-box"></i> Sản phẩm</a>
+      <a href="/admin/orders.html" class="nav-item"><i class="fas fa-shopping-bag"></i> Đơn hàng</a>
+      <div class="nav-label">Khác</div>
+      <a href="/" class="nav-item" target="_blank"><i class="fas fa-external-link-alt"></i> Xem website</a>
+    </nav>
+    <div class="sidebar__footer">
+      <div class="sidebar__user">
+        <div class="avatar" id="sidebar-avatar">A</div>
+        <div>
+          <div class="sidebar__user-name" id="sidebar-user">Admin</div>
+          <div class="sidebar__user-role">Quản trị viên</div>
+        </div>
+      </div>
+      <button class="btn-logout" id="btn-logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <span class="topbar__title">Quản lý sản phẩm</span>
+      <div class="topbar__actions">
+        <button class="btn btn-outline btn-sm" onclick="seedDB()" title="Nạp dữ liệu mẫu vào DB">
+          <i class="fas fa-database"></i> Seed DB
+        </button>
+        <button class="btn btn-primary" id="btn-add-product">
+          <i class="fas fa-plus"></i> Thêm sản phẩm
+        </button>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="card">
+        <div class="card__header">
+          <span class="card__title" id="products-count">Đang tải...</span>
+          <div class="toolbar" style="margin:0;flex:1;justify-content:flex-end">
+            <div class="search-box" style="max-width:260px">
+              <i class="fas fa-search"></i>
+              <input type="text" id="search-input" placeholder="Tìm theo tên...">
+            </div>
+            <select class="form-control" id="filter-sport" style="width:auto">
+              <option value="">Tất cả môn</option>
+              <option value="bong-da">⚽ Bóng đá</option>
+              <option value="cau-long">🏸 Cầu lông</option>
+              <option value="tennis">🎾 Tennis</option>
+              <option value="pickleball">🏓 Pickleball</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Ảnh</th>
+                <th>Tên sản phẩm</th>
+                <th>Môn</th>
+                <th>Danh mục</th>
+                <th>Giá</th>
+                <th>Nhãn</th>
+                <th>Tình trạng</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="products-body">
+              <tr><td colspan="8" style="text-align:center;padding:60px;color:var(--text-muted)"><i class="fas fa-spinner fa-spin fa-2x"></i></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="padding:12px 20px"><div id="pagination" class="pagination"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="product-modal" onclick="if(event.target===this)closeModal('product-modal')">
+  <div class="modal">
+    <div class="modal__header">
+      <span class="modal__title" id="modal-title">Thêm sản phẩm</span>
+      <button class="modal__close" onclick="closeModal('product-modal')">×</button>
+    </div>
+    <div class="modal__body">
+      <form id="product-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Tên sản phẩm *</label>
+            <input class="form-control" type="text" name="name" required placeholder="Nike Mercurial...">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Thương hiệu</label>
+            <input class="form-control" type="text" name="brand" placeholder="Nike, Adidas...">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Môn thể thao</label>
+            <select class="form-control" name="sport">
+              <option value="">— Chọn môn —</option>
+              <option value="bong-da">⚽ Bóng đá</option>
+              <option value="cau-long">🏸 Cầu lông</option>
+              <option value="tennis">🎾 Tennis</option>
+              <option value="pickleball">🏓 Pickleball</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Danh mục</label>
+            <select class="form-control" name="category">
+              <option value="">— Chọn danh mục —</option>
+              <option value="giay">Giày</option>
+              <option value="vot">Vợt</option>
+              <option value="phu-kien">Phụ kiện</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Giá bán (₫) *</label>
+            <input class="form-control" type="number" name="price" required placeholder="2500000">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Giá gốc (₫)</label>
+            <input class="form-control" type="number" name="originalPrice" placeholder="3500000">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">% Giảm giá</label>
+            <input class="form-control" type="number" name="discount" placeholder="0" min="0" max="100">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tình trạng (secondhand)</label>
+            <input class="form-control" type="text" name="condition" placeholder="Mới 85%">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">URL ảnh</label>
+          <input class="form-control" type="url" name="img" placeholder="https://...">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Mô tả</label>
+          <textarea class="form-control" name="description" rows="3" placeholder="Mô tả sản phẩm..."></textarea>
+        </div>
+        <div style="display:flex;gap:20px;flex-wrap:wrap">
+          <label class="form-check"><input type="checkbox" name="isNew"> Sản phẩm mới</label>
+          <label class="form-check"><input type="checkbox" name="isHot"> HOT</label>
+          <label class="form-check"><input type="checkbox" name="isSecondhand"> Secondhand</label>
+          <label class="form-check"><input type="checkbox" name="inStock" checked> Còn hàng</label>
+        </div>
+      </form>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn-outline" onclick="closeModal('product-modal')">Hủy</button>
+      <button type="submit" form="product-form" class="btn btn-primary">
+        <i class="fas fa-save"></i> Lưu sản phẩm
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap"></div>
+<script src="/admin/js/admin-common.js"></script>
+<script src="/admin/js/products.js"></script>
+</body>
+</html>

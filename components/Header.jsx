@@ -187,7 +187,7 @@ export default function Header() {
             <Link href="/" className="header__logo">
               {!logoError ? (
                 <img
-                  src="/images/logo.png"
+                  src="/images/logo.jpg"
                   alt="SiGon Secondhand"
                   style={{ height: '52px', width: 'auto', objectFit: 'contain' }}
                   onError={() => setLogoError(true)}

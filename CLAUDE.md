@@ -1,4 +1,4 @@
-# CLAUDE.md — sigonsport.vn
+# CLAUDE.md — sigon.vn
 
 ## Thông Tin Thương Hiệu
 
@@ -6,7 +6,7 @@
 |---------------------|----------------------------------------------------------------------|
 | **Tên thương hiệu** | **SiGon** / SIGON SPORT                                              |
 | **Tên mạng xã hội** | **SiGon Secondhand** (`@sigonsecondhand` FB · IG · TikTok)          |
-| **Domain**          | `sigonsport.vn`                                                      |
+| **Domain**          | `sigon.vn`                                                           |
 | **Slogan**          | *Giày Real — Giá Hời — Chất Sài Gòn*                                |
 | **Thị trường**      | Việt Nam (trọng tâm TP.HCM)                                          |
 | **Đối tượng**       | Gen Z & Millennials trẻ (18–28), sinh viên, sneakerhead ngân sách hợp lý |
@@ -24,7 +24,7 @@
 
 ## Tổng Quan Dự Án
 
-**SiGon** (`sigonsport.vn`) là website thương mại điện tử chuyên về **giày thể thao secondhand chính hãng (2hand real)** và giày mới — dành cho cộng đồng Gen Z, sinh viên và sneakerhead Việt Nam muốn sở hữu giày xịn với ngân sách hợp lý.
+**SiGon** (`sigon.vn`) là website thương mại điện tử chuyên về **giày thể thao secondhand chính hãng (2hand real)** và giày mới — dành cho cộng đồng Gen Z, sinh viên và sneakerhead Việt Nam muốn sở hữu giày xịn với ngân sách hợp lý.
 
 **Cốt lõi thương hiệu**: Secondhand KHÔNG phải là danh mục phụ — đây là **định danh** của SiGon. Giày 2hand real, minh bạch tình trạng, ảnh thực tế, giá thật. Giày mới (new) là danh mục bổ sung để phục vụ khách muốn đa dạng lựa chọn.
 
@@ -513,7 +513,7 @@ Dựa trên phân tích **thanhhungfutsal.com** — các điểm học hỏi:
 - Kiểm tra trên Chrome DevTools với các preset: **iPhone SE (375px)**, **iPhone 14 Pro (390px)**, **iPad (768px)**
 
 ```css
-/* Mobile-first breakpoint chuẩn cho sigonsport.vn */
+/* Mobile-first breakpoint chuẩn cho sigon.vn */
 /* Base styles: 320px–479px (mobile nhỏ) */
 
 @media (min-width: 480px)  { /* Mobile lớn */ }

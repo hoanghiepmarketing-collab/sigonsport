@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hướng Dẫn Nhân Viên — SiGon Sport</title>
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', 'Be Vietnam Pro', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #1a1a1a;
+    background: #f4f6f8;
+  }
+  a { color: #2D5535; }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    background: #1E3D24;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .site-header .logo {
+    font-size: 22px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+  .site-header .logo span { color: #C44D28; }
+  .site-header .badge {
+    background: #C44D28;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+  .site-header .subtitle {
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    margin-left: auto;
+  }
+
+  /* ===== CONTAINER ===== */
+  .container { max-width: 960px; margin: 0 auto; padding: 32px 20px 60px; }
+
+  /* ===== PAGE TITLE ===== */
+  .page-title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .page-title h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1E3D24;
+    margin-bottom: 8px;
+  }
+  .page-title p {
+    color: #666;
+    font-size: 14px;
+  }
+
+  /* ===== NOTICE ===== */
+  .notice {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 32px;
+    font-size: 14px;
+    color: #7a5c00;
+  }
+  .notice strong { color: #5a4000; }
+
+  /* ===== TOC ===== */
+  .toc {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .toc h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 14px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 6px; }
+  .toc a { font-weight: 600; text-decoration: none; color: #2D5535; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* ===== SECTION ===== */
+  .section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+  .section-num {
+    width: 40px;
+    height: 40px;
+    background: #2D5535;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .section-title { font-size: 20px; font-weight: 700; color: #1E3D24; }
+  .section-desc { font-size: 13px; color: #888; margin-top: 2px; }
+
+  /* ===== STEPS ===== */
+  .steps { display: flex; flex-direction: column; gap: 20px; }
+  .step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 28px;
+    height: 28px;
+    background: #C44D28;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; }
+  .step-content strong { color: #1E3D24; font-size: 15px; }
+  .step-content p { color: #555; margin-top: 4px; font-size: 14px; }
+
+  /* ===== MOCKUP UI ===== */
+  .mockup {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 16px 0;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .mockup-bar {
+    background: #23282d;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mockup-bar .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #555;
+  }
+  .mockup-bar .url {
+    background: #1a1f24;
+    color: #aaa;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 3px;
+    flex: 1;
+  }
+  .mockup-body {
+    display: flex;
+    min-height: 200px;
+    font-size: 13px;
+  }
+  .mockup-sidebar {
+    width: 160px;
+    background: #1d2327;
+    padding: 10px 0;
+    flex-shrink: 0;
+  }
+  .mockup-sidebar .menu-item {
+    padding: 8px 16px;
+    color: #b0b0b0;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .mockup-sidebar .menu-item.active {
+    background: #2D5535;
+    color: #fff;
+  }
+  .mockup-sidebar .menu-item.sub {
+    padding-left: 28px;
+    font-size: 11px;
+    color: #999;
+  }
+  .mockup-sidebar .menu-item.sub.active {
+    background: #C44D28;
+    color: #fff;
+  }
+  .mockup-main { flex: 1; padding: 16px; background: #f0f0f1; }
+
+  /* ===== FORM MOCKUP ===== */
+  .form-mockup { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 16px; }
+  .form-mockup .field { margin-bottom: 14px; }
+  .form-mockup label { display: block; font-size: 12px; font-weight: 600; color: #444; margin-bottom: 4px; }
+  .form-mockup input, .form-mockup textarea, .form-mockup select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    background: #fafafa;
+    color: #555;
+  }
+  .form-mockup textarea { height: 70px; resize: none; }
+  .form-mockup .highlight { border-color: #C44D28 !important; box-shadow: 0 0 0 2px rgba(196,77,40,0.2); background: #fff8f6 !important; }
+  .form-mockup .btn-publish {
+    background: #2271b1;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .form-row { display: flex; gap: 12px; }
+  .form-row .field { flex: 1; }
+
+  /* ===== CALLOUT ===== */
+  .callout {
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 14px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .callout.tip { background: #e8f5e9; border-left: 4px solid #2D5535; }
+  .callout.warn { background: #fff3e0; border-left: 4px solid #ff9800; }
+  .callout.danger { background: #fce4ec; border-left: 4px solid #e91e63; }
+  .callout .icon { font-size: 18px; flex-shrink: 0; }
+  .callout .text { color: #333; }
+  .callout .text strong { display: block; margin-bottom: 2px; }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    background: #f0fdf4;
+    border: 2px dashed #2D5535;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: #1E3D24;
+  }
+  .highlight-box strong { color: #C44D28; font-size: 15px; }
+
+  /* ===== ROLE TABLE ===== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 16px 0;
+  }
+  th {
+    background: #2D5535;
+    color: #fff;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) td { background: #f9fafb; }
+  .check { color: #2D5535; font-weight: 700; font-size: 16px; }
+  .cross { color: #ccc; font-size: 16px; }
+
+  /* ===== BADGE ===== */
+  .tag {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #2D5535;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 6px;
+  }
+  .tag.red { background: #fce4ec; color: #C44D28; }
+  .tag.orange { background: #fff3e0; color: #e65100; }
+
+  /* ===== CODE ===== */
+  .url-box {
+    background: #1d2327;
+    color: #a8d5a2;
+    font-family: monospace;
+    font-size: 14px;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin: 10px 0;
+    word-break: break-all;
+    letter-spacing: 0.3px;
+  }
+
+  /* ===== DIVIDER ===== */
+  .divider {
+    border: none;
+    border-top: 2px dashed #e0e0e0;
+    margin: 28px 0;
+  }
+
+  /* ===== FOOTER ===== */
+  .page-footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  /* ===== ARROW ===== */
+  .arrow { font-size: 20px; color: #C44D28; display: inline-block; margin: 0 4px; }
+
+  /* ===== SHORTCUT PATH ===== */
+  .path {
+    background: #f4f6f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-family: monospace;
+    color: #444;
+    display: inline-block;
+    margin: 4px 0;
+  }
+  .path .sep { color: #C44D28; margin: 0 4px; }
+
+  /* ===== SCREEN LABEL ===== */
+  .screen-label {
+    background: #2D5535;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px 4px 0 0;
+    display: inline-block;
+    margin-bottom: -1px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    .section { padding: 20px 16px; }
+    .mockup-sidebar { display: none; }
+    .form-row { flex-direction: column; }
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    .site-header { position: static; }
+    .mockup-bar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: #fff; }
+    .section { box-shadow: none; border: 1px solid #ddd; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo"><span>Si</span>Gon</div>
+  <div style="color:rgba(255,255,255,0.5);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;">SPORT</div>
+  <span class="badge">NỘI BỘ</span>
+  <span class="subtitle">🔒 Tài liệu chỉ dành cho nhân viên — Không chia sẻ ra ngoài</span>
+</header>
+
+<div class="container">
+
+  <!-- PAGE TITLE -->
+  <div class="page-title">
+    <h1>📋 Hướng Dẫn Vận Hành Website</h1>
+    <p>Dành cho nhân viên SiGon Sport • Cập nhật tháng 6/2026 (v3 — chọn loại SP bắt buộc)</p>
+  </div>
+
+  <!-- NOTICE -->
+  <div class="notice">
+    ⚠️ <strong>Lưu ý bảo mật:</strong> Trang này chỉ dành cho nhân viên SiGon Sport. Không chia sẻ link này với khách hàng hoặc người ngoài. Nếu bạn không phải nhân viên, vui lòng đóng trang lại.
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <h2>📑 Nội Dung Hướng Dẫn</h2>
+    <ol>
+      <li><a href="#login">Đăng nhập vào trang quản trị</a></li>
+      <li><a href="#add-product">Đăng sản phẩm mới lên website</a></li>
+      <li><a href="#edit-product">Chỉnh sửa sản phẩm đã có</a></li>
+      <li><a href="#orders">Xem và theo dõi đơn hàng</a></li>
+      <li><a href="#user-accounts">Thông tin tài khoản nhân viên</a></li>
+      <li><a href="#rules">Quy định quan trọng cần nhớ</a></li>
+    </ol>
+  </div>
+
+  <!-- ==============================
+       SECTION 1: ĐĂNG NHẬP
+       ============================== -->
+  <div class="section" id="login">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div>
+        <div class="section-title">Đăng Nhập Vào Trang Quản Trị</div>
+        <div class="section-desc">Truy cập bảng điều khiển WordPress để quản lý website</div>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Mở trình duyệt và truy cập địa chỉ đăng nhập</strong>
+          <div class="url-box">https://sigon.vn/wp-admin</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Nhập thông tin đăng nhập</strong>
+          <p>Nhập <strong>Tên đăng nhập</strong> và <strong>Mật khẩu</strong> do quản lý cấp. Tích vào ô <em>"Nhớ đăng nhập"</em> để không phải đăng nhập lại mỗi lần.</p>
+          <div class="screen-label">Màn hình đăng nhập WordPress</div>
+          <div class="form-mockup" style="max-width:360px;">
+            <div style="text-align:center;margin-bottom:16px;">
+              <div style="font-size:18px;font-weight:900;color:#1E3D24;"><span style="color:#C44D28;">Si</span>Gon <span style="font-size:11px;font-weight:700;color:#C44D28;letter-spacing:2px;vertical-align:middle;">SPORT</span></div>
+              <div style="font-size:12px;color:#888;margin-top:4px;">Đăng nhập trang quản trị</div>
+            </div>
+            <div class="field">
+              <label>Tên đăng nhập hoặc Email</label>
+              <input type="text" value="tên đăng nhập của bạn" class="highlight">
+            </div>
+            <div class="field">
+              <label>Mật khẩu</label>
+              <input type="password" value="••••••••••" class="highlight">
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px;">
+              <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:#555;">
+                <input type="checkbox" checked> Nhớ đăng nhập
+              </label>
+              <button style="background:#2271b1;color:#fff;border:none;padding:8px 16px;border-radius:3px;font-size:13px;cursor:pointer;">Đăng nhập</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Sau khi đăng nhập thành công</strong>
+          <p>Bạn sẽ thấy màn hình <strong>Trang quản trị (Dashboard)</strong>. Menu bên trái là điều hướng chính để làm mọi thứ.</p>
+          <div class="callout tip">
+            <span class="icon">✅</span>
+            <div class="text"><strong>Tài khoản nhân viên thấy gì?</strong> Menu sẽ có: Sản phẩm, WooCommerce (Đơn hàng), Bài viết, Trang. Bạn sẽ <em>không</em> thấy: Plugin, Giao diện, Cài đặt hệ thống — đây là quyền của quản trị viên.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================
+       SECTION 2: ĐĂNG SẢN PHẨM
+       ============================== -->
+  <div class="section" id="add-product">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div>
+        <div class="section-title">Đăng Sản Phẩm Mới Lên Website</div>
+        <div class="section-desc">Thêm giày mới, giày secondhand hoặc dụng cụ thể thao vào cửa hàng</div>
+      </div>
+    </div>
+
+    <div class="callout tip" style="background:#e8f5e9;border-color:#2D5535;">
+      <span class="icon">🆕</span>
+      <div class="text"><strong>Cập nhật tháng 6/2026:</strong> Trang cửa hàng (<a href="https://sigon.vn/cua-hang/" target="_blank">sigon.vn/cua-hang/</a>) đã có <strong>Bộ Lọc bên trái</strong> — lọc theo Loại hàng, Môn thể thao, Thương hiệu, Size. Khi đăng sản phẩm, <strong>bắt buộc điền Thuộc tính (Bước 8)</strong> để sản phẩm xuất hiện đúng trong bộ lọc.</div>
+    </div>
+
+    <div class="callout warn">
+      <span class="icon">📸</span>
+      <div class="text"><strong>Trước khi đăng:</strong> Chuẩn bị sẵn ảnh sản phẩm (tối thiểu 3 ảnh), tên sản phẩm đầy đủ, giá bán, và kích cỡ. Với hàng secondhand, cần thêm ảnh thực tế + mô tả tình trạng thật.</div>
+    </div>
+
+    <div class="steps">
+      <!-- BƯỚC 1: CHỌN LOẠI SẢN PHẨM - BẮT BUỘC -->
+      <div class="step" style="border-left:4px solid #C44D28;background:#fff8f6;border-radius:8px;">
+        <div class="step-num" style="background:#C44D28;min-width:32px;">1</div>
+        <div class="step-content">
+          <strong>⚡ Chọn loại sản phẩm <span style="color:#C44D28;font-size:12px;font-weight:700;">(BẮT BUỘC — làm trước tiên)</span></strong>
+          <p>Xác định hàng <strong>Mới</strong> hay <strong>Secondhand</strong> ngay từ đầu — quyết định <strong>danh mục</strong> và <strong>thuộc tính Loại hàng</strong> bạn sẽ chọn ở các bước sau.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;">
+            <div style="border:2px solid #2D5535;border-radius:8px;padding:14px;background:#f0f7f2;">
+              <div style="font-size:15px;font-weight:700;color:#2D5535;margin-bottom:8px;">🆕 HÀNG MỚI</div>
+              <div style="font-size:12px;color:#555;line-height:1.7;">
+                → <strong>Danh mục (Bước 7):</strong><br>Giày Bóng Đá, Giày Cầu Lông, Giày Tennis...<br>
+                → <strong>Thuộc tính Loại hàng:</strong> <code style="background:#e8f5e9;padding:1px 5px;border-radius:3px;color:#2D5535;">moi</code><br>
+                → Điền đủ các size còn hàng
+              </div>
+            </div>
+            <div style="border:2px solid #8B5E3C;border-radius:8px;padding:14px;background:#fdf5ee;">
+              <div style="font-size:15px;font-weight:700;color:#8B5E3C;margin-bottom:8px;">♻️ SECONDHAND</div>
+              <div style="font-size:12px;color:#555;line-height:1.7;">
+                → <strong>Danh mục (Bước 7):</strong><br>Giày Bóng Đá <u>Secondhand</u>, Giày CL <u>Secondhand</u>...<br>
+                → <strong>Thuộc tính Loại hàng:</strong> <code style="background:#fce8d5;padding:1px 5px;border-radius:3px;color:#8B5E3C;">2hand-real</code><br>
+                → Cần ảnh thực tế + tình trạng thật
+              </div>
+            </div>
+          </div>
+          <div class="callout warn" style="margin-top:10px;">
+            <span class="icon">⚠️</span>
+            <div class="text"><strong>Không được bỏ qua:</strong> Chọn sai danh mục (ví dụ để hàng secondhand vào danh mục hàng mới) → sản phẩm sẽ <strong>không có badge 2HAND REAL</strong>, khách lọc "Secondhand" sẽ không thấy, và bộ lọc hoạt động sai. Phải xác định ngay từ bước này.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Vào menu Sản phẩm → Thêm sản phẩm mới</strong>
+          <p>Ở thanh menu bên trái, click vào <strong>Sản phẩm</strong> rồi chọn <strong>Thêm sản phẩm mới</strong>.</p>
+          <div class="mockup">
+            <div class="mockup-bar">
+              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="url">sigon.vn/wp-admin/post-new.php?post_type=product</div>
+            </div>
+            <div class="mockup-body">
+              <div class="mockup-sidebar">
+                <div class="menu-item">🏠 Trang quản trị</div>
+                <div class="menu-item active">📦 Sản phẩm</div>
+                <div class="menu-item sub">Tất cả sản phẩm</div>
+                <div class="menu-item sub active">➕ Thêm mới ←</div>
+                <div class="menu-item sub">Thương hiệu</div>
+                <div class="menu-item sub">Danh mục</div>
+                <div class="menu-item">🛒 WooCommerce</div>
+              </div>
+              <div class="mockup-main" style="display:flex;align-items:center;justify-content:center;color:#888;font-size:12px;">
+                Nhấn <span style="background:#C44D28;color:#fff;padding:2px 8px;border-radius:3px;margin:0 4px;font-weight:600;">Thêm sản phẩm mới</span> để mở form đăng
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Nhập tên sản phẩm</strong>
+          <p>Điền tên đầy đủ vào ô lớn ở đầu trang. Tên cần rõ ràng, gồm: <em>Thương hiệu + Model + Đặc điểm</em>.</p>
+          <div class="highlight-box">
+            <strong>Ví dụ tên sản phẩm chuẩn:</strong><br>
+            ✅ Nike Mercurial Vapor 15 Elite FG — Sân cỏ tự nhiên<br>
+            ✅ Adidas X Speedportal.1 FG <span style="background:#8B5E3C;color:#fff;font-size:11px;padding:2px 6px;border-radius:3px;margin-left:4px;">2HAND REAL</span> — Mới 85%<br>
+            ✅ Vợt Pickleball Selkirk SLK Halo — Carbon Fiber<br>
+            ❌ Không nên: "Giày đá bóng Nike" (quá chung chung)
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>Điền Mô tả sản phẩm (phần dài)</strong>
+          <p>Đây là phần mô tả chi tiết hiển thị trên trang sản phẩm. Cần bao gồm:</p>
+          <ul style="padding-left:20px;margin-top:6px;font-size:14px;color:#555;line-height:2;">
+            <li>Thông tin kỹ thuật (chất liệu, đế giày, công nghệ)</li>
+            <li>Phù hợp cho môn nào, mặt sân nào</li>
+            <li><strong>Nếu là hàng secondhand:</strong> Tình trạng thực tế, lý do bán, ước tính số lần đã dùng</li>
+          </ul>
+          <div class="screen-label">Khu vực Mô tả sản phẩm</div>
+          <div class="form-mockup">
+            <div class="field">
+              <label>Tên sản phẩm</label>
+              <input type="text" value="Nike Mercurial Vapor 15 Elite FG — Sân cỏ tự nhiên" class="highlight">
+            </div>
+            <div class="field">
+              <label>Mô tả sản phẩm (chi tiết)</label>
+              <textarea class="highlight">Nike Mercurial Vapor 15 Elite FG là dòng giày đá bóng cao cấp với công nghệ Flyknit nhẹ và đế Hyper MG giúp bám cỏ tối ưu. Phù hợp cho sân cỏ tự nhiên (FG).
+
+✅ Chất liệu upper: Nike Flyknit siêu nhẹ
+✅ Đế: Hyper MG với 11 đinh conical
+✅ Công nghệ: NikeGrip lót trong chống trượt</textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <strong>Thiết lập giá bán trong "Dữ liệu sản phẩm"</strong>
+          <p>Kéo xuống phần <strong>"Dữ liệu sản phẩm"</strong> (tab Cài đặt chung). Điền 2 ô giá:</p>
+          <div class="screen-label">Tab Cài đặt chung — Dữ liệu sản phẩm</div>
+          <div class="form-mockup">
+            <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+              <span style="background:#2271b1;color:#fff;font-size:12px;padding:5px 12px;border-radius:3px;cursor:pointer;">Cài đặt chung</span>
+              <span style="background:#f0f0f1;color:#444;font-size:12px;padding:5px 12px;border-radius:3px;cursor:pointer;">Kiểm kê kho hàng</span>
+              <span style="background:#f0f0f1;color:#444;font-size:12px;padding:5px 12px;border-radius:3px;cursor:pointer;">Vận chuyển</span>
+              <span style="background:#f0f0f1;color:#444;font-size:12px;padding:5px 12px;border-radius:3px;cursor:pointer;">Thuộc tính</span>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label>Giá thông thường (₫) <span class="tag red">Bắt buộc</span></label>
+                <input type="text" value="3.290.000" class="highlight" placeholder="Nhập giá bán thực tế">
+              </div>
+              <div class="field">
+                <label>Giá khuyến mãi (₫) <span class="tag">Tùy chọn</span></label>
+                <input type="text" value="2.890.000" placeholder="Điền nếu đang giảm giá">
+              </div>
+            </div>
+            <div style="font-size:12px;color:#888;margin-top:4px;">💡 Với hàng secondhand: Điền <strong>Giá thông thường</strong> = giá bán, <strong>Giá khuyến mãi</strong> để trống (không cần)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <strong>Kiểm tra tồn kho (tab "Kiểm kê kho hàng")</strong>
+          <p>Click vào tab <strong>"Kiểm kê kho hàng"</strong> để thiết lập trạng thái hàng.</p>
+          <div class="screen-label">Tab Kiểm kê kho hàng</div>
+          <div class="form-mockup">
+            <div class="field">
+              <label>Mã SKU <span class="tag">Tùy chọn</span></label>
+              <input type="text" placeholder="VD: NIKE-VP15-FG-42" style="font-family:monospace;">
+            </div>
+            <div class="field">
+              <label>Quản lý tồn kho</label>
+              <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#555;">
+                <input type="checkbox"> Theo dõi số lượng tồn kho cho sản phẩm này
+              </div>
+            </div>
+            <div class="field">
+              <label>Trạng thái kho hàng <span class="tag red">Bắt buộc</span></label>
+              <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#555;">
+                <label style="display:flex;align-items:center;gap:8px;"><input type="radio" name="stock" checked> <span style="color:#2D5535;font-weight:600;">Còn hàng</span> ← Chọn cái này khi còn giày</label>
+                <label style="display:flex;align-items:center;gap:8px;"><input type="radio" name="stock"> <span style="color:#e91e63;">Hết hàng</span> ← Khi đã bán hết</label>
+                <label style="display:flex;align-items:center;gap:8px;"><input type="radio" name="stock"> Đang chờ hàng</label>
+              </div>
+            </div>
+          </div>
+          <div class="callout tip">
+            <span class="icon">💡</span>
+            <div class="text"><strong>Hàng secondhand:</strong> Thường chỉ có 1 đôi → chọn <strong>Còn hàng</strong>. Sau khi bán xong, nhớ vào đổi thành <strong>Hết hàng</strong> để ẩn khỏi website.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-content">
+          <strong>Chọn Danh mục sản phẩm (cột phải) — theo loại đã chọn ở Bước 1</strong>
+          <p>Ở cột bên phải, tìm phần <strong>"Danh mục sản phẩm"</strong> và tích chọn đúng danh mục.</p>
+          <div class="screen-label">Cột phải — Danh mục sản phẩm</div>
+          <div class="form-mockup" style="max-width:280px;">
+            <div class="field">
+              <label>Danh mục sản phẩm</label>
+              <div style="border:1px solid #ddd;border-radius:4px;padding:10px;font-size:13px;">
+                <div style="color:#aaa;font-size:11px;margin-bottom:8px;">Tất cả danh mục | Dùng nhiều nhất</div>
+                <label style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><input type="checkbox"> Giày Bóng Đá</label>
+                <label style="display:flex;align-items:center;gap:8px;margin-bottom:6px;background:#fff3cd;padding:3px 6px;border-radius:3px;"><input type="checkbox" checked> <span style="color:#C44D28;font-weight:600;">Giày Bóng Đá Secondhand ←</span></label>
+                <label style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><input type="checkbox"> Giày Cầu Lông</label>
+                <label style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><input type="checkbox"> Giày Tennis</label>
+                <label style="display:flex;align-items:center;gap:8px;"><input type="checkbox"> Vợt Thể Thao</label>
+              </div>
+            </div>
+          </div>
+          <div class="callout warn">
+            <span class="icon">⚠️</span>
+            <div class="text"><strong>Quan trọng:</strong> Hàng secondhand phải chọn đúng danh mục <em>"...Secondhand"</em> (VD: Giày Bóng Đá Secondhand, không phải Giày Bóng Đá). Điều này giúp hiện badge <strong>2HAND REAL</strong> tự động.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 8: THUỘC TÍNH BỘ LỌC -->
+      <div class="step">
+        <div class="step-num">8</div>
+        <div class="step-content">
+          <strong>Thiết lập Thuộc tính — để sản phẩm hiện trong Bộ Lọc</strong>
+          <p>Đây là bước <strong style="color:#C44D28;">BẮT BUỘC mới</strong> sau khi web cập nhật. Website giờ có thanh <strong>Bộ Lọc bên trái</strong> trang cửa hàng — nếu không điền thuộc tính, khách sẽ không tìm thấy sản phẩm qua bộ lọc.</p>
+          <p style="margin-top:8px;">Kéo xuống phần <strong>"Dữ liệu sản phẩm"</strong> → click tab <strong>"Thuộc tính"</strong>.</p>
+
+          <div class="screen-label">Tab Thuộc tính — Dữ liệu sản phẩm</div>
+          <div class="form-mockup">
+            <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+              <span style="background:#f0f0f1;color:#444;font-size:12px;padding:5px 12px;border-radius:3px;">Cài đặt chung</span>
+              <span style="background:#f0f0f1;color:#444;font-size:12px;padding:5px 12px;border-radius:3px;">Kiểm kê kho hàng</span>
+              <span style="background:#f0f0f1;color:#444;font-size:12px;padding:5px 12px;border-radius:3px;">Vận chuyển</span>
+              <span style="background:#2271b1;color:#fff;font-size:12px;padding:5px 12px;border-radius:3px;cursor:pointer;">Thuộc tính ←</span>
+            </div>
+
+            <!-- Loại hàng -->
+            <div style="border:1px solid #ddd;border-radius:6px;padding:12px;margin-bottom:10px;background:#fafafa;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <strong style="font-size:13px;color:#1E3D24;">Loại hàng</strong>
+                <span style="font-size:11px;color:#888;">(pa_loai-hang)</span>
+              </div>
+              <div style="display:flex;gap:10px;font-size:13px;">
+                <label style="display:flex;align-items:center;gap:6px;background:#e8f5e9;padding:5px 10px;border-radius:4px;border:2px solid #2D5535;">
+                  <input type="radio" name="loai" checked> <strong>moi</strong> — hàng mới
+                </label>
+                <label style="display:flex;align-items:center;gap:6px;background:#fff3e0;padding:5px 10px;border-radius:4px;border:2px solid #8B5E3C;">
+                  <input type="radio" name="loai"> <strong>2hand-real</strong> — hàng secondhand
+                </label>
+              </div>
+              <div style="font-size:11px;color:#C44D28;margin-top:6px;">⚠️ Chọn đúng loại này — khách hay lọc theo "2Hand Real" để mua giày cũ</div>
+            </div>
+
+            <!-- Môn thể thao -->
+            <div style="border:1px solid #ddd;border-radius:6px;padding:12px;margin-bottom:10px;background:#fafafa;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <strong style="font-size:13px;color:#1E3D24;">Môn thể thao</strong>
+                <span style="font-size:11px;color:#888;">(pa_mon-the-thao)</span>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;font-size:12px;">
+                <label style="display:flex;align-items:center;gap:5px;"><input type="checkbox"> bong-da ⚽</label>
+                <label style="display:flex;align-items:center;gap:5px;"><input type="checkbox"> cau-long 🏸</label>
+                <label style="display:flex;align-items:center;gap:5px;"><input type="checkbox"> tennis 🎾</label>
+                <label style="display:flex;align-items:center;gap:5px;"><input type="checkbox"> pickleball 🏓</label>
+                <label style="display:flex;align-items:center;gap:5px;"><input type="checkbox"> chay-bo 🏃</label>
+                <label style="display:flex;align-items:center;gap:5px;"><input type="checkbox"> sneaker-lifestyle 👟</label>
+              </div>
+            </div>
+
+            <!-- Thương hiệu -->
+            <div style="border:1px solid #ddd;border-radius:6px;padding:12px;margin-bottom:10px;background:#fafafa;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <strong style="font-size:13px;color:#1E3D24;">Thương hiệu</strong>
+                <span style="font-size:11px;color:#888;">(pa_thuong-hieu)</span>
+              </div>
+              <div class="field">
+                <input type="text" placeholder="VD: nike | adidas | yonex | mizuno | asics | puma" style="font-size:12px;">
+              </div>
+              <div style="font-size:11px;color:#666;margin-top:4px;">Gõ tên thương hiệu bằng chữ thường, không dấu (VD: nike, adidas, yonex)</div>
+            </div>
+
+            <!-- Size -->
+            <div style="border:1px solid #ddd;border-radius:6px;padding:12px;background:#fafafa;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <strong style="font-size:13px;color:#1E3D24;">Size</strong>
+                <span style="font-size:11px;color:#888;">(pa_size)</span>
+              </div>
+              <div class="field">
+                <input type="text" placeholder="VD: 39 | 40 | 41 | 42" style="font-size:12px;">
+              </div>
+              <div style="font-size:11px;color:#666;margin-top:4px;">Nhập các size có sẵn, dùng dấu | để ngăn cách nếu có nhiều size</div>
+            </div>
+
+            <div style="background:#fff3cd;border-left:3px solid #C44D28;padding:10px 12px;border-radius:0 6px 6px 0;margin-top:12px;font-size:13px;">
+              <strong>Cách thêm thuộc tính:</strong> Bấm dropdown <em>"Chọn thuộc tính..."</em> → chọn tên thuộc tính → bấm <strong>"Thêm"</strong> → điền giá trị → bấm <strong>"Lưu thuộc tính"</strong>. Làm lần lượt cho từng thuộc tính.
+            </div>
+          </div>
+
+          <div class="callout warn" style="margin-top:12px;">
+            <span class="icon">🔍</span>
+            <div class="text">
+              <strong>Trang Cửa hàng mới có Bộ Lọc bên trái</strong> — khách có thể lọc theo Loại hàng, Môn thể thao, Thương hiệu, Size. Nếu sản phẩm thiếu thuộc tính, nó sẽ <strong>không xuất hiện</strong> khi khách dùng bộ lọc. Kiểm tra tại <a href="https://sigon.vn/cua-hang/" target="_blank">sigon.vn/cua-hang/</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">9</div>
+        <div class="step-content">
+          <strong>Thêm ảnh sản phẩm (cột phải)</strong>
+          <p>Tìm phần <strong>"Ảnh sản phẩm"</strong> ở cột phải. Click <em>"Đặt ảnh sản phẩm"</em> để tải ảnh chính lên. Click <em>"Thêm ảnh thư viện sản phẩm"</em> để thêm ảnh phụ.</p>
+          <div class="highlight-box">
+            <strong>Yêu cầu ảnh:</strong><br>
+            • <strong>Ảnh chính:</strong> Tối thiểu 800×800px, nền trắng hoặc sáng<br>
+            • <strong>Ảnh phụ:</strong> Nhiều góc chụp (trước, sau, đế, cạnh)<br>
+            • <strong>Hàng secondhand:</strong> Chụp ảnh thực tế, kể cả vết mòn nếu có — <em>không chỉnh sửa màu che khuyết điểm</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">10</div>
+        <div class="step-content">
+          <strong>Điền Mô tả ngắn và thêm Thương hiệu</strong>
+          <p>Cuộn xuống tìm <strong>"Mô tả ngắn của sản phẩm"</strong> — đây là đoạn tóm tắt hiển thị gần nút <em>Mua ngay</em>. Viết 2–3 câu ngắn gọn, nổi bật điểm mạnh.</p>
+          <p style="margin-top:8px;">Ở cột phải, tìm phần <strong>"Thương hiệu"</strong> và tích chọn thương hiệu đúng (Nike, Adidas, Yonex, v.v.)</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">11</div>
+        <div class="step-content">
+          <strong>Xuất bản sản phẩm</strong>
+          <p>Sau khi điền đầy đủ thông tin, click nút <strong>"Xuất bản"</strong> màu xanh ở cột phải trên cùng.</p>
+          <div class="screen-label">Nút Xuất bản (cột phải)</div>
+          <div class="form-mockup" style="max-width:260px;">
+            <div style="font-size:12px;color:#666;margin-bottom:8px;">
+              <div>📌 Trạng thái: Bản nháp</div>
+              <div>👁 Hiển thị: Công khai</div>
+            </div>
+            <div style="display:flex;gap:8px;margin-bottom:10px;">
+              <button style="background:#f6f7f7;border:1px solid #ccc;padding:7px 14px;border-radius:3px;font-size:13px;cursor:pointer;">Lưu nháp</button>
+              <button style="background:#f6f7f7;border:1px solid #ccc;padding:7px 14px;border-radius:3px;font-size:13px;cursor:pointer;">Xem trước</button>
+            </div>
+            <button style="background:#2271b1;color:#fff;border:none;padding:10px;width:100%;border-radius:3px;font-size:14px;font-weight:600;cursor:pointer;">Xuất bản ✓</button>
+          </div>
+          <div class="callout tip">
+            <span class="icon">✅</span>
+            <div class="text">Sau khi xuất bản, sản phẩm sẽ hiển thị ngay trên website. Vào <strong><a href="https://sigon.vn/cua-hang/" target="_blank">sigon.vn/cua-hang/</a></strong> để kiểm tra: sản phẩm hiện đúng chưa, và có thể tìm được qua <strong>Bộ Lọc bên trái</strong> không.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================
+       SECTION 3: CHỈNH SỬA SẢN PHẨM
+       ============================== -->
+  <div class="section" id="edit-product">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div>
+        <div class="section-title">Chỉnh Sửa Sản Phẩm Đã Có</div>
+        <div class="section-desc">Cập nhật giá, tình trạng kho, ảnh hoặc thông tin sản phẩm</div>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Vào danh sách sản phẩm</strong>
+          <p>Click <strong>Sản phẩm → Tất cả sản phẩm</strong> ở menu trái. Bạn sẽ thấy danh sách toàn bộ sản phẩm.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Tìm sản phẩm cần sửa</strong>
+          <p>Dùng ô tìm kiếm ở góc trên bên phải, gõ tên sản phẩm. Hoặc lọc theo danh mục bằng dropdown.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Mở sản phẩm để chỉnh sửa</strong>
+          <p>Hover (di chuột) vào tên sản phẩm → click <strong>"Chỉnh sửa"</strong> hiện ra bên dưới tên. Hoặc click thẳng vào tên sản phẩm.</p>
+          <div class="mockup">
+            <div class="mockup-bar">
+              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="url">sigon.vn/wp-admin/edit.php?post_type=product</div>
+            </div>
+            <div style="padding:16px;background:#f0f0f1;font-size:13px;">
+              <table style="background:#fff;margin:0;">
+                <thead>
+                  <tr>
+                    <th style="width:40px;background:#f6f7f7;color:#444;border:1px solid #e0e0e0;"></th>
+                    <th style="background:#f6f7f7;color:#444;border:1px solid #e0e0e0;">Tên sản phẩm</th>
+                    <th style="background:#f6f7f7;color:#444;border:1px solid #e0e0e0;">SKU</th>
+                    <th style="background:#f6f7f7;color:#444;border:1px solid #e0e0e0;">Kho</th>
+                    <th style="background:#f6f7f7;color:#444;border:1px solid #e0e0e0;">Giá</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="border:1px solid #e0e0e0;"></td>
+                    <td style="border:1px solid #e0e0e0;">
+                      <div style="color:#2271b1;font-weight:600;">Nike Mercurial Vapor 15 FG</div>
+                      <div style="color:#888;font-size:11px;margin-top:2px;">
+                        <span style="color:#2271b1;cursor:pointer;">Chỉnh sửa</span> |
+                        <span style="color:#a00;cursor:pointer;">Thùng rác</span> |
+                        <span style="color:#2271b1;cursor:pointer;">Xem</span>
+                      </div>
+                    </td>
+                    <td style="border:1px solid #e0e0e0;color:#888;">VP15-FG-42</td>
+                    <td style="border:1px solid #e0e0e0;"><span style="color:#2D5535;">Còn hàng</span></td>
+                    <td style="border:1px solid #e0e0e0;color:#C44D28;font-weight:600;">3.290.000₫</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div style="font-size:11px;color:#C44D28;margin-top:8px;text-align:center;">↑ Di chuột vào tên SP → Click "Chỉnh sửa"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>Chỉnh sửa thông tin và lưu</strong>
+          <p>Thay đổi bất kỳ thông tin nào (giá, mô tả, ảnh, danh mục...) rồi click <strong>"Cập nhật"</strong> ở cột phải để lưu thay đổi.</p>
+          <div class="callout tip">
+            <span class="icon">🔄</span>
+            <div class="text"><strong>Cập nhật trạng thái hàng secondhand đã bán:</strong> Vào Kiểm kê kho hàng → đổi "Còn hàng" thành <strong>"Hết hàng"</strong> → Cập nhật. Sản phẩm sẽ vẫn hiển thị trên web nhưng không cho đặt mua được.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================
+       SECTION 4: XEM ĐƠN HÀNG
+       ============================== -->
+  <div class="section" id="orders">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div>
+        <div class="section-title">Xem Và Theo Dõi Đơn Hàng</div>
+        <div class="section-desc">Kiểm tra đơn hàng mới, cập nhật trạng thái vận chuyển</div>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Vào mục Đơn hàng</strong>
+          <p>Click <strong>WooCommerce → Đơn hàng</strong> ở menu trái. Đây là danh sách tất cả đơn hàng khách đã đặt.</p>
+          <div class="mockup">
+            <div class="mockup-bar">
+              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <div class="url">sigon.vn/wp-admin/admin.php?page=wc-orders</div>
+            </div>
+            <div style="padding:16px;background:#f0f0f1;font-size:13px;">
+              <div style="background:#fff;padding:12px;border-radius:4px;">
+                <div style="font-size:15px;font-weight:700;margin-bottom:10px;color:#1d2327;">Đơn hàng</div>
+                <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+                  <span style="padding:4px 10px;background:#2271b1;color:#fff;border-radius:3px;font-size:12px;">Tất cả (12)</span>
+                  <span style="padding:4px 10px;background:#f6f7f7;border:1px solid #ddd;border-radius:3px;font-size:12px;color:#C44D28;">Đang xử lý (3)</span>
+                  <span style="padding:4px 10px;background:#f6f7f7;border:1px solid #ddd;border-radius:3px;font-size:12px;">Hoàn thành (8)</span>
+                  <span style="padding:4px 10px;background:#f6f7f7;border:1px solid #ddd;border-radius:3px;font-size:12px;">Chờ thanh toán (1)</span>
+                </div>
+                <table style="margin:0;font-size:12px;">
+                  <tr>
+                    <th style="background:#f6f7f7;color:#444;border:1px solid #e0e0e0;">Đơn hàng</th>
+                    <th style="background:#f6f7f7;color:#444;border:1px solid #e0e0e0;">Ngày</th>
+                    <th style="background:#f6f7f7;color:#444;border:1px solid #e0e0e0;">Trạng thái</th>
+                    <th style="background:#f6f7f7;color:#444;border:1px solid #e0e0e0;">Tổng tiền</th>
+                  </tr>
+                  <tr>
+                    <td style="border:1px solid #e0e0e0;color:#2271b1;font-weight:600;">#1023 Nguyễn Văn A</td>
+                    <td style="border:1px solid #e0e0e0;color:#888;">08/06/2026</td>
+                    <td style="border:1px solid #e0e0e0;"><span style="background:#d5ffe4;color:#0a5c2a;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;">Đang xử lý</span></td>
+                    <td style="border:1px solid #e0e0e0;color:#C44D28;font-weight:600;">890.000₫</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Xem chi tiết đơn hàng</strong>
+          <p>Click vào số đơn hàng (VD: #1023) để xem chi tiết: thông tin khách hàng, sản phẩm đã đặt, địa chỉ giao hàng, phương thức thanh toán.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Cập nhật trạng thái đơn hàng</strong>
+          <p>Trong trang chi tiết đơn, tìm phần <strong>"Trạng thái đơn hàng"</strong> ở cột phải và chọn trạng thái phù hợp:</p>
+          <table>
+            <tr>
+              <th>Trạng thái</th>
+              <th>Ý nghĩa</th>
+              <th>Khi nào dùng</th>
+            </tr>
+            <tr>
+              <td><span style="background:#d5ffe4;color:#0a5c2a;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:700;">Đang xử lý</span></td>
+              <td>Đã có đơn, chưa giao</td>
+              <td>Vừa nhận đơn, đang đóng gói</td>
+            </tr>
+            <tr>
+              <td><span style="background:#cdf0f8;color:#0c5973;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:700;">Đang giao</span></td>
+              <td>Đã giao cho shipper</td>
+              <td>Sau khi trao đơn cho GHTK/GHN</td>
+            </tr>
+            <tr>
+              <td><span style="background:#e6e6e6;color:#555;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:700;">Hoàn thành</span></td>
+              <td>Khách đã nhận hàng</td>
+              <td>Sau khi xác nhận khách nhận được</td>
+            </tr>
+            <tr>
+              <td><span style="background:#fce4ec;color:#b71c1c;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:700;">Đã hủy</span></td>
+              <td>Đơn bị hủy</td>
+              <td>Khách hủy hoặc không liên lạc được</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>Lưu thay đổi trạng thái</strong>
+          <p>Sau khi chọn trạng thái mới, click <strong>"Cập nhật"</strong> để lưu. Hệ thống sẽ tự động gửi email thông báo cho khách hàng.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================
+       SECTION 5: TÀI KHOẢN NHÂN VIÊN
+       ============================== -->
+  <div class="section" id="user-accounts">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div>
+        <div class="section-title">Tài Khoản Nhân Viên</div>
+        <div class="section-desc">Thông tin về 4 tài khoản nhân viên và quyền hạn</div>
+      </div>
+    </div>
+
+    <p style="margin-bottom:16px;color:#555;">Có <strong>4 tài khoản nhân viên</strong> được tạo sẵn với quyền <strong>"Quản lý cửa hàng"</strong> (Shop Manager). Tài khoản này có thể làm mọi việc cần thiết nhưng không thể thay đổi cài đặt hệ thống.</p>
+
+    <div class="highlight-box">
+      <strong>Quyền hạn của tài khoản nhân viên (Shop Manager):</strong>
+      <table style="margin-top:10px;">
+        <tr>
+          <th>Tính năng</th>
+          <th style="text-align:center;">Nhân viên</th>
+          <th style="text-align:center;">Admin</th>
+        </tr>
+        <tr>
+          <td>✅ Thêm / sửa / xóa sản phẩm</td>
+          <td style="text-align:center;" class="check">✓</td>
+          <td style="text-align:center;" class="check">✓</td>
+        </tr>
+        <tr>
+          <td>✅ Xem và cập nhật đơn hàng</td>
+          <td style="text-align:center;" class="check">✓</td>
+          <td style="text-align:center;" class="check">✓</td>
+        </tr>
+        <tr>
+          <td>✅ Xem báo cáo doanh thu</td>
+          <td style="text-align:center;" class="check">✓</td>
+          <td style="text-align:center;" class="check">✓</td>
+        </tr>
+        <tr>
+          <td>✅ Quản lý khách hàng</td>
+          <td style="text-align:center;" class="check">✓</td>
+          <td style="text-align:center;" class="check">✓</td>
+        </tr>
+        <tr>
+          <td>✅ Viết / sửa bài viết, trang</td>
+          <td style="text-align:center;" class="check">✓</td>
+          <td style="text-align:center;" class="check">✓</td>
+        </tr>
+        <tr>
+          <td>❌ Cài đặt Plugin / Theme</td>
+          <td style="text-align:center;" class="cross">✗</td>
+          <td style="text-align:center;" class="check">✓</td>
+        </tr>
+        <tr>
+          <td>❌ Thay đổi giao diện website</td>
+          <td style="text-align:center;" class="cross">✗</td>
+          <td style="text-align:center;" class="check">✓</td>
+        </tr>
+        <tr>
+          <td>❌ Cài đặt hệ thống WordPress</td>
+          <td style="text-align:center;" class="cross">✗</td>
+          <td style="text-align:center;" class="check">✓</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="callout tip" style="margin-top:20px;">
+      <span class="icon">🔑</span>
+      <div class="text"><strong>Thông tin đăng nhập:</strong> Tài khoản và mật khẩu sẽ được quản lý gửi riêng qua email nội bộ. Nếu quên mật khẩu, liên hệ quản lý để được cấp lại — không tự đổi mật khẩu người khác.</div>
+    </div>
+
+    <!-- HOW TO CREATE ACCOUNTS (for admin reference) -->
+    <hr class="divider">
+    <p style="font-size:13px;color:#888;font-style:italic;margin-bottom:16px;">📋 Dành cho quản lý — Hướng dẫn tạo thêm tài khoản nhân viên mới:</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Vào Tài khoản → Thêm người dùng</strong>
+          <div class="path">
+            <span>wp-admin</span>
+            <span class="sep">›</span>
+            <span>Tài khoản</span>
+            <span class="sep">›</span>
+            <span>Thêm người dùng</span>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Điền thông tin và chọn vai trò</strong>
+          <p>Nhập <em>Tên đăng nhập</em>, <em>Email</em>, <em>Tên</em>, <em>Họ</em>. Phần <strong>Vai trò</strong> chọn <strong>"Quản lý cửa hàng"</strong>. Tích ô <em>"Gửi thông báo đến thành viên"</em> để WordPress gửi email kích hoạt tài khoản.</p>
+          <div class="screen-label">Phần Vai trò — chọn Quản lý cửa hàng</div>
+          <div class="form-mockup" style="max-width:340px;">
+            <div class="field">
+              <label>Vai trò <span class="tag red">Quan trọng</span></label>
+              <select class="highlight">
+                <option>Quản lý cửa hàng ← CHỌN CÁI NÀY</option>
+                <option>Khách Hàng</option>
+                <option>Thành viên đăng ký</option>
+                <option>Biên tập viên</option>
+                <option>Quản lý (administrator)</option>
+              </select>
+            </div>
+          </div>
+          <div class="callout danger">
+            <span class="icon">🚫</span>
+            <div class="text"><strong>Không được chọn "Quản lý (administrator)"</strong> cho tài khoản nhân viên — vai trò này có toàn quyền thay đổi mọi thứ trên website.</div>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Click "Thêm người dùng"</strong>
+          <p>WordPress sẽ tự tạo mật khẩu mạnh và gửi email cho nhân viên. Nhân viên click link trong email để kích hoạt và đặt mật khẩu mới.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==============================
+       SECTION 6: QUY ĐỊNH
+       ============================== -->
+  <div class="section" id="rules">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div>
+        <div class="section-title">Quy Định Quan Trọng Cần Nhớ</div>
+        <div class="section-desc">Những điều nhất định phải tuân thủ khi vận hành website</div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div class="callout tip">
+        <span class="icon">📸</span>
+        <div class="text"><strong>Ảnh hàng secondhand phải là ảnh thực tế.</strong> Không dùng ảnh trên mạng, không chỉnh màu che khuyết điểm. Đây là cam kết "Real" của SiGon — làm sai ảnh hưởng uy tín toàn thương hiệu.</div>
+      </div>
+      <div class="callout tip">
+        <span class="icon">📝</span>
+        <div class="text"><strong>Mô tả tình trạng hàng secondhand phải trung thực.</strong> Ghi rõ % tình trạng (Mới 90%, Mới 80%...), số lần đã dùng, và lý do bán. Nếu có vết trầy nhỏ, phải ghi chú.</div>
+      </div>
+      <div class="callout warn">
+        <span class="icon">💰</span>
+        <div class="text"><strong>Không tự ý thay đổi giá mà không có lệnh từ quản lý.</strong> Kiểm tra lại giá với quản lý trước khi đăng sản phẩm mới. Sai giá có thể gây thiệt hại.</div>
+      </div>
+      <div class="callout warn">
+        <span class="icon">📦</span>
+        <div class="text"><strong>Cập nhật trạng thái đơn hàng ngay trong ngày.</strong> Khi giao hàng cho shipper, cập nhật ngay trong vòng 1 giờ để khách hàng nhận được thông báo.</div>
+      </div>
+      <div class="callout danger">
+        <span class="icon">🔐</span>
+        <div class="text"><strong>Không chia sẻ tài khoản đăng nhập với người khác.</strong> Mỗi nhân viên có 1 tài khoản riêng. Nếu cần thêm người, báo quản lý tạo tài khoản mới. Không dùng chung tài khoản.</div>
+      </div>
+      <div class="callout danger">
+        <span class="icon">🗑️</span>
+        <div class="text"><strong>Không xóa sản phẩm — chỉ chuyển về "Hết hàng".</strong> Sản phẩm đã bán hoặc không còn có thể chuyển trạng thái "Hết hàng", đừng xóa hẳn vì sẽ mất lịch sử và link sản phẩm.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="page-footer">
+    <p>SiGon Sport — Nội bộ nhân viên • <a href="https://sigon.vn">sigon.vn</a></p>
+    <p style="margin-top:4px;">Thắc mắc? Liên hệ quản lý qua Zalo nội bộ hoặc email <a href="mailto:sigonseconhand@gmail.com">sigonseconhand@gmail.com</a></p>
+    <p style="margin-top:8px;color:#ccc;">🔒 Tài liệu nội bộ — Không phát tán ra ngoài</p>
+  </div>
+
+</div>
+</body>
+</html>

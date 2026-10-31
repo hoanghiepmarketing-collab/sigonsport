@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(python --version 2>$null)",
+      "PowerShell(node --version 2>$null)",
+      "PowerShell(Start-Process powershell -ArgumentList \"-NoExit\", \"-Command\", \"Set-Location 'h:\\\\Dự án Claude\\\\Giày'; python -m http.server 3000\")",
+      "PowerShell(Start-Process \"http://localhost:3000\")",
+      "Bash(cp \"H:/Dự án Claude/Giày/.claude/worktrees/pensive-benz-1ca00e/brand-guideline.html\" \"H:/Dự án Claude/Giày/brand-guideline.html\")"
+    ]
+  }
+}
